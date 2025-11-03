@@ -12,20 +12,30 @@ public class Figura extends JPanel {
     private Color colorRelleno = new Color(135, 206, 250);
     private Image imagenColoreada;
     private String ruta = "/Recursos/Icono1.png";
+    private boolean imagenCargada = false;
+    private int transparencia = 255; // 0 = totalmente transparente, 255 = totalmente opaco
 
     public Figura() {
-        cargarImagen();
+        setOpaque(false);
+        setPreferredSize(new Dimension(200, 200));
     }
 
-    private void cargarImagen() {
+    public void cargarImagen() {
         try {
-            // Carga tu imagen PNG desde resources
             imagenOriginal = ImageIO.read(getClass().getResource(ruta));
             aplicarColor();
-        } catch (IOException e) {
-            e.printStackTrace();
-            // Crear imagen temporal si hay error
+            imagenCargada = true;
+        } catch (IOException | NullPointerException e) {
+            System.err.println("Error cargando imagen: " + e.getMessage());
             crearImagenTemporal();
+            imagenCargada = true;
+        }
+        repaint();
+    }
+
+    private void inicializarSiEsNecesario() {
+        if (!imagenCargada) {
+            cargarImagen();
         }
     }
 
@@ -55,15 +65,18 @@ public class Figura extends JPanel {
         Graphics2D g2d = ((BufferedImage)imagenColoreada).createGraphics();
         g2d.drawImage(imagenOriginal, 0, 0, null);
         
-        // Aplicar color a las áreas que no son totalmente transparentes
+        // Aplicar color y transparencia a las áreas que no son totalmente transparentes
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
                 int argb = imagenOriginal.getRGB(x, y);
-                int alpha = (argb >>> 24) & 0xFF;
+                int alphaOriginal = (argb >>> 24) & 0xFF;
                 
-                if (alpha > 10) { // Si no es totalmente transparente
-                    // Crear nuevo color manteniendo la transparencia
-                    int nuevoRGB = (alpha << 24) | 
+                if (alphaOriginal > 10) {
+                    // Calcular nueva transparencia (combinar transparencia original con la configurada)
+                    int nuevaAlpha = (alphaOriginal * transparencia) / 255;
+                    
+                    // Crear nuevo color con la transparencia aplicada
+                    int nuevoRGB = (nuevaAlpha << 24) | 
                                   (colorRelleno.getRed() << 16) | 
                                   (colorRelleno.getGreen() << 8) | 
                                   colorRelleno.getBlue();
@@ -78,19 +91,57 @@ public class Figura extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        
+        if (!imagenCargada) {
+            inicializarSiEsNecesario();
+            return;
+        }
+        
         Graphics2D g2d = (Graphics2D) g;
         
         if (imagenColoreada != null) {
             // Escalar la imagen al tamaño del panel
             Image escalada = imagenColoreada.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
             g2d.drawImage(escalada, 0, 0, null);
+        } else {
+            g2d.setColor(Color.LIGHT_GRAY);
+            g2d.fillRect(0, 0, getWidth(), getHeight());
+            g2d.setColor(Color.DARK_GRAY);
+            g2d.drawString("Figura no cargada", 10, 20);
         }
+    }
+
+    // MÉTODOS PARA CONTROLAR TRANSPARENCIA
+    
+    public void setTransparencia(int transparencia) {
+        // Asegurar que esté en el rango 0-255
+        this.transparencia = Math.max(0, Math.min(255, transparencia));
+        if (imagenCargada) {
+            aplicarColor();
+            repaint();
+        }
+    }
+    
+    public int getTransparencia() {
+        return transparencia;
+    }
+    
+    // Método para establecer transparencia como porcentaje (0-100)
+    public void setTransparenciaPorcentaje(int porcentaje) {
+        int transparencia = (porcentaje * 255) / 100;
+        setTransparencia(transparencia);
+    }
+    
+    public int getTransparenciaPorcentaje() {
+        return (transparencia * 100) / 255;
     }
 
     public void setColorRelleno(Color color) {
         this.colorRelleno = color;
-        aplicarColor();
-        repaint();
+        if (imagenCargada) {
+            aplicarColor();
+            repaint();
+        }
     }
 
     public String getRuta() {
@@ -99,10 +150,9 @@ public class Figura extends JPanel {
 
     public void setRuta(String ruta) {
         this.ruta = ruta;
+        imagenCargada = false;
         cargarImagen();
     }
-    
-    
 
     private Shape crearFormaOrganica(int width, int height) {
         GeneralPath path = new GeneralPath();
@@ -122,5 +172,9 @@ public class Figura extends JPanel {
         
         path.closePath();
         return path;
+    }
+    
+    public boolean isImagenCargada() {
+        return imagenCargada;
     }
 }
