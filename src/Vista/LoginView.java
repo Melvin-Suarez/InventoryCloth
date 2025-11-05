@@ -1,9 +1,13 @@
 package Vista;
 
+import javax.swing.JFrame;
+
 public class LoginView extends javax.swing.JFrame {
 
     public LoginView() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     @SuppressWarnings("unchecked")
@@ -17,6 +21,8 @@ public class LoginView extends javax.swing.JFrame {
         passField1 = new Modelo.PassField();
         jPanelRedo1 = new Modelo.JPanelRedo();
         jLabel7 = new javax.swing.JLabel();
+        jPanelRedo2 = new Modelo.JPanelRedo();
+        imagen1 = new model.SwingCustomize.Imagen();
         jPanel2 = new javax.swing.JPanel();
         figura3 = new Modelo.Figura();
         jLabel1 = new javax.swing.JLabel();
@@ -32,63 +38,79 @@ public class LoginView extends javax.swing.JFrame {
         ventana1.setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        txtField1.setText("txtField1");
+        txtField1.setText("Example example");
+        txtField1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 200;
+        gridBagConstraints.ipady = 10;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(35, 100, 0, 100);
+        jPanel1.add(txtField1, gridBagConstraints);
 
-        passField1.setText("passField1");
+        passField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        passField1.setText("12345678");
+        passField1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 200;
+        gridBagConstraints.ipady = 10;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(35, 100, 0, 100);
+        jPanel1.add(passField1, gridBagConstraints);
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jPanelRedo1.setLayout(new java.awt.GridBagLayout());
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Iniciar");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        jPanelRedo1.add(jLabel7, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanelRedo1Layout = new javax.swing.GroupLayout(jPanelRedo1);
-        jPanelRedo1.setLayout(jPanelRedo1Layout);
-        jPanelRedo1Layout.setHorizontalGroup(
-            jPanelRedo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 147, Short.MAX_VALUE)
-            .addGroup(jPanelRedo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRedo1Layout.createSequentialGroup()
-                    .addContainerGap(46, Short.MAX_VALUE)
-                    .addComponent(jLabel7)
-                    .addContainerGap(47, Short.MAX_VALUE)))
-        );
-        jPanelRedo1Layout.setVerticalGroup(
-            jPanelRedo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 37, Short.MAX_VALUE)
-            .addGroup(jPanelRedo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRedo1Layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel7)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.ipadx = 200;
+        gridBagConstraints.ipady = 20;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(74, 0, 51, 0);
+        jPanel1.add(jPanelRedo1, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(111, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanelRedo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(152, 152, 152))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(passField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtField1, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE))
-                        .addGap(72, 72, 72))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(228, 228, 228)
-                .addComponent(txtField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addComponent(passField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                .addComponent(jPanelRedo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59))
-        );
+        jPanelRedo2.setRadio(180.0);
+        jPanelRedo2.setLayout(new java.awt.GridBagLayout());
+
+        imagen1.setText("imagen1");
+        imagen1.setRuta("/Recursos/User.png");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 44;
+        gridBagConstraints.ipady = 67;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(29, 33, 37, 32);
+        jPanelRedo2.add(imagen1, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = -20;
+        gridBagConstraints.ipady = -14;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(33, 0, 0, 0);
+        jPanel1.add(jPanelRedo2, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -231,6 +253,7 @@ public class LoginView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Modelo.Figura figura3;
     private Modelo.Figura figura4;
+    private model.SwingCustomize.Imagen imagen1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -241,6 +264,7 @@ public class LoginView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private Modelo.JPanelRedo jPanelRedo1;
+    private Modelo.JPanelRedo jPanelRedo2;
     private Modelo.PassField passField1;
     private Modelo.txtField txtField1;
     private Modelo.Ventana ventana1;
