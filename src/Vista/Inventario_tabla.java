@@ -17,6 +17,7 @@ public class Inventario_tabla extends javax.swing.JFrame {
         ventana1 = new Modelo.Ventana();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
+        txtField1 = new Modelo.txtField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -24,7 +25,7 @@ public class Inventario_tabla extends javax.swing.JFrame {
         ventana1.setLayout(ventana1Layout);
         ventana1Layout.setHorizontalGroup(
             ventana1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 990, Short.MAX_VALUE)
         );
         ventana1Layout.setVerticalGroup(
             ventana1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -44,8 +45,11 @@ public class Inventario_tabla extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(Tabla);
 
+        txtField1.setText("txtField1");
+
         desktopPane.setLayer(ventana1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         desktopPane.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(txtField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout desktopPaneLayout = new javax.swing.GroupLayout(desktopPane);
         desktopPane.setLayout(desktopPaneLayout);
@@ -53,17 +57,21 @@ public class Inventario_tabla extends javax.swing.JFrame {
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(ventana1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(desktopPaneLayout.createSequentialGroup()
-                .addGap(109, 109, 109)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addGap(151, 151, 151)
+                .addGroup(desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 681, Short.MAX_VALUE))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
         desktopPaneLayout.setVerticalGroup(
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(desktopPaneLayout.createSequentialGroup()
                 .addComponent(ventana1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
+                .addComponent(txtField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+                .addGap(54, 54, 54))
         );
 
         getContentPane().add(desktopPane, java.awt.BorderLayout.CENTER);
@@ -84,6 +92,7 @@ public class Inventario_tabla extends javax.swing.JFrame {
     private javax.swing.JTable Tabla;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JScrollPane jScrollPane1;
+    private Modelo.txtField txtField1;
     private Modelo.Ventana ventana1;
     // End of variables declaration//GEN-END:variables
 
