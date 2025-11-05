@@ -1,9 +1,12 @@
 package Vista;
 
+import Modelo.TablaModelo;
+
 public class Inventario_tabla extends javax.swing.JFrame {
 
     public Inventario_tabla() {
         initComponents();
+        Tabla.setModel(TablaModelo.getModelo());
     }
 
     @SuppressWarnings("unchecked")
@@ -11,43 +14,59 @@ public class Inventario_tabla extends javax.swing.JFrame {
     private void initComponents() {
 
         desktopPane = new javax.swing.JDesktopPane();
-        jPanel1 = new javax.swing.JPanel();
         ventana1 = new Modelo.Ventana();
-        menuBar = new javax.swing.JMenuBar();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Tabla = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setLayout(null);
 
         javax.swing.GroupLayout ventana1Layout = new javax.swing.GroupLayout(ventana1);
         ventana1.setLayout(ventana1Layout);
         ventana1Layout.setHorizontalGroup(
             ventana1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         ventana1Layout.setVerticalGroup(
             ventana1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+            .addGap(0, 63, Short.MAX_VALUE)
         );
 
-        jPanel1.add(ventana1);
-        ventana1.setBounds(0, 0, 670, 50);
+        Tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(Tabla);
 
-        desktopPane.add(jPanel1);
-        jPanel1.setBounds(0, 0, 670, 530);
+        desktopPane.setLayer(ventana1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        setJMenuBar(menuBar);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
+        javax.swing.GroupLayout desktopPaneLayout = new javax.swing.GroupLayout(desktopPane);
+        desktopPane.setLayout(desktopPaneLayout);
+        desktopPaneLayout.setHorizontalGroup(
+            desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ventana1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(desktopPaneLayout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(117, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
+        desktopPaneLayout.setVerticalGroup(
+            desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(desktopPaneLayout.createSequentialGroup()
+                .addComponent(ventana1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
+
+        getContentPane().add(desktopPane, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -62,9 +81,9 @@ public class Inventario_tabla extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Tabla;
     private javax.swing.JDesktopPane desktopPane;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JMenuBar menuBar;
+    private javax.swing.JScrollPane jScrollPane1;
     private Modelo.Ventana ventana1;
     // End of variables declaration//GEN-END:variables
 

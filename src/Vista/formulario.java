@@ -3,11 +3,14 @@ package vista;
 
 import java.awt.event.KeyEvent;
 import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
 
 public class formulario extends javax.swing.JInternalFrame {
 
     public formulario() {
         initComponents();
+        SpinnerNumberModel modelo = new SpinnerNumberModel(0,0,100,1);
+        spinnerRedondeado2.setModel(modelo);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -289,17 +292,19 @@ public class formulario extends javax.swing.JInternalFrame {
         jpanelbtn1Layout.setVerticalGroup(
             jpanelbtn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanelbtn1Layout.createSequentialGroup()
-                .addGroup(jpanelbtn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18)
+                .addGroup(jpanelbtn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpanelbtn1Layout.createSequentialGroup()
                         .addComponent(imagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(imagen2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(imagen2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel18))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel1.add(jpanelbtn1);
         jpanelbtn1.setBounds(230, 50, 340, 40);
+
+        spinnerRedondeado2.setBackground(new java.awt.Color(217, 217, 217));
         jPanel1.add(spinnerRedondeado2);
         spinnerRedondeado2.setBounds(530, 300, 170, 40);
 

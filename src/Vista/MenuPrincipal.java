@@ -50,7 +50,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         ventana1.setLayout(ventana1Layout);
         ventana1Layout.setHorizontalGroup(
             ventana1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1278, Short.MAX_VALUE)
+            .addGap(0, 1334, Short.MAX_VALUE)
         );
         ventana1Layout.setVerticalGroup(
             ventana1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
