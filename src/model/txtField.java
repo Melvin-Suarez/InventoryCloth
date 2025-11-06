@@ -1,16 +1,16 @@
 
-package Modelo;
+package model;
 import javax.swing.*;
 import java.awt.*;
 
-public class Jpanelbtn extends JPanel{
+public class txtField extends JTextField {
     private int radius;
 
-    public Jpanelbtn() {
+    public txtField() {
         this(40); // Radio por defecto (puedes ajustarlo)
     }
 
-    public Jpanelbtn(int radius) {
+    public txtField(int radius) {
         this.radius = radius;
         setOpaque(false); // Fondo transparente para el redondeo
         setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10)); // Padding interno
@@ -41,17 +41,7 @@ public class Jpanelbtn extends JPanel{
         // Texto (pintado sobre el fondo)
         super.paintComponent(g2);
         g2.dispose();
-    } 
-
-    public int getRadius() {
-        return radius;
     }
-
-    public void setRadius(int radius) {
-        this.radius = radius;
-    }
-    
-    
 
     @Override
     protected void paintBorder(Graphics g) {

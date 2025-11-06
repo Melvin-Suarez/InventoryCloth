@@ -1,16 +1,16 @@
 
-package Modelo;
+package model;
 import javax.swing.*;
 import java.awt.*;
 
-public class PassField extends JPasswordField {
+public class Jpanelbtn extends JPanel{
     private int radius;
 
-    public PassField() {
+    public Jpanelbtn() {
         this(40); // Radio por defecto (puedes ajustarlo)
     }
 
-    public PassField(int radius) {
+    public Jpanelbtn(int radius) {
         this.radius = radius;
         setOpaque(false); // Fondo transparente para el redondeo
         setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10)); // Padding interno
@@ -41,7 +41,17 @@ public class PassField extends JPasswordField {
         // Texto (pintado sobre el fondo)
         super.paintComponent(g2);
         g2.dispose();
+    } 
+
+    public int getRadius() {
+        return radius;
     }
+
+    public void setRadius(int radius) {
+        this.radius = radius;
+    }
+    
+    
 
     @Override
     protected void paintBorder(Graphics g) {

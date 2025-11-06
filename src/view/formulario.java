@@ -1,5 +1,5 @@
 
-package vista;
+package view;
 
 import java.awt.event.KeyEvent;
 import javax.swing.JTextField;
@@ -36,17 +36,17 @@ public class formulario extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        txtFieldNombre = new Modelo.txtField();
-        txtFieldCodigo = new Modelo.txtField();
-        txtFieldCantidad = new Modelo.txtField();
-        txtFieldPrecio = new Modelo.txtField();
-        txtFieldCategoria = new Modelo.txtField();
-        txtFieldTalla = new Modelo.txtField();
-        jpanelbtn1 = new Modelo.Jpanelbtn();
+        txtFieldNombre = new model.txtField();
+        txtFieldCodigo = new model.txtField();
+        txtFieldCantidad = new model.txtField();
+        txtFieldPrecio = new model.txtField();
+        txtFieldCategoria = new model.txtField();
+        txtFieldTalla = new model.txtField();
+        jpanelbtn1 = new model.Jpanelbtn();
         jLabel18 = new javax.swing.JLabel();
-        imagen1 = new model.SwingCustomize.Imagen();
-        imagen2 = new model.SwingCustomize.Imagen();
-        spinnerRedondeado2 = new Modelo.spinnerRedondeado();
+        imagen1 = new model.Imagen();
+        imagen2 = new model.Imagen();
+        spinnerRedondeado2 = new model.spinnerRedondeado();
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -412,8 +412,8 @@ public class formulario extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private model.SwingCustomize.Imagen imagen1;
-    private model.SwingCustomize.Imagen imagen2;
+    private model.Imagen imagen1;
+    private model.Imagen imagen2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -435,13 +435,13 @@ public class formulario extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private Modelo.Jpanelbtn jpanelbtn1;
-    private Modelo.spinnerRedondeado spinnerRedondeado2;
-    private Modelo.txtField txtFieldCantidad;
-    private Modelo.txtField txtFieldCategoria;
-    private Modelo.txtField txtFieldCodigo;
-    private Modelo.txtField txtFieldNombre;
-    private Modelo.txtField txtFieldPrecio;
-    private Modelo.txtField txtFieldTalla;
+    private model.Jpanelbtn jpanelbtn1;
+    private model.spinnerRedondeado spinnerRedondeado2;
+    private model.txtField txtFieldCantidad;
+    private model.txtField txtFieldCategoria;
+    private model.txtField txtFieldCodigo;
+    private model.txtField txtFieldNombre;
+    private model.txtField txtFieldPrecio;
+    private model.txtField txtFieldTalla;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,5 +1,5 @@
 
-package Modelo;
+package model;
 
 import javax.swing.*;
 import javax.swing.border.*;

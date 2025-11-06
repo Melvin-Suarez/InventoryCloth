@@ -23,7 +23,7 @@
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
   <SubComponents>
-    <Container class="Modelo.Ventana" name="ventana1">
+    <Container class="model.Ventana" name="ventana1">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
           <BorderConstraints direction="Center"/>
@@ -46,11 +46,8 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
           <SubComponents>
-            <Component class="Modelo.txtField" name="txtField1">
+            <Component class="model.txtField" name="txtField1">
               <Properties>
-                <Property name="document" type="javax.swing.text.Document" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                  <ComponentRef name="default"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Example example"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="1"/>
@@ -62,15 +59,12 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="Modelo.PassField" name="passField1">
+            <Component class="model.PassField" name="passField1">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                     <EmptyBorder/>
                   </Border>
-                </Property>
-                <Property name="document" type="javax.swing.text.Document" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                  <ComponentRef name="default"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="12345678"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -83,7 +77,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Container class="Modelo.JPanelRedo" name="jPanelRedo1">
+            <Container class="model.JPanelRedo" name="jPanelRedo1">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="3" gridWidth="1" gridHeight="1" fill="0" ipadX="200" ipadY="20" insetsTop="74" insetsLeft="0" insetsBottom="51" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -110,7 +104,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="Modelo.JPanelRedo" name="jPanelRedo2">
+            <Container class="model.JPanelRedo" name="jPanelRedo2">
               <Properties>
                 <Property name="radio" type="double" value="180.0"/>
               </Properties>
@@ -149,7 +143,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
           <SubComponents>
-            <Container class="Modelo.Figura" name="figura3">
+            <Container class="model.Figura" name="figura3">
               <Properties>
                 <Property name="colorRelleno" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="6e" green="0" red="21" type="rgb"/>
@@ -202,7 +196,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="Modelo.Figura" name="figura4">
+            <Container class="model.Figura" name="figura4">
               <Properties>
                 <Property name="colorRelleno" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="6e" green="0" red="21" type="rgb"/>

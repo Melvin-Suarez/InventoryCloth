@@ -356,7 +356,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="Modelo.txtField" name="txtFieldNombre">
+        <Component class="model.txtField" name="txtFieldNombre">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="d9" green="d9" red="d9" type="rgb"/>
@@ -371,7 +371,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="Modelo.txtField" name="txtFieldCodigo">
+        <Component class="model.txtField" name="txtFieldCodigo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="d9" green="d9" red="d9" type="rgb"/>
@@ -387,7 +387,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="Modelo.txtField" name="txtFieldCantidad">
+        <Component class="model.txtField" name="txtFieldCantidad">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="d9" green="d9" red="d9" type="rgb"/>
@@ -402,7 +402,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="Modelo.txtField" name="txtFieldPrecio">
+        <Component class="model.txtField" name="txtFieldPrecio">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="d9" green="d9" red="d9" type="rgb"/>
@@ -417,7 +417,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="Modelo.txtField" name="txtFieldCategoria">
+        <Component class="model.txtField" name="txtFieldCategoria">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="d9" green="d9" red="d9" type="rgb"/>
@@ -432,7 +432,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="Modelo.txtField" name="txtFieldTalla">
+        <Component class="model.txtField" name="txtFieldTalla">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="d9" green="d9" red="d9" type="rgb"/>
@@ -447,7 +447,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Container class="Modelo.Jpanelbtn" name="jpanelbtn1">
+        <Container class="model.Jpanelbtn" name="jpanelbtn1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="35" green="6e" red="0" type="rgb"/>
@@ -530,7 +530,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="Modelo.spinnerRedondeado" name="spinnerRedondeado2">
+        <Component class="model.spinnerRedondeado" name="spinnerRedondeado2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="d9" green="d9" red="d9" type="rgb"/>

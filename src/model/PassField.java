@@ -1,16 +1,16 @@
 
-package Modelo;
+package model;
 import javax.swing.*;
 import java.awt.*;
 
-public class txtField extends JTextField {
+public class PassField extends JPasswordField {
     private int radius;
 
-    public txtField() {
+    public PassField() {
         this(40); // Radio por defecto (puedes ajustarlo)
     }
 
-    public txtField(int radius) {
+    public PassField(int radius) {
         this.radius = radius;
         setOpaque(false); // Fondo transparente para el redondeo
         setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10)); // Padding interno

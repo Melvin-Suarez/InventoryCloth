@@ -1,5 +1,5 @@
 
-package Vista;
+package view;
 
 import javax.swing.JFrame;
 
@@ -17,27 +17,27 @@ public class MenuPrincipal extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
-        ventana1 = new Modelo.Ventana();
+        ventana1 = new model.Ventana();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jPanelRedo2 = new Modelo.JPanelRedo();
-        imagen3 = new model.SwingCustomize.Imagen();
+        jPanelRedo2 = new model.JPanelRedo();
+        imagen3 = new model.Imagen();
         jLabel4 = new javax.swing.JLabel();
-        jPanelRedo4 = new Modelo.JPanelRedo();
-        imagen4 = new model.SwingCustomize.Imagen();
+        jPanelRedo4 = new model.JPanelRedo();
+        imagen4 = new model.Imagen();
         jLabel5 = new javax.swing.JLabel();
-        jPanelRedo1 = new Modelo.JPanelRedo();
-        imagen2 = new model.SwingCustomize.Imagen();
+        jPanelRedo1 = new model.JPanelRedo();
+        imagen2 = new model.Imagen();
         jLabel3 = new javax.swing.JLabel();
-        jPanelRedo5 = new Modelo.JPanelRedo();
-        imagen5 = new model.SwingCustomize.Imagen();
+        jPanelRedo5 = new model.JPanelRedo();
+        imagen5 = new model.Imagen();
         jLabel6 = new javax.swing.JLabel();
-        jPanelRedo6 = new Modelo.JPanelRedo();
-        imagen1 = new model.SwingCustomize.Imagen();
+        jPanelRedo6 = new model.JPanelRedo();
+        imagen1 = new model.Imagen();
         jLabel1 = new javax.swing.JLabel();
-        jPanelRedo3 = new Modelo.JPanelRedo();
+        jPanelRedo3 = new model.JPanelRedo();
         jLabel7 = new javax.swing.JLabel();
-        imagen6 = new model.SwingCustomize.Imagen();
+        imagen6 = new model.Imagen();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
@@ -309,12 +309,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private model.SwingCustomize.Imagen imagen1;
-    private model.SwingCustomize.Imagen imagen2;
-    private model.SwingCustomize.Imagen imagen3;
-    private model.SwingCustomize.Imagen imagen4;
-    private model.SwingCustomize.Imagen imagen5;
-    private model.SwingCustomize.Imagen imagen6;
+    private model.Imagen imagen1;
+    private model.Imagen imagen2;
+    private model.Imagen imagen3;
+    private model.Imagen imagen4;
+    private model.Imagen imagen5;
+    private model.Imagen imagen6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -324,12 +324,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private Modelo.JPanelRedo jPanelRedo1;
-    private Modelo.JPanelRedo jPanelRedo2;
-    private Modelo.JPanelRedo jPanelRedo3;
-    private Modelo.JPanelRedo jPanelRedo4;
-    private Modelo.JPanelRedo jPanelRedo5;
-    private Modelo.JPanelRedo jPanelRedo6;
-    private Modelo.Ventana ventana1;
+    private model.JPanelRedo jPanelRedo1;
+    private model.JPanelRedo jPanelRedo2;
+    private model.JPanelRedo jPanelRedo3;
+    private model.JPanelRedo jPanelRedo4;
+    private model.JPanelRedo jPanelRedo5;
+    private model.JPanelRedo jPanelRedo6;
+    private model.Ventana ventana1;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,4 +1,4 @@
-package Vista;
+package view;
 
 import javax.swing.JFrame;
 
@@ -15,19 +15,19 @@ public class LoginView extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        ventana1 = new Modelo.Ventana();
+        ventana1 = new model.Ventana();
         jPanel1 = new javax.swing.JPanel();
-        txtField1 = new Modelo.txtField();
-        passField1 = new Modelo.PassField();
-        jPanelRedo1 = new Modelo.JPanelRedo();
+        txtField1 = new model.txtField();
+        passField1 = new model.PassField();
+        jPanelRedo1 = new model.JPanelRedo();
         jLabel7 = new javax.swing.JLabel();
-        jPanelRedo2 = new Modelo.JPanelRedo();
-        imagen1 = new model.SwingCustomize.Imagen();
+        jPanelRedo2 = new model.JPanelRedo();
+        imagen1 = new model.Imagen();
         jPanel2 = new javax.swing.JPanel();
-        figura3 = new Modelo.Figura();
+        figura3 = new model.Figura();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        figura4 = new Modelo.Figura();
+        figura4 = new model.Figura();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -52,7 +52,7 @@ public class LoginView extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(35, 100, 0, 100);
         jPanel1.add(txtField1, gridBagConstraints);
 
-        passField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        passField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         passField1.setText("12345678");
         passField1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -251,9 +251,9 @@ public class LoginView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Modelo.Figura figura3;
-    private Modelo.Figura figura4;
-    private model.SwingCustomize.Imagen imagen1;
+    private model.Figura figura3;
+    private model.Figura figura4;
+    private model.Imagen imagen1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -263,10 +263,10 @@ public class LoginView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private Modelo.JPanelRedo jPanelRedo1;
-    private Modelo.JPanelRedo jPanelRedo2;
-    private Modelo.PassField passField1;
-    private Modelo.txtField txtField1;
-    private Modelo.Ventana ventana1;
+    private model.JPanelRedo jPanelRedo1;
+    private model.JPanelRedo jPanelRedo2;
+    private model.PassField passField1;
+    private model.txtField txtField1;
+    private model.Ventana ventana1;
     // End of variables declaration//GEN-END:variables
 }

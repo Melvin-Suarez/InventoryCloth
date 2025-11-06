@@ -1,4 +1,4 @@
-package Modelo;
+package model;
 
 public class Producto {
     private String Barcode;

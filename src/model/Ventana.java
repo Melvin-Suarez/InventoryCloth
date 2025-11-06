@@ -1,26 +1,27 @@
-package Modelo;
+package model;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Point;
 import java.awt.RadialGradientPaint;
-import java.awt.RenderingHints;
+import java.awt.Point;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-import java.awt.geom.RoundRectangle2D;
 import javax.swing.JPanel;
 
-public class JPanelRedo extends JPanel{
-    private double ancho = 60;
-    private double alto = 60;
+public class Ventana extends JPanel {
     private Color centerColor = new Color(179, 0, 255); // Color central
     private Color outerColor = new Color(33, 0, 110); // Color exterior
     private Point gradientCenter = null; // null = centro automático
     private boolean autoResize = true; // Si se redibuja automáticamente al redimensionar
 
-    public JPanelRedo() {
-        this.setOpaque(false);
+    public Ventana() {
+        initComponents();
+    }
+
+    private void initComponents() {
+        setOpaque(false); // Importante para que sea transparente
+        
         // Listener para redibujar cuando se redimensiona
         addComponentListener(new ComponentAdapter() {
             @Override
@@ -31,16 +32,11 @@ public class JPanelRedo extends JPanel{
             }
         });
     }
-    
-    
-    
+
     @Override
     protected void paintComponent(Graphics g) {
-        Graphics2D G =(Graphics2D)g.create();
-        
-        G.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        
         super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D) g;
         
         int width = getWidth();
         int height = getHeight();
@@ -65,19 +61,12 @@ public class JPanelRedo extends JPanel{
         RadialGradientPaint gradient = new RadialGradientPaint(
             center, radius, fractions, colors
         );
-                
-        RoundRectangle2D.Double Rectangulo = new RoundRectangle2D.Double(0,0,this.getWidth()-1,this.getHeight()-1,ancho,alto);
         
-        G.setPaint(gradient);
-        G.fill(Rectangulo);
-        
-        G.setColor(this.getBackground());
-        G.draw(Rectangulo);
-        G.dispose();
-        
-        super.paintComponent(g);
+        g2d.setPaint(gradient);
+        g2d.fillRect(0, 0, width, height);
     }
-      // Métodos para modificar los colores
+
+    // Métodos para modificar los colores
     public void setCenterColor(Color color) {
         this.centerColor = color;
         repaint();
@@ -130,11 +119,6 @@ public class JPanelRedo extends JPanel{
     public boolean isAutoResize() {
         return autoResize;
     }
-    
-    public void setRadio(double radio) {
-        this.ancho = radio;
-        this.alto = radio;
-    }
 
     // Método estático para crear un GradientPanel rápidamente
     public static Ventana create(Color centerColor, Color outerColor) {
@@ -143,5 +127,4 @@ public class JPanelRedo extends JPanel{
         panel.setOuterColor(outerColor);
         return panel;
     }
-            
 }

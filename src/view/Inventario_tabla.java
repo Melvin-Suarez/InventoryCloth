@@ -1,12 +1,14 @@
-package Vista;
+package view;
 
-import Modelo.TablaModelo;
+import model.TablaModelo;
+import view.formulario;
 
 public class Inventario_tabla extends javax.swing.JFrame {
 
     public Inventario_tabla() {
         initComponents();
         Tabla.setModel(TablaModelo.getModelo());
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -14,10 +16,10 @@ public class Inventario_tabla extends javax.swing.JFrame {
     private void initComponents() {
 
         desktopPane = new javax.swing.JDesktopPane();
-        ventana1 = new Modelo.Ventana();
+        ventana1 = new model.Ventana();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
-        txtField1 = new Modelo.txtField();
+        txtField1 = new model.txtField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,9 +71,9 @@ public class Inventario_tabla extends javax.swing.JFrame {
                 .addComponent(ventana1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(txtField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54))
+                .addGap(558, 558, 558))
         );
 
         getContentPane().add(desktopPane, java.awt.BorderLayout.CENTER);
@@ -92,8 +94,8 @@ public class Inventario_tabla extends javax.swing.JFrame {
     private javax.swing.JTable Tabla;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JScrollPane jScrollPane1;
-    private Modelo.txtField txtField1;
-    private Modelo.Ventana ventana1;
+    private model.txtField txtField1;
+    private model.Ventana ventana1;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -50,15 +50,15 @@
                   <Component id="ventana1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="txtField1" min="-2" pref="35" max="-2" attributes="0"/>
-                  <EmptySpace pref="28" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="385" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="558" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="Modelo.Ventana" name="ventana1">
+        <Container class="model.Ventana" name="ventana1">
 
           <Layout>
             <DimensionLayout dim="0">
@@ -94,7 +94,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="Modelo.txtField" name="txtField1">
+        <Component class="model.txtField" name="txtField1">
           <Properties>
             <Property name="text" type="java.lang.String" value="txtField1"/>
           </Properties>
