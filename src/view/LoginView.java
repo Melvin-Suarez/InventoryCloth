@@ -1,6 +1,7 @@
 package view;
 
 import controller.Login;
+import java.awt.Color;
 import javax.swing.JFrame;
 
 public class LoginView extends javax.swing.JFrame {
@@ -9,6 +10,7 @@ public class LoginView extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        jPanel1.setFocusable(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -39,10 +41,29 @@ public class LoginView extends javax.swing.JFrame {
         ventana1.setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel1MousePressed(evt);
+            }
+        });
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        txtUser.setText("Example example");
+        txtUser.setForeground(Color.gray);
+        txtUser.setText("Usuario");
         txtUser.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        txtUser.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtUserFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtUserFocusLost(evt);
+            }
+        });
+        txtUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUserActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -54,8 +75,17 @@ public class LoginView extends javax.swing.JFrame {
         jPanel1.add(txtUser, gridBagConstraints);
 
         txtPass.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtPass.setText("12345678");
+        txtPass.setForeground(Color.gray);
+        txtPass.setText("123456789");
         txtPass.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        txtPass.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtPassFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPassFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -143,9 +173,11 @@ public class LoginView extends javax.swing.JFrame {
         jLabel1.setText("¡Hola,");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(74, 0, 0, 100);
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 37, 100);
         figura3.add(jLabel1, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -155,8 +187,10 @@ public class LoginView extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(6, 100, 33, 98);
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 100, 0, 98);
         figura3.add(jLabel2, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -257,6 +291,51 @@ public class LoginView extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_jLabel7MousePressed
+
+    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUserActionPerformed
+
+    private void txtUserFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserFocusGained
+        if (txtUser.getText().equals("Usuario")){
+        txtUser.setText("");
+        
+        txtUser.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txtUserFocusGained
+
+    private void txtUserFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserFocusLost
+     if (txtUser.getText().equals("")){
+         txtUser.setText("Usuario");
+         
+           txtUser.setForeground(Color.GRAY);
+     }
+    }//GEN-LAST:event_txtUserFocusLost
+
+    private void txtPassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPassFocusGained
+       String Contrasenia = new String(txtPass.getPassword());
+        
+        if (Contrasenia.equals("123456789")){
+         txtPass.setText("");
+         
+           txtPass.setForeground(Color.black);
+     }
+    }//GEN-LAST:event_txtPassFocusGained
+
+    private void txtPassFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPassFocusLost
+         String Contrasenia = new String(txtPass.getPassword());
+        
+        if (Contrasenia.equals("")){
+         txtPass.setText("123456789");
+         
+           txtPass.setForeground(Color.gray);
+     }
+    }//GEN-LAST:event_txtPassFocusLost
+
+    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
+      
+                
+    }//GEN-LAST:event_jPanel1MousePressed
 
     public static void main(String args[]) {
         

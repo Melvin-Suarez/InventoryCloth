@@ -4,8 +4,8 @@ import javax.swing.JOptionPane;
 
 public class Login {
     public static boolean verificar(String usuario, String contrasenia) {
-        if(usuario.equals("admin")) {
-            if(contrasenia.equals("84933756")) {
+        if(usuario.equals("Admin")) {
+            if(contrasenia.equals("12345678")) {
                 return true;
             }else {
                 JOptionPane.showConfirmDialog(null, "Su contraseña es incorrecta por favor vuelva a intentarlo", "Error: Contrasña Incorrecta",JOptionPane.ERROR_MESSAGE);

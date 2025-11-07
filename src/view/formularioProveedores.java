@@ -5,12 +5,12 @@ import java.awt.event.KeyEvent;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
-public class formulario extends javax.swing.JInternalFrame {
+public class formularioProveedores extends javax.swing.JInternalFrame {
 
-    public formulario() {
+    public formularioProveedores() {
         initComponents();
-        SpinnerNumberModel modelo = new SpinnerNumberModel(0,0,100,1);
-        spinnerRedondeado2.setModel(modelo);
+       
+       
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -32,22 +32,15 @@ public class formulario extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        txtFieldNombre = new model.txtField();
-        txtFieldCodigo = new model.txtField();
-        txtFieldCantidad = new model.txtField();
-        txtFieldPrecio = new model.txtField();
-        txtFieldCategoria = new model.txtField();
-        txtFieldTalla = new model.txtField();
-        jpanelbtn1 = new model.Jpanelbtn();
+        txtMarca = new model.txtField();
+        txtCorreo = new model.txtField();
+        txtTelefono = new model.txtField();
+        txtCategoria = new model.txtField();
+        btnDistribuidor = new model.Jpanelbtn();
         jLabel18 = new javax.swing.JLabel();
         imagen1 = new model.Imagen();
         imagen2 = new model.Imagen();
-        spinnerRedondeado2 = new model.spinnerRedondeado();
-        jLabel19 = new javax.swing.JLabel();
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -164,147 +157,108 @@ public class formulario extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(33, 0, 110));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("Nombre:");
+        jLabel1.setText("Marca:");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(70, 170, 110, 25);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(33, 0, 110));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setText("Codigo de barra:");
+        jLabel2.setText("Correo:");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(21, 233, 160, 25);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(33, 0, 110));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("Cantidad:");
+        jLabel3.setText("Teléfono:");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(86, 304, 100, 25);
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(33, 0, 110));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel4.setText("Precio de venta:");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(46, 370, 140, 25);
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(33, 0, 110));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel5.setText("Talla:");
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(475, 233, 50, 25);
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(33, 0, 110));
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel16.setText("Descuento:");
+        jLabel16.setText("Categoria:");
         jPanel1.add(jLabel16);
         jLabel16.setBounds(425, 304, 100, 25);
 
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(33, 0, 110));
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel17.setText("Categoria:");
-        jPanel1.add(jLabel17);
-        jLabel17.setBounds(435, 370, 90, 25);
-
-        txtFieldNombre.setBackground(new java.awt.Color(217, 217, 217));
-        txtFieldNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtMarca.setBackground(new java.awt.Color(217, 217, 217));
+        txtMarca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtFieldNombreKeyTyped(evt);
+                txtMarcaKeyTyped(evt);
             }
         });
-        jPanel1.add(txtFieldNombre);
-        txtFieldNombre.setBounds(192, 166, 516, 35);
+        jPanel1.add(txtMarca);
+        txtMarca.setBounds(192, 166, 516, 35);
 
-        txtFieldCodigo.setBackground(new java.awt.Color(217, 217, 217));
-        txtFieldCodigo.addActionListener(new java.awt.event.ActionListener() {
+        txtCorreo.setBackground(new java.awt.Color(217, 217, 217));
+        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFieldCodigoActionPerformed(evt);
+                txtCorreoActionPerformed(evt);
             }
         });
-        txtFieldCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtFieldCodigoKeyTyped(evt);
+                txtCorreoKeyTyped(evt);
             }
         });
-        jPanel1.add(txtFieldCodigo);
-        txtFieldCodigo.setBounds(192, 231, 200, 35);
+        jPanel1.add(txtCorreo);
+        txtCorreo.setBounds(192, 231, 510, 35);
 
-        txtFieldCantidad.setBackground(new java.awt.Color(217, 217, 217));
-        txtFieldCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtTelefono.setBackground(new java.awt.Color(217, 217, 217));
+        txtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtFieldCantidadKeyTyped(evt);
+                txtTelefonoKeyTyped(evt);
             }
         });
-        jPanel1.add(txtFieldCantidad);
-        txtFieldCantidad.setBounds(192, 302, 200, 35);
+        jPanel1.add(txtTelefono);
+        txtTelefono.setBounds(192, 302, 200, 35);
 
-        txtFieldPrecio.setBackground(new java.awt.Color(217, 217, 217));
-        txtFieldPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtCategoria.setBackground(new java.awt.Color(217, 217, 217));
+        txtCategoria.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtFieldPrecioKeyTyped(evt);
+                txtCategoriaKeyTyped(evt);
             }
         });
-        jPanel1.add(txtFieldPrecio);
-        txtFieldPrecio.setBounds(192, 368, 200, 35);
+        jPanel1.add(txtCategoria);
+        txtCategoria.setBounds(530, 300, 177, 35);
 
-        txtFieldCategoria.setBackground(new java.awt.Color(217, 217, 217));
-        txtFieldCategoria.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtFieldCategoriaKeyTyped(evt);
-            }
-        });
-        jPanel1.add(txtFieldCategoria);
-        txtFieldCategoria.setBounds(531, 368, 177, 35);
-
-        txtFieldTalla.setBackground(new java.awt.Color(217, 217, 217));
-        txtFieldTalla.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtFieldTallaKeyTyped(evt);
-            }
-        });
-        jPanel1.add(txtFieldTalla);
-        txtFieldTalla.setBounds(531, 231, 177, 35);
-
-        jpanelbtn1.setBackground(new java.awt.Color(0, 110, 53));
-        jpanelbtn1.setMaximumSize(new java.awt.Dimension(467, 68));
-        jpanelbtn1.setMinimumSize(new java.awt.Dimension(467, 68));
-        jpanelbtn1.setPreferredSize(new java.awt.Dimension(467, 40));
-        jpanelbtn1.setRadius(50);
+        btnDistribuidor.setBackground(new java.awt.Color(0, 110, 53));
+        btnDistribuidor.setMaximumSize(new java.awt.Dimension(467, 68));
+        btnDistribuidor.setMinimumSize(new java.awt.Dimension(467, 68));
+        btnDistribuidor.setPreferredSize(new java.awt.Dimension(467, 40));
+        btnDistribuidor.setRadius(50);
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setText("Agregar Producto");
+        jLabel18.setText("Agregar Distribuidores");
 
         imagen1.setText("imagen1");
         imagen1.setRuta("/Recursos/Agregar.png");
 
         imagen2.setText("imagen2");
 
-        javax.swing.GroupLayout jpanelbtn1Layout = new javax.swing.GroupLayout(jpanelbtn1);
-        jpanelbtn1.setLayout(jpanelbtn1Layout);
-        jpanelbtn1Layout.setHorizontalGroup(
-            jpanelbtn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpanelbtn1Layout.createSequentialGroup()
-                .addGroup(jpanelbtn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpanelbtn1Layout.createSequentialGroup()
+        javax.swing.GroupLayout btnDistribuidorLayout = new javax.swing.GroupLayout(btnDistribuidor);
+        btnDistribuidor.setLayout(btnDistribuidorLayout);
+        btnDistribuidorLayout.setHorizontalGroup(
+            btnDistribuidorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnDistribuidorLayout.createSequentialGroup()
+                .addGroup(btnDistribuidorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(btnDistribuidorLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(imagen2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelbtn1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnDistribuidorLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(imagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(29, 29, 29)
                 .addComponent(jLabel18)
-                .addContainerGap(214, Short.MAX_VALUE))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
-        jpanelbtn1Layout.setVerticalGroup(
-            jpanelbtn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpanelbtn1Layout.createSequentialGroup()
-                .addGroup(jpanelbtn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpanelbtn1Layout.createSequentialGroup()
+        btnDistribuidorLayout.setVerticalGroup(
+            btnDistribuidorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnDistribuidorLayout.createSequentialGroup()
+                .addGroup(btnDistribuidorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(btnDistribuidorLayout.createSequentialGroup()
                         .addComponent(imagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(imagen2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -312,18 +266,8 @@ public class formulario extends javax.swing.JInternalFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jpanelbtn1);
-        jpanelbtn1.setBounds(230, 50, 340, 40);
-
-        spinnerRedondeado2.setBackground(new java.awt.Color(217, 217, 217));
-        jPanel1.add(spinnerRedondeado2);
-        spinnerRedondeado2.setBounds(530, 300, 170, 40);
-
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel19.setText("%");
-        jPanel1.add(jLabel19);
-        jLabel19.setBounds(710, 310, 16, 25);
+        jPanel1.add(btnDistribuidor);
+        btnDistribuidor.setBounds(230, 50, 340, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -333,33 +277,21 @@ public class formulario extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldCodigoActionPerformed
+    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
 
-    }//GEN-LAST:event_txtFieldCodigoActionPerformed
+    }//GEN-LAST:event_txtCorreoActionPerformed
 
-    private void txtFieldCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFieldCodigoKeyTyped
-         char car = evt.getKeyChar();
-       String currentText =((JTextField) evt.getSource()).getText();
-                
-        if (Character.isDigit(car)) return;
-        if (car == '.') {
-            if (currentText.contains(".")) {
-                evt.consume();
-            }
-            return;
-        }
+    private void txtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyTyped
         
-        evt.consume();
-            
-    }//GEN-LAST:event_txtFieldCodigoKeyTyped
+    }//GEN-LAST:event_txtCorreoKeyTyped
 
-    private void txtFieldCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFieldCantidadKeyTyped
+    private void txtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoKeyTyped
      char car = evt.getKeyChar();
        String currentText =((JTextField) evt.getSource()).getText();
                 
@@ -373,41 +305,9 @@ public class formulario extends javax.swing.JInternalFrame {
         
         evt.consume();
             
-    }//GEN-LAST:event_txtFieldCantidadKeyTyped
+    }//GEN-LAST:event_txtTelefonoKeyTyped
 
-    private void txtFieldPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFieldPrecioKeyTyped
-    char car = evt.getKeyChar();
-       String currentText =((JTextField) evt.getSource()).getText();
-                
-        if (Character.isDigit(car)) return;
-        if (car == '.') {
-            if (currentText.contains(".")) {
-                evt.consume();
-            }
-            return;
-        }
-        
-        evt.consume();
-            
-    }//GEN-LAST:event_txtFieldPrecioKeyTyped
-
-    private void txtFieldTallaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFieldTallaKeyTyped
-    char car = evt.getKeyChar();
-       String currentText =((JTextField) evt.getSource()).getText();
-                
-        if (Character.isDigit(car)) return;
-        if (car == '.') {
-            if (currentText.contains(".")) {
-                evt.consume();
-            }
-            return;
-        }
-        
-        evt.consume();
-            
-    }//GEN-LAST:event_txtFieldTallaKeyTyped
-
-    private void txtFieldNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFieldNombreKeyTyped
+    private void txtMarcaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMarcaKeyTyped
          char car = evt.getKeyChar();
         if (!Character.isLetter(car) && car != ' ' && 
                     car != KeyEvent.VK_BACK_SPACE && 
@@ -415,20 +315,21 @@ public class formulario extends javax.swing.JInternalFrame {
                     evt.consume(); 
                    
                 }
-    }//GEN-LAST:event_txtFieldNombreKeyTyped
+    }//GEN-LAST:event_txtMarcaKeyTyped
 
-    private void txtFieldCategoriaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFieldCategoriaKeyTyped
-         char car = evt.getKeyChar();
-        if (!Character.isLetter(car) && car != ' ' && 
-                    car != KeyEvent.VK_BACK_SPACE && 
-                    car != KeyEvent.VK_DELETE) {
-                    evt.consume(); 
-                   
-                }
-    }//GEN-LAST:event_txtFieldCategoriaKeyTyped
+    private void txtCategoriaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCategoriaKeyTyped
+        char car = evt.getKeyChar();
+        if (!Character.isLetter(car) && car != ' ' &&
+            car != KeyEvent.VK_BACK_SPACE &&
+            car != KeyEvent.VK_DELETE) {
+            evt.consume();
+
+        }
+    }//GEN-LAST:event_txtCategoriaKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private model.Jpanelbtn btnDistribuidor;
     private model.Imagen imagen1;
     private model.Imagen imagen2;
     private javax.swing.JLabel jLabel1;
@@ -439,13 +340,9 @@ public class formulario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -453,13 +350,9 @@ public class formulario extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private model.Jpanelbtn jpanelbtn1;
-    private model.spinnerRedondeado spinnerRedondeado2;
-    private model.txtField txtFieldCantidad;
-    private model.txtField txtFieldCategoria;
-    private model.txtField txtFieldCodigo;
-    private model.txtField txtFieldNombre;
-    private model.txtField txtFieldPrecio;
-    private model.txtField txtFieldTalla;
+    private model.txtField txtCategoria;
+    private model.txtField txtCorreo;
+    private model.txtField txtMarca;
+    private model.txtField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }
