@@ -2,11 +2,14 @@
 package view;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import model.Imagen;
 
 public class MenuPrincipal extends javax.swing.JFrame {
 
     public MenuPrincipal() {
         initComponents();
+        JLabel ejemplo = new Imagen();
         this.setLocationRelativeTo(null);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
@@ -50,7 +53,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         ventana1.setLayout(ventana1Layout);
         ventana1Layout.setHorizontalGroup(
             ventana1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1334, Short.MAX_VALUE)
+            .addGap(0, 1324, Short.MAX_VALUE)
         );
         ventana1Layout.setVerticalGroup(
             ventana1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

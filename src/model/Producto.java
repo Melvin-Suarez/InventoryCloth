@@ -1,15 +1,15 @@
 package model;
 
 public class Producto {
-    private String Barcode;
-    private String Marca;
-    private String talla;
+    public String Barcode;
+    public String Marca;
+    private double talla;
     private double descount;
     private double precio;
     private int cant;
     private int total;
 
-    public Producto(String Barcode, String Marca, String talla, double descount, double precio, int cant, int total) {
+    public Producto(String Barcode, String Marca, double talla, double descount, double precio, int cant, int total) {
         this.Barcode = Barcode;
         this.Marca = Marca;
         this.talla = talla;
@@ -38,11 +38,11 @@ public class Producto {
         this.Marca = Marca;
     }
 
-    public String getTalla() {
+    public double getTalla() {
         return talla;
     }
 
-    public void setTalla(String talla) {
+    public void setTalla(double talla) {
         this.talla = talla;
     }
 

@@ -1,5 +1,9 @@
 package view;
 
+import java.util.ArrayList;
+import java.util.List;
+import model.Distribuidor;
+import model.Producto;
 import model.TablaModelo;
 import view.formulario;
 
@@ -8,7 +12,10 @@ public class Inventario_tabla extends javax.swing.JFrame {
     public Inventario_tabla() {
         initComponents();
         Tabla.setModel(TablaModelo.getModelo());
-        
+        List<Producto> lista = new ArrayList();
+        lista.add(new Producto("0000001","Levis", 30.0, 0.2, 1000, 1, 1000));
+        for(Producto pro : lista) {
+        }
     }
 
     @SuppressWarnings("unchecked")

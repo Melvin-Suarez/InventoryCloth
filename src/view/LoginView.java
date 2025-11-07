@@ -1,6 +1,8 @@
 package view;
 
+import controller.Login;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class LoginView extends javax.swing.JFrame {
 
@@ -17,8 +19,8 @@ public class LoginView extends javax.swing.JFrame {
 
         ventana1 = new model.Ventana();
         jPanel1 = new javax.swing.JPanel();
-        txtField1 = new model.txtField();
-        passField1 = new model.PassField();
+        txtUser = new model.txtField();
+        txtPass = new model.PassField();
         jPanelRedo1 = new model.JPanelRedo();
         jLabel7 = new javax.swing.JLabel();
         jPanelRedo2 = new model.JPanelRedo();
@@ -40,8 +42,8 @@ public class LoginView extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        txtField1.setText("Example example");
-        txtField1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        txtUser.setText("Example example");
+        txtUser.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -50,11 +52,11 @@ public class LoginView extends javax.swing.JFrame {
         gridBagConstraints.ipady = 10;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(35, 100, 0, 100);
-        jPanel1.add(txtField1, gridBagConstraints);
+        jPanel1.add(txtUser, gridBagConstraints);
 
-        passField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        passField1.setText("12345678");
-        passField1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        txtPass.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtPass.setText("12345678");
+        txtPass.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -63,16 +65,24 @@ public class LoginView extends javax.swing.JFrame {
         gridBagConstraints.ipady = 10;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(35, 100, 0, 100);
-        jPanel1.add(passField1, gridBagConstraints);
+        jPanel1.add(txtPass, gridBagConstraints);
 
         jPanelRedo1.setLayout(new java.awt.GridBagLayout());
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Iniciar");
+        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         jPanelRedo1.add(jLabel7, gridBagConstraints);
@@ -241,6 +251,14 @@ public class LoginView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        String contra = new String(txtPass.getPassword());
+        if(Login.verificar(txtUser.getText().trim(), contra)) {
+        new MenuPrincipal().setVisible(true);
+        this.dispose();
+        }
+    }//GEN-LAST:event_jLabel7MouseClicked
+
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -265,8 +283,8 @@ public class LoginView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private model.JPanelRedo jPanelRedo1;
     private model.JPanelRedo jPanelRedo2;
-    private model.PassField passField1;
-    private model.txtField txtField1;
+    private model.PassField txtPass;
+    private model.txtField txtUser;
     private model.Ventana ventana1;
     // End of variables declaration//GEN-END:variables
 }

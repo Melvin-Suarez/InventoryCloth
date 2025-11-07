@@ -10,6 +10,10 @@ import javax.swing.JLabel;
 public class Imagen extends JLabel{
     private String ruta = "";
 
+    public Imagen() {
+    }
+    
+
     @Override
     protected void paintComponent(Graphics gg) {
                 Graphics2D g = (Graphics2D) gg;

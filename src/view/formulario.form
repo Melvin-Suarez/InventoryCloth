@@ -517,13 +517,13 @@
                 <Property name="text" type="java.lang.String" value="Agregar Producto"/>
               </Properties>
             </Component>
-            <Component class="model.SwingCustomize.Imagen" name="imagen1">
+            <Component class="model.Imagen" name="imagen1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="imagen1"/>
                 <Property name="ruta" type="java.lang.String" value="/Recursos/Agregar.png"/>
               </Properties>
             </Component>
-            <Component class="model.SwingCustomize.Imagen" name="imagen2">
+            <Component class="model.Imagen" name="imagen2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="imagen2"/>
               </Properties>
