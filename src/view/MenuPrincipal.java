@@ -1,11 +1,13 @@
 
 package view;
 
+import java.awt.Cursor;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import model.Imagen;
 
 public class MenuPrincipal extends javax.swing.JFrame {
+    Cursor mano = new Cursor(Cursor.HAND_CURSOR);
 
     public MenuPrincipal() {
         initComponents();
@@ -21,6 +23,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         ventana1 = new model.Ventana();
+        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanelRedo2 = new model.JPanelRedo();
@@ -47,18 +50,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        ventana1.setPreferredSize(new java.awt.Dimension(100, 100));
+        ventana1.setPreferredSize(new java.awt.Dimension(70, 70));
+        ventana1.setLayout(new java.awt.GridBagLayout());
 
-        javax.swing.GroupLayout ventana1Layout = new javax.swing.GroupLayout(ventana1);
-        ventana1.setLayout(ventana1Layout);
-        ventana1Layout.setHorizontalGroup(
-            ventana1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1324, Short.MAX_VALUE)
-        );
-        ventana1Layout.setVerticalGroup(
-            ventana1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel2.setText("Menu Principal");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        ventana1.add(jLabel2, gridBagConstraints);
 
         jPanel1.add(ventana1, java.awt.BorderLayout.NORTH);
 
@@ -138,6 +140,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(jPanelRedo4, gridBagConstraints);
 
+        jPanelRedo1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelRedo1MouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanelRedo1MousePressed(evt);
+            }
+        });
         jPanelRedo1.setLayout(new java.awt.GridBagLayout());
 
         imagen2.setText("imagen2");
@@ -302,6 +312,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jPanelRedo1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRedo1MousePressed
+        
+        this.dispose();
+        new Inventario_tabla().setVisible(true);
+    }//GEN-LAST:event_jPanelRedo1MousePressed
+
+    private void jPanelRedo1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRedo1MouseEntered
+        jPanelRedo1.setCursor(mano);
+    }//GEN-LAST:event_jPanelRedo1MouseEntered
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -319,6 +339,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private model.Imagen imagen5;
     private model.Imagen imagen6;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

@@ -2,7 +2,6 @@ package view;
 
 import controller.Login;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 public class LoginView extends javax.swing.JFrame {
 
@@ -75,8 +74,8 @@ public class LoginView extends javax.swing.JFrame {
         jLabel7.setText("Iniciar");
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel7MouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel7MousePressed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -251,13 +250,13 @@ public class LoginView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+    private void jLabel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MousePressed
         String contra = new String(txtPass.getPassword());
         if(Login.verificar(txtUser.getText().trim(), contra)) {
-        new MenuPrincipal().setVisible(true);
-        this.dispose();
+            new MenuPrincipal().setVisible(true);
+            this.dispose();
         }
-    }//GEN-LAST:event_jLabel7MouseClicked
+    }//GEN-LAST:event_jLabel7MousePressed
 
     public static void main(String args[]) {
         
