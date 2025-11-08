@@ -115,6 +115,7 @@ public class Crear_nuevo_usuario extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 200;
         gridBagConstraints.ipady = 20;
         gridBagConstraints.weightx = 1.0;

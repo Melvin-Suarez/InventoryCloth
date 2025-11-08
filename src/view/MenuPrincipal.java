@@ -105,6 +105,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(jPanelRedo2, gridBagConstraints);
 
+        jPanelRedo4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelRedo4MouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanelRedo4MousePressed(evt);
+            }
+        });
         jPanelRedo4.setLayout(new java.awt.GridBagLayout());
 
         imagen4.setText("imagen4");
@@ -322,6 +330,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jPanelRedo1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRedo1MouseEntered
         jPanelRedo1.setCursor(mano);
     }//GEN-LAST:event_jPanelRedo1MouseEntered
+
+    private void jPanelRedo4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRedo4MouseEntered
+          jPanelRedo4.setCursor(mano);
+    }//GEN-LAST:event_jPanelRedo4MouseEntered
+
+    private void jPanelRedo4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRedo4MousePressed
+             
+        this.dispose();
+        new Distribuidores_tabla().setVisible(true);
+    }//GEN-LAST:event_jPanelRedo4MousePressed
 
     public static void main(String args[]) {
 
