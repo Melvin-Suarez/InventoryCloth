@@ -1,4 +1,3 @@
-
 package view;
 
 import java.awt.Cursor;
@@ -7,16 +6,19 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import model.Producto;
 import controller.inventory;
+import java.util.List;
 
 public class formulario extends javax.swing.JInternalFrame {
-    
+
+    public boolean editando = false;
     private Cursor mano = new Cursor(Cursor.HAND_CURSOR);
 
     public formulario() {
         initComponents();
-        SpinnerNumberModel modelo = new SpinnerNumberModel(0,0,100,1);
+        SpinnerNumberModel modelo = new SpinnerNumberModel(0, 0, 100, 1);
         spinner.setModel(modelo);
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -352,158 +354,182 @@ public class formulario extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
-        limpiar();
-    }//GEN-LAST:event_txtCodigoActionPerformed
-
-    private void txtCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyTyped
-         char car = evt.getKeyChar();
-       String currentText =((JTextField) evt.getSource()).getText();
-                
-        if (Character.isDigit(car)) return;
-        if (car == '.') {
-            if (currentText.contains(".")) {
-                evt.consume();
-            }
-            return;
-        }
-        
-        evt.consume();
-            
-    }//GEN-LAST:event_txtCodigoKeyTyped
-
-    private void txtCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadKeyTyped
-     char car = evt.getKeyChar();
-       String currentText =((JTextField) evt.getSource()).getText();
-                
-        if (Character.isDigit(car)) return;
-        if (car == '.') {
-            if (currentText.contains(".")) {
-                evt.consume();
-            }
-            return;
-        }
-        
-        evt.consume();
-            
-    }//GEN-LAST:event_txtCantidadKeyTyped
-
-    private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
-    char car = evt.getKeyChar();
-       String currentText =((JTextField) evt.getSource()).getText();
-                
-        if (Character.isDigit(car)) return;
-        if (car == '.') {
-            if (currentText.contains(".")) {
-                evt.consume();
-            }
-            return;
-        }
-        
-        evt.consume();
-            
-    }//GEN-LAST:event_txtPrecioKeyTyped
-
-    private void txtTallaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTallaKeyTyped
-    char car = evt.getKeyChar();
-       String currentText =((JTextField) evt.getSource()).getText();
-                
-        if (Character.isDigit(car)) return;
-        if (car == '.') {
-            if (currentText.contains(".")) {
-                evt.consume();
-            }
-            return;
-        }
-        
-        evt.consume();
-            
-    }//GEN-LAST:event_txtTallaKeyTyped
-
-    private void txtMarcaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMarcaKeyTyped
-         char car = evt.getKeyChar();
-        if (!Character.isLetter(car) && car != ' ' && 
-                    car != KeyEvent.VK_BACK_SPACE && 
-                    car != KeyEvent.VK_DELETE) {
-                    evt.consume(); 
-                   
-                }
-    }//GEN-LAST:event_txtMarcaKeyTyped
-
-    private void txtCategoriaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCategoriaKeyTyped
-         char car = evt.getKeyChar();
-        if (!Character.isLetter(car) && car != ' ' && 
-                    car != KeyEvent.VK_BACK_SPACE && 
-                    car != KeyEvent.VK_DELETE) {
-                    evt.consume(); 
-                   
-                }
-    }//GEN-LAST:event_txtCategoriaKeyTyped
-
     private void jpanelbtn1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn1MousePressed
-    try {
-        // Validar campos obligatorios
-        if (txtMarca.getText().trim().isEmpty() ||
-            txtCodigo.getText().trim().isEmpty() ||
-            txtCantidad.getText().trim().isEmpty() ||
-            txtPrecio.getText().trim().isEmpty()) {
-            
-            javax.swing.JOptionPane.showMessageDialog(this, 
-                "Por favor complete todos los campos obligatorios", 
-                "Campos incompletos", 
-                javax.swing.JOptionPane.WARNING_MESSAGE);
-            return;
-        }
+        if (!editando) {
+            try {
+                // Validar campos obligatorios
+                if (txtMarca.getText().trim().isEmpty()
+                        || txtCodigo.getText().trim().isEmpty()
+                        || txtCantidad.getText().trim().isEmpty()
+                        || txtPrecio.getText().trim().isEmpty()) {
 
-        // CREAR UNA NUEVA INSTANCIA DE PRODUCTO CADA VEZ
-        Producto nuevoProducto = new Producto();
-        
-        // Configurar los valores del nuevo producto
-        nuevoProducto.setMarca(txtMarca.getText().trim());
-        nuevoProducto.setBarcode(txtCodigo.getText().trim());
-        nuevoProducto.setTalla(txtTalla.getText().trim());
-        nuevoProducto.setCant(Integer.parseInt(txtCantidad.getText().trim()));
-        
-        double Descount = ((Number) spinner.getValue()).doubleValue() / 100.0;
-        nuevoProducto.setDescount(Descount);
-        
-        nuevoProducto.setPrecio(Double.parseDouble(txtPrecio.getText().trim()));
-        nuevoProducto.setCategoria(txtCategoria.getText().trim());
-        
-        // Agregar el NUEVO producto a la lista
-        inventory.llenarLista(nuevoProducto);
-        
-        // Mostrar mensaje de éxito
-        javax.swing.JOptionPane.showMessageDialog(this, 
-            "Producto agregado exitosamente", 
-            "Éxito", 
-            javax.swing.JOptionPane.INFORMATION_MESSAGE);
-        
-        // Limpiar el formulario después de agregar
-        limpiar();
-        
-        // Opcional: Actualizar la tabla automáticamente
-        // Si necesitas esto, necesitarías una referencia a la ventana principal
-        
-    } catch (NumberFormatException e) {
-        javax.swing.JOptionPane.showMessageDialog(this, 
-            "Error en los datos numéricos: Asegúrese de ingresar números válidos", 
-            "Error de formato", 
-            javax.swing.JOptionPane.ERROR_MESSAGE);
-    } catch (Exception e) {
-        javax.swing.JOptionPane.showMessageDialog(this, 
-            "Error al agregar producto: " + e.getMessage(), 
-            "Error", 
-            javax.swing.JOptionPane.ERROR_MESSAGE);
-        e.printStackTrace();
-    }
+                    javax.swing.JOptionPane.showMessageDialog(this,
+                            "Por favor complete todos los campos obligatorios",
+                            "Campos incompletos",
+                            javax.swing.JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+
+                // CREAR UNA NUEVA INSTANCIA DE PRODUCTO CADA VEZ
+                Producto nuevoProducto = new Producto();
+
+                // Configurar los valores del nuevo producto
+                nuevoProducto.setMarca(txtMarca.getText().trim());
+                nuevoProducto.setBarcode(txtCodigo.getText().trim());
+                nuevoProducto.setTalla(txtTalla.getText().trim());
+                nuevoProducto.setCant(Integer.parseInt(txtCantidad.getText().trim()));
+
+                double Descount = ((Number) spinner.getValue()).doubleValue() / 100.0;
+                nuevoProducto.setDescount(Descount);
+
+                nuevoProducto.setPrecio(Double.parseDouble(txtPrecio.getText().trim()));
+                nuevoProducto.setCategoria(txtCategoria.getText().trim());
+
+                // Agregar el NUEVO producto a la lista
+                inventory.llenarLista(nuevoProducto);
+
+                // Mostrar mensaje de éxito
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Producto agregado exitosamente",
+                        "Éxito",
+                        javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+                // Limpiar el formulario después de agregar
+                limpiar();
+                
+
+                // Opcional: Actualizar la tabla automáticamente
+                // Si necesitas esto, necesitarías una referencia a la ventana principal
+            } catch (NumberFormatException e) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Error en los datos numéricos: Asegúrese de ingresar números válidos",
+                        "Error de formato",
+                        javax.swing.JOptionPane.ERROR_MESSAGE);
+            } catch (Exception e) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Error al agregar producto: " + e.getMessage(),
+                        "Error",
+                        javax.swing.JOptionPane.ERROR_MESSAGE);
+                e.printStackTrace();
+            }
+        } else {
+            if (txtMarca.getText().trim().isEmpty()
+                        || txtCodigo.getText().trim().isEmpty()
+                        || txtCantidad.getText().trim().isEmpty()
+                        || txtPrecio.getText().trim().isEmpty()) {
+
+                    javax.swing.JOptionPane.showMessageDialog(this,
+                            "Por favor complete todos los campos obligatorios",
+                            "Campos incompletos",
+                            javax.swing.JOptionPane.WARNING_MESSAGE);
+                    return;
+                } else {
+                lista();
+            }
+        }
     }//GEN-LAST:event_jpanelbtn1MousePressed
 
     private void jpanelbtn1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn1MouseEntered
         jpanelbtn1.setCursor(mano);
     }//GEN-LAST:event_jpanelbtn1MouseEntered
 
-    private void limpiar() {
+    private void txtTallaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTallaKeyTyped
+        char car = evt.getKeyChar();
+        String currentText = ((JTextField) evt.getSource()).getText();
+
+        if (Character.isDigit(car)) {
+            return;
+        }
+        if (car == '.') {
+            if (currentText.contains(".")) {
+                evt.consume();
+            }
+            return;
+        }
+
+        evt.consume();
+
+    }//GEN-LAST:event_txtTallaKeyTyped
+
+    private void txtCategoriaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCategoriaKeyTyped
+        char car = evt.getKeyChar();
+        if (!Character.isLetter(car) && car != ' '
+                && car != KeyEvent.VK_BACK_SPACE
+                && car != KeyEvent.VK_DELETE) {
+            evt.consume();
+
+        }
+    }//GEN-LAST:event_txtCategoriaKeyTyped
+
+    private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
+        char car = evt.getKeyChar();
+        String currentText = ((JTextField) evt.getSource()).getText();
+
+        if (Character.isDigit(car)) {
+            return;
+        }
+        if (car == '.') {
+            if (currentText.contains(".")) {
+                evt.consume();
+            }
+            return;
+        }
+
+        evt.consume();
+
+    }//GEN-LAST:event_txtPrecioKeyTyped
+
+    private void txtCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadKeyTyped
+        char car = evt.getKeyChar();
+        String currentText = ((JTextField) evt.getSource()).getText();
+
+        if (Character.isDigit(car)) {
+            return;
+        }
+        if (car == '.') {
+            if (currentText.contains(".")) {
+                evt.consume();
+            }
+            return;
+        }
+
+        evt.consume();
+
+    }//GEN-LAST:event_txtCantidadKeyTyped
+
+    private void txtCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyTyped
+        char car = evt.getKeyChar();
+        String currentText = ((JTextField) evt.getSource()).getText();
+
+        if (Character.isDigit(car)) {
+            return;
+        }
+        if (car == '.') {
+            if (currentText.contains(".")) {
+                evt.consume();
+            }
+            return;
+        }
+
+        evt.consume();
+
+    }//GEN-LAST:event_txtCodigoKeyTyped
+
+    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
+        limpiar();
+    }//GEN-LAST:event_txtCodigoActionPerformed
+
+    private void txtMarcaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMarcaKeyTyped
+        char car = evt.getKeyChar();
+        if (!Character.isLetter(car) && car != ' '
+                && car != KeyEvent.VK_BACK_SPACE
+                && car != KeyEvent.VK_DELETE) {
+            evt.consume();
+
+        }
+    }//GEN-LAST:event_txtMarcaKeyTyped
+
+    public void limpiar() {
         txtMarca.setText("");
         txtCodigo.setText("");
         txtTalla.setText("");
@@ -512,9 +538,24 @@ public class formulario extends javax.swing.JInternalFrame {
         txtPrecio.setText("");
         txtCategoria.setText("");
     }
+    
+    private void lista() {
+        List<Producto> list = inventory.getLista();
+        int fila = inventory.getCelda();
+        list.get(fila).setBarcode(txtCodigo.getText().trim());
+        list.get(fila).setMarca(txtMarca.getText().trim());
+        list.get(fila).setCategoria(txtCategoria.getText().trim());
+        list.get(fila).setTalla(txtTalla.getText().trim());
+        int descuento = Integer.parseInt(spinner.getValue().toString());
+        descuento = descuento  > 1 ? descuento / 100 : descuento * 100;
+        list.get(fila).setDescount(descuento);
+        list.get(fila).setPrecio(Double.parseDouble(txtPrecio.getText().trim()));
+        list.get(fila).setCant(Integer.parseInt(txtCantidad.getText().trim()));
+        inventory.setLista(list);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private model.Imagen imagen1;
+    public model.Imagen imagen1;
     private model.Imagen imagen2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -525,7 +566,7 @@ public class formulario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
+    public javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -538,13 +579,13 @@ public class formulario extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private model.Jpanelbtn jpanelbtn1;
-    private model.spinnerRedondeado spinner;
-    private model.txtField txtCantidad;
-    private model.txtField txtCategoria;
-    private model.txtField txtCodigo;
-    private model.txtField txtMarca;
-    private model.txtField txtPrecio;
-    private model.txtField txtTalla;
+    public model.Jpanelbtn jpanelbtn1;
+    public static model.spinnerRedondeado spinner;
+    public static model.txtField txtCantidad;
+    public static model.txtField txtCategoria;
+    public static model.txtField txtCodigo;
+    public static model.txtField txtMarca;
+    public static model.txtField txtPrecio;
+    public static model.txtField txtTalla;
     // End of variables declaration//GEN-END:variables
 }

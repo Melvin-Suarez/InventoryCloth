@@ -5,11 +5,13 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Producto;
+import view.Inventario_tabla;
+import view.formulario;
 
 public class inventory extends DefaultTableModel {
     
     private static List<Producto> lista = new ArrayList();
-    private int celda;
+    private static int celda;
     
     public inventory() {
         super();
@@ -49,6 +51,10 @@ public class inventory extends DefaultTableModel {
     
     public void setCelda(int celda) {
         this.celda = celda;
+    }
+    
+    public static int getCelda() {
+        return celda;
     }
     
     public static void llenarLista(Producto pro) {
@@ -91,8 +97,39 @@ public class inventory extends DefaultTableModel {
         }
     }
     
+    public void editarTabla() {
+        if(celda == -1) {
+            JOptionPane.showMessageDialog(
+                    null,
+                    "seleccione la fila que quiere eliminar",
+                    "fila no seleccionada",
+                    JOptionPane.WARNING_MESSAGE
+            );
+        } else {
+            String barcode = (String) this.getValueAt(celda, 0);
+            String marca = (String) this.getValueAt(celda, 1);
+            String categoria = (String) this.getValueAt(celda, 2);
+            String talla = (String) this.getValueAt(celda, 3);
+            String descount = this.getValueAt(celda, 4).toString();
+            int descuento = Integer.parseInt(descount.replace("%", ""));
+            String precio = (String) this.getValueAt(celda, 5);
+            String cantidad = (String) this.getValueAt(celda, 6);
+            formulario.txtCodigo.setText(barcode);
+            formulario.txtMarca.setText(marca);
+            formulario.txtCategoria.setText(categoria);
+            formulario.txtTalla.setText(talla);
+            formulario.spinner.setValue(descuento);
+            formulario.txtPrecio.setText(precio);
+            formulario.txtCantidad.setText(cantidad);
+        }
+    }
+    
     public static List<Producto> getLista() {
         return lista;
+    }
+    
+    public static void setLista(List<Producto> list) {
+        lista = list;
     }
     
     @Override

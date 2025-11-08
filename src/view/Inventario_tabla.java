@@ -4,6 +4,7 @@ import java.awt.Cursor;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import controller.inventory;
+import java.awt.Color;
 
 public class Inventario_tabla extends JFrame {
     
@@ -198,6 +199,9 @@ public class Inventario_tabla extends JFrame {
 
         jpanelbtn7.setBackground(new java.awt.Color(255, 0, 4));
         jpanelbtn7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jpanelbtn7MouseEntered(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jpanelbtn7MousePressed(evt);
             }
@@ -291,6 +295,11 @@ public class Inventario_tabla extends JFrame {
                 desktopPane.add(form);
             }
             form.setVisible(true);
+            form.editando = false;
+            form.limpiar();
+            form.jpanelbtn1.setBackground(new Color(0, 110, 53));
+            form.jLabel18.setText("Agregar Producto");
+            form.imagen1.setRuta("/Recursos/Agregar.png");
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Error al abrir el formulario: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -298,7 +307,24 @@ public class Inventario_tabla extends JFrame {
     }//GEN-LAST:event_jpanelbtn1MousePressed
 
     private void jpanelbtn6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn6MousePressed
-        modelo.setCelda(Tabla.getSelectedRow());
+        try {
+            if (!Crearventana) {
+                Crearventana = true;
+                form = new formulario();
+                desktopPane.add(form);
+            }
+            form.setVisible(true);
+            form.editando = true;
+            form.limpiar();
+            modelo.setCelda(Tabla.getSelectedRow());
+            form.jpanelbtn1.setBackground(new Color(170, 167, 30));
+            form.jLabel18.setText("Editar Producto");
+            form.imagen1.setRuta("/Recursos/Editar.png");
+            modelo.editarTabla();
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error al abrir el formulario: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
         
     }//GEN-LAST:event_jpanelbtn6MousePressed
 
@@ -319,14 +345,20 @@ public class Inventario_tabla extends JFrame {
     }//GEN-LAST:event_imagen1MouseEntered
 
     private void jpanelbtn7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn7MousePressed
+        
         modelo.setCelda(Tabla.getSelectedRow());
+        
         modelo.eliminarProducto();
     }//GEN-LAST:event_jpanelbtn7MousePressed
+
+    private void jpanelbtn7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn7MouseEntered
+        jpanelbtn7.setCursor(mano);
+    }//GEN-LAST:event_jpanelbtn7MouseEntered
 
     private void actualizarTabla() {
         modelo.llenarTabla();
     }
-
+   
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
