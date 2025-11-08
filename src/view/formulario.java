@@ -1,16 +1,21 @@
 
 package view;
 
+import java.awt.Cursor;
 import java.awt.event.KeyEvent;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
+import model.Producto;
+import controller.inventory;
 
 public class formulario extends javax.swing.JInternalFrame {
+    
+    private Cursor mano = new Cursor(Cursor.HAND_CURSOR);
 
     public formulario() {
         initComponents();
         SpinnerNumberModel modelo = new SpinnerNumberModel(0,0,100,1);
-        spinnerRedondeado2.setModel(modelo);
+        spinner.setModel(modelo);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -36,17 +41,17 @@ public class formulario extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        txtFieldNombre = new model.txtField();
-        txtFieldCodigo = new model.txtField();
-        txtFieldCantidad = new model.txtField();
-        txtFieldPrecio = new model.txtField();
-        txtFieldCategoria = new model.txtField();
-        txtFieldTalla = new model.txtField();
+        txtMarca = new model.txtField();
+        txtCodigo = new model.txtField();
+        txtCantidad = new model.txtField();
+        txtPrecio = new model.txtField();
+        txtCategoria = new model.txtField();
+        txtTalla = new model.txtField();
         jpanelbtn1 = new model.Jpanelbtn();
         jLabel18 = new javax.swing.JLabel();
         imagen1 = new model.Imagen();
         imagen2 = new model.Imagen();
-        spinnerRedondeado2 = new model.spinnerRedondeado();
+        spinner = new model.spinnerRedondeado();
         jLabel19 = new javax.swing.JLabel();
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -164,7 +169,7 @@ public class formulario extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(33, 0, 110));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("Nombre:");
+        jLabel1.setText("Marca:");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(70, 170, 110, 25);
 
@@ -210,70 +215,78 @@ public class formulario extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel17);
         jLabel17.setBounds(435, 370, 90, 25);
 
-        txtFieldNombre.setBackground(new java.awt.Color(217, 217, 217));
-        txtFieldNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtMarca.setBackground(new java.awt.Color(217, 217, 217));
+        txtMarca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtFieldNombreKeyTyped(evt);
+                txtMarcaKeyTyped(evt);
             }
         });
-        jPanel1.add(txtFieldNombre);
-        txtFieldNombre.setBounds(192, 166, 516, 35);
+        jPanel1.add(txtMarca);
+        txtMarca.setBounds(192, 166, 516, 35);
 
-        txtFieldCodigo.setBackground(new java.awt.Color(217, 217, 217));
-        txtFieldCodigo.addActionListener(new java.awt.event.ActionListener() {
+        txtCodigo.setBackground(new java.awt.Color(217, 217, 217));
+        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFieldCodigoActionPerformed(evt);
+                txtCodigoActionPerformed(evt);
             }
         });
-        txtFieldCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtFieldCodigoKeyTyped(evt);
+                txtCodigoKeyTyped(evt);
             }
         });
-        jPanel1.add(txtFieldCodigo);
-        txtFieldCodigo.setBounds(192, 231, 200, 35);
+        jPanel1.add(txtCodigo);
+        txtCodigo.setBounds(192, 231, 200, 35);
 
-        txtFieldCantidad.setBackground(new java.awt.Color(217, 217, 217));
-        txtFieldCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtCantidad.setBackground(new java.awt.Color(217, 217, 217));
+        txtCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtFieldCantidadKeyTyped(evt);
+                txtCantidadKeyTyped(evt);
             }
         });
-        jPanel1.add(txtFieldCantidad);
-        txtFieldCantidad.setBounds(192, 302, 200, 35);
+        jPanel1.add(txtCantidad);
+        txtCantidad.setBounds(192, 302, 200, 35);
 
-        txtFieldPrecio.setBackground(new java.awt.Color(217, 217, 217));
-        txtFieldPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtPrecio.setBackground(new java.awt.Color(217, 217, 217));
+        txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtFieldPrecioKeyTyped(evt);
+                txtPrecioKeyTyped(evt);
             }
         });
-        jPanel1.add(txtFieldPrecio);
-        txtFieldPrecio.setBounds(192, 368, 200, 35);
+        jPanel1.add(txtPrecio);
+        txtPrecio.setBounds(192, 368, 200, 35);
 
-        txtFieldCategoria.setBackground(new java.awt.Color(217, 217, 217));
-        txtFieldCategoria.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtCategoria.setBackground(new java.awt.Color(217, 217, 217));
+        txtCategoria.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtFieldCategoriaKeyTyped(evt);
+                txtCategoriaKeyTyped(evt);
             }
         });
-        jPanel1.add(txtFieldCategoria);
-        txtFieldCategoria.setBounds(531, 368, 177, 35);
+        jPanel1.add(txtCategoria);
+        txtCategoria.setBounds(531, 368, 177, 35);
 
-        txtFieldTalla.setBackground(new java.awt.Color(217, 217, 217));
-        txtFieldTalla.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtTalla.setBackground(new java.awt.Color(217, 217, 217));
+        txtTalla.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtFieldTallaKeyTyped(evt);
+                txtTallaKeyTyped(evt);
             }
         });
-        jPanel1.add(txtFieldTalla);
-        txtFieldTalla.setBounds(531, 231, 177, 35);
+        jPanel1.add(txtTalla);
+        txtTalla.setBounds(531, 231, 177, 35);
 
         jpanelbtn1.setBackground(new java.awt.Color(0, 110, 53));
         jpanelbtn1.setMaximumSize(new java.awt.Dimension(467, 68));
         jpanelbtn1.setMinimumSize(new java.awt.Dimension(467, 68));
         jpanelbtn1.setPreferredSize(new java.awt.Dimension(467, 40));
         jpanelbtn1.setRadius(50);
+        jpanelbtn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jpanelbtn1MouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jpanelbtn1MousePressed(evt);
+            }
+        });
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
@@ -315,9 +328,9 @@ public class formulario extends javax.swing.JInternalFrame {
         jPanel1.add(jpanelbtn1);
         jpanelbtn1.setBounds(230, 50, 340, 40);
 
-        spinnerRedondeado2.setBackground(new java.awt.Color(217, 217, 217));
-        jPanel1.add(spinnerRedondeado2);
-        spinnerRedondeado2.setBounds(530, 300, 170, 40);
+        spinner.setBackground(new java.awt.Color(217, 217, 217));
+        jPanel1.add(spinner);
+        spinner.setBounds(530, 300, 170, 40);
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
@@ -339,11 +352,11 @@ public class formulario extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldCodigoActionPerformed
+    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
+        limpiar();
+    }//GEN-LAST:event_txtCodigoActionPerformed
 
-    }//GEN-LAST:event_txtFieldCodigoActionPerformed
-
-    private void txtFieldCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFieldCodigoKeyTyped
+    private void txtCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyTyped
          char car = evt.getKeyChar();
        String currentText =((JTextField) evt.getSource()).getText();
                 
@@ -357,9 +370,9 @@ public class formulario extends javax.swing.JInternalFrame {
         
         evt.consume();
             
-    }//GEN-LAST:event_txtFieldCodigoKeyTyped
+    }//GEN-LAST:event_txtCodigoKeyTyped
 
-    private void txtFieldCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFieldCantidadKeyTyped
+    private void txtCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadKeyTyped
      char car = evt.getKeyChar();
        String currentText =((JTextField) evt.getSource()).getText();
                 
@@ -373,9 +386,9 @@ public class formulario extends javax.swing.JInternalFrame {
         
         evt.consume();
             
-    }//GEN-LAST:event_txtFieldCantidadKeyTyped
+    }//GEN-LAST:event_txtCantidadKeyTyped
 
-    private void txtFieldPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFieldPrecioKeyTyped
+    private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
     char car = evt.getKeyChar();
        String currentText =((JTextField) evt.getSource()).getText();
                 
@@ -389,9 +402,9 @@ public class formulario extends javax.swing.JInternalFrame {
         
         evt.consume();
             
-    }//GEN-LAST:event_txtFieldPrecioKeyTyped
+    }//GEN-LAST:event_txtPrecioKeyTyped
 
-    private void txtFieldTallaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFieldTallaKeyTyped
+    private void txtTallaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTallaKeyTyped
     char car = evt.getKeyChar();
        String currentText =((JTextField) evt.getSource()).getText();
                 
@@ -405,9 +418,9 @@ public class formulario extends javax.swing.JInternalFrame {
         
         evt.consume();
             
-    }//GEN-LAST:event_txtFieldTallaKeyTyped
+    }//GEN-LAST:event_txtTallaKeyTyped
 
-    private void txtFieldNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFieldNombreKeyTyped
+    private void txtMarcaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMarcaKeyTyped
          char car = evt.getKeyChar();
         if (!Character.isLetter(car) && car != ' ' && 
                     car != KeyEvent.VK_BACK_SPACE && 
@@ -415,9 +428,9 @@ public class formulario extends javax.swing.JInternalFrame {
                     evt.consume(); 
                    
                 }
-    }//GEN-LAST:event_txtFieldNombreKeyTyped
+    }//GEN-LAST:event_txtMarcaKeyTyped
 
-    private void txtFieldCategoriaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFieldCategoriaKeyTyped
+    private void txtCategoriaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCategoriaKeyTyped
          char car = evt.getKeyChar();
         if (!Character.isLetter(car) && car != ' ' && 
                     car != KeyEvent.VK_BACK_SPACE && 
@@ -425,8 +438,80 @@ public class formulario extends javax.swing.JInternalFrame {
                     evt.consume(); 
                    
                 }
-    }//GEN-LAST:event_txtFieldCategoriaKeyTyped
+    }//GEN-LAST:event_txtCategoriaKeyTyped
 
+    private void jpanelbtn1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn1MousePressed
+    try {
+        // Validar campos obligatorios
+        if (txtMarca.getText().trim().isEmpty() ||
+            txtCodigo.getText().trim().isEmpty() ||
+            txtCantidad.getText().trim().isEmpty() ||
+            txtPrecio.getText().trim().isEmpty()) {
+            
+            javax.swing.JOptionPane.showMessageDialog(this, 
+                "Por favor complete todos los campos obligatorios", 
+                "Campos incompletos", 
+                javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // CREAR UNA NUEVA INSTANCIA DE PRODUCTO CADA VEZ
+        Producto nuevoProducto = new Producto();
+        
+        // Configurar los valores del nuevo producto
+        nuevoProducto.setMarca(txtMarca.getText().trim());
+        nuevoProducto.setBarcode(txtCodigo.getText().trim());
+        nuevoProducto.setTalla(txtTalla.getText().trim());
+        nuevoProducto.setCant(Integer.parseInt(txtCantidad.getText().trim()));
+        
+        double Descount = ((Number) spinner.getValue()).doubleValue() / 100.0;
+        nuevoProducto.setDescount(Descount);
+        
+        nuevoProducto.setPrecio(Double.parseDouble(txtPrecio.getText().trim()));
+        nuevoProducto.setCategoria(txtCategoria.getText().trim());
+        
+        // Agregar el NUEVO producto a la lista
+        inventory.llenarLista(nuevoProducto);
+        
+        // Mostrar mensaje de éxito
+        javax.swing.JOptionPane.showMessageDialog(this, 
+            "Producto agregado exitosamente", 
+            "Éxito", 
+            javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        
+        // Limpiar el formulario después de agregar
+        limpiar();
+        
+        // Opcional: Actualizar la tabla automáticamente
+        // Si necesitas esto, necesitarías una referencia a la ventana principal
+        
+    } catch (NumberFormatException e) {
+        javax.swing.JOptionPane.showMessageDialog(this, 
+            "Error en los datos numéricos: Asegúrese de ingresar números válidos", 
+            "Error de formato", 
+            javax.swing.JOptionPane.ERROR_MESSAGE);
+    } catch (Exception e) {
+        javax.swing.JOptionPane.showMessageDialog(this, 
+            "Error al agregar producto: " + e.getMessage(), 
+            "Error", 
+            javax.swing.JOptionPane.ERROR_MESSAGE);
+        e.printStackTrace();
+    }
+    }//GEN-LAST:event_jpanelbtn1MousePressed
+
+    private void jpanelbtn1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn1MouseEntered
+        jpanelbtn1.setCursor(mano);
+    }//GEN-LAST:event_jpanelbtn1MouseEntered
+
+    private void limpiar() {
+        txtMarca.setText("");
+        txtCodigo.setText("");
+        txtTalla.setText("");
+        txtCantidad.setText("");
+        spinner.setValue(0);
+        txtPrecio.setText("");
+        txtCategoria.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private model.Imagen imagen1;
@@ -454,12 +539,12 @@ public class formulario extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private model.Jpanelbtn jpanelbtn1;
-    private model.spinnerRedondeado spinnerRedondeado2;
-    private model.txtField txtFieldCantidad;
-    private model.txtField txtFieldCategoria;
-    private model.txtField txtFieldCodigo;
-    private model.txtField txtFieldNombre;
-    private model.txtField txtFieldPrecio;
-    private model.txtField txtFieldTalla;
+    private model.spinnerRedondeado spinner;
+    private model.txtField txtCantidad;
+    private model.txtField txtCategoria;
+    private model.txtField txtCodigo;
+    private model.txtField txtMarca;
+    private model.txtField txtPrecio;
+    private model.txtField txtTalla;
     // End of variables declaration//GEN-END:variables
 }

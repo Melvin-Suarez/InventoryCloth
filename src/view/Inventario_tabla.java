@@ -1,18 +1,24 @@
 package view;
 
+import java.awt.Cursor;
 import javax.swing.JFrame;
-import model.TablaModelo;
+import javax.swing.JOptionPane;
+import controller.inventory;
 
 public class Inventario_tabla extends JFrame {
-
-    formulario forn; 
-    boolean Crearventana = false;
     
+    private Cursor mano = new Cursor(Cursor.HAND_CURSOR);
+    private inventory modelo;
+    private formulario form;
+    private boolean Crearventana = false;
+
     public Inventario_tabla() {
         initComponents();
-        Tabla.setModel(TablaModelo.getModelo());
+        modelo = new inventory();
+        Tabla.setModel(modelo);
         this.setLocationRelativeTo(null);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
     }
 
     @SuppressWarnings("unchecked")
@@ -23,6 +29,7 @@ public class Inventario_tabla extends JFrame {
         desktopPane = new javax.swing.JDesktopPane();
         ventana1 = new model.Ventana();
         imagen1 = new model.Imagen();
+        jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
         txtField1 = new model.txtField();
@@ -41,31 +48,38 @@ public class Inventario_tabla extends JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        ventana1.setPreferredSize(new java.awt.Dimension(70, 70));
+        ventana1.setLayout(new java.awt.GridBagLayout());
+
         imagen1.setText("imagen1");
         imagen1.setName(""); // NOI18N
+        imagen1.setPreferredSize(new java.awt.Dimension(42, 42));
         imagen1.setRuta("/recursos/atras.png");
         imagen1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                imagen1MouseEntered(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 imagen1MousePressed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        ventana1.add(imagen1, gridBagConstraints);
 
-        javax.swing.GroupLayout ventana1Layout = new javax.swing.GroupLayout(ventana1);
-        ventana1.setLayout(ventana1Layout);
-        ventana1Layout.setHorizontalGroup(
-            ventana1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ventana1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(imagen1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        ventana1Layout.setVerticalGroup(
-            ventana1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ventana1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(imagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
-        );
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Inventario");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        ventana1.add(jLabel5, gridBagConstraints);
 
         Tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -82,6 +96,9 @@ public class Inventario_tabla extends JFrame {
 
         jpanelbtn1.setBackground(new java.awt.Color(0, 110, 53));
         jpanelbtn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jpanelbtn1MouseEntered(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jpanelbtn1MousePressed(evt);
             }
@@ -113,6 +130,14 @@ public class Inventario_tabla extends JFrame {
         jpanelbtn1.add(imagen2, gridBagConstraints);
 
         jpanelbtn5.setBackground(new java.awt.Color(5, 159, 255));
+        jpanelbtn5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jpanelbtn5MouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jpanelbtn5MousePressed(evt);
+            }
+        });
         jpanelbtn5.setLayout(new java.awt.GridBagLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -140,6 +165,11 @@ public class Inventario_tabla extends JFrame {
         jpanelbtn5.add(imagen3, gridBagConstraints);
 
         jpanelbtn6.setBackground(new java.awt.Color(170, 167, 30));
+        jpanelbtn6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jpanelbtn6MousePressed(evt);
+            }
+        });
         jpanelbtn6.setLayout(new java.awt.GridBagLayout());
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -167,6 +197,11 @@ public class Inventario_tabla extends JFrame {
         jpanelbtn6.add(imagen4, gridBagConstraints);
 
         jpanelbtn7.setBackground(new java.awt.Color(255, 0, 4));
+        jpanelbtn7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jpanelbtn7MousePressed(evt);
+            }
+        });
         jpanelbtn7.setLayout(new java.awt.GridBagLayout());
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -234,7 +269,7 @@ public class Inventario_tabla extends JFrame {
                     .addComponent(jpanelbtn6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jpanelbtn7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(71, 71, 71)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
                 .addGap(47, 47, 47))
         );
 
@@ -244,24 +279,54 @@ public class Inventario_tabla extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void imagen1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagen1MousePressed
-      new MenuPrincipal().setVisible(true);
-      this.dispose();
+        new MenuPrincipal().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_imagen1MousePressed
 
     private void jpanelbtn1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn1MousePressed
-        
-        
-        if(!Crearventana){
-            Crearventana = true;
-        
-         forn = new formulario();
-        desktopPane.add(forn);
-         
+        try {
+            if (!Crearventana) {
+                Crearventana = true;
+                form = new formulario();
+                desktopPane.add(form);
+            }
+            form.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error al abrir el formulario: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-        forn.setVisible(true);
     }//GEN-LAST:event_jpanelbtn1MousePressed
-    
-    
+
+    private void jpanelbtn6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn6MousePressed
+        modelo.setCelda(Tabla.getSelectedRow());
+        
+    }//GEN-LAST:event_jpanelbtn6MousePressed
+
+    private void jpanelbtn5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn5MousePressed
+        actualizarTabla();
+    }//GEN-LAST:event_jpanelbtn5MousePressed
+
+    private void jpanelbtn1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn1MouseEntered
+        jpanelbtn1.setCursor(mano);
+    }//GEN-LAST:event_jpanelbtn1MouseEntered
+
+    private void jpanelbtn5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn5MouseEntered
+        jpanelbtn5.setCursor(mano);
+    }//GEN-LAST:event_jpanelbtn5MouseEntered
+
+    private void imagen1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagen1MouseEntered
+        imagen1.setCursor(mano);
+    }//GEN-LAST:event_imagen1MouseEntered
+
+    private void jpanelbtn7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn7MousePressed
+        modelo.setCelda(Tabla.getSelectedRow());
+        modelo.eliminarProducto();
+    }//GEN-LAST:event_jpanelbtn7MousePressed
+
+    private void actualizarTabla() {
+        modelo.llenarTabla();
+    }
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -283,6 +348,7 @@ public class Inventario_tabla extends JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private model.Jpanelbtn jpanelbtn1;
     private model.Jpanelbtn jpanelbtn5;

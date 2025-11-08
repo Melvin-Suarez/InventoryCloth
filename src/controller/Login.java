@@ -8,10 +8,10 @@ public class Login {
             if(contrasenia.equals("12345678")) {
                 return true;
             }else {
-                JOptionPane.showConfirmDialog(null, "Su contraseña es incorrecta por favor vuelva a intentarlo", "Error: Contrasña Incorrecta",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Su contraseña es incorrecta por favor vuelva a intentarlo", "Error: Contrasña Incorrecta",JOptionPane.ERROR_MESSAGE);
             }
         }else {
-            JOptionPane.showConfirmDialog(null, "Su Usuario no ha sido encontrado", "Error: Usuario no encontrado",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Su Usuario no ha sido encontrado", "Error: Usuario no encontrado",JOptionPane.ERROR_MESSAGE);
         }
         return false;
     }
