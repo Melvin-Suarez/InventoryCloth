@@ -25,18 +25,24 @@ public class Configuracion extends javax.swing.JInternalFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         btnperfil = new model.Jpanelbtn();
         jLabel3 = new javax.swing.JLabel();
+        imagen1 = new model.Imagen();
         btnperfil1 = new model.Jpanelbtn();
         jLabel2 = new javax.swing.JLabel();
+        figura3 = new model.Figura();
         btnperfil2 = new model.Jpanelbtn();
         jLabel4 = new javax.swing.JLabel();
+        imagen2 = new model.Imagen();
         btnperfil3 = new model.Jpanelbtn();
         jLabel5 = new javax.swing.JLabel();
+        imagen3 = new model.Imagen();
         btnperfil4 = new model.Jpanelbtn();
         jLabel6 = new javax.swing.JLabel();
+        imagen4 = new model.Imagen();
         jPanelRedo2 = new model.JPanelRedo();
         figura1 = new model.Figura();
         figura2 = new model.Figura();
@@ -48,110 +54,133 @@ public class Configuracion extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(208, 208, 208));
         jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
+        btnperfil.setLayout(new java.awt.GridBagLayout());
+
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Cambiar foto de perfil");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(17, 54, 0, 185);
+        btnperfil.add(jLabel3, gridBagConstraints);
 
-        javax.swing.GroupLayout btnperfilLayout = new javax.swing.GroupLayout(btnperfil);
-        btnperfil.setLayout(btnperfilLayout);
-        btnperfilLayout.setHorizontalGroup(
-            btnperfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnperfilLayout.createSequentialGroup()
-                .addGap(122, 122, 122)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        btnperfilLayout.setVerticalGroup(
-            btnperfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnperfilLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        imagen1.setText("imagen1");
+        imagen1.setRuta("/Recursos/UserLapiz.png");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipady = 27;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 28, 5, 0);
+        btnperfil.add(imagen1, gridBagConstraints);
+
+        btnperfil1.setLayout(new java.awt.GridBagLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Cambiar foto de perfil");
+        jLabel2.setText("cambiar nombre ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 56, 0, 242);
+        btnperfil1.add(jLabel2, gridBagConstraints);
 
-        javax.swing.GroupLayout btnperfil1Layout = new javax.swing.GroupLayout(btnperfil1);
-        btnperfil1.setLayout(btnperfil1Layout);
-        btnperfil1Layout.setHorizontalGroup(
-            btnperfil1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnperfil1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        figura3.setColorRelleno(new java.awt.Color(0, 0, 0));
+        figura3.setRuta("/Recursos/Editar.png");
+
+        javax.swing.GroupLayout figura3Layout = new javax.swing.GroupLayout(figura3);
+        figura3.setLayout(figura3Layout);
+        figura3Layout.setHorizontalGroup(
+            figura3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 44, Short.MAX_VALUE)
         );
-        btnperfil1Layout.setVerticalGroup(
-            btnperfil1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnperfil1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addContainerGap(8, Short.MAX_VALUE))
+        figura3Layout.setVerticalGroup(
+            figura3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
         );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 44;
+        gridBagConstraints.ipady = 43;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 35, 11, 0);
+        btnperfil1.add(figura3, gridBagConstraints);
+
+        btnperfil2.setLayout(new java.awt.GridBagLayout());
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Cambiar foto de perfil");
+        jLabel4.setText("Privacidad");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 74, 0, 297);
+        btnperfil2.add(jLabel4, gridBagConstraints);
 
-        javax.swing.GroupLayout btnperfil2Layout = new javax.swing.GroupLayout(btnperfil2);
-        btnperfil2.setLayout(btnperfil2Layout);
-        btnperfil2Layout.setHorizontalGroup(
-            btnperfil2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnperfil2Layout.createSequentialGroup()
-                .addGap(126, 126, 126)
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        btnperfil2Layout.setVerticalGroup(
-            btnperfil2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnperfil2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        imagen2.setText("imagen2");
+        imagen2.setRuta("/Recursos/Privacidad.png");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipady = 22;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 16, 11, 0);
+        btnperfil2.add(imagen2, gridBagConstraints);
+
+        btnperfil3.setLayout(new java.awt.GridBagLayout());
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Cambiar foto de perfil");
+        jLabel5.setText("Cambiar Tema");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(16, 73, 0, 266);
+        btnperfil3.add(jLabel5, gridBagConstraints);
 
-        javax.swing.GroupLayout btnperfil3Layout = new javax.swing.GroupLayout(btnperfil3);
-        btnperfil3.setLayout(btnperfil3Layout);
-        btnperfil3Layout.setHorizontalGroup(
-            btnperfil3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnperfil3Layout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addComponent(jLabel5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        btnperfil3Layout.setVerticalGroup(
-            btnperfil3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnperfil3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addContainerGap())
-        );
+        imagen3.setText("imagen3");
+        imagen3.setRuta("/Recursos/Temas.png");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipady = 24;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 16, 11, 0);
+        btnperfil3.add(imagen3, gridBagConstraints);
+
+        btnperfil4.setLayout(new java.awt.GridBagLayout());
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Cambiar foto de perfil");
+        jLabel6.setText("Salir de la cuenta");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(28, 67, 11, 239);
+        btnperfil4.add(jLabel6, gridBagConstraints);
 
-        javax.swing.GroupLayout btnperfil4Layout = new javax.swing.GroupLayout(btnperfil4);
-        btnperfil4.setLayout(btnperfil4Layout);
-        btnperfil4Layout.setHorizontalGroup(
-            btnperfil4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnperfil4Layout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addComponent(jLabel6)
-                .addContainerGap(138, Short.MAX_VALUE))
-        );
-        btnperfil4Layout.setVerticalGroup(
-            btnperfil4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnperfil4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addContainerGap())
-        );
+        imagen4.setText("imagen4");
+        imagen4.setRuta("/Recursos/Cerrarsesion.png");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipady = 24;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 25, 0, 0);
+        btnperfil4.add(imagen4, gridBagConstraints);
 
         jPanelRedo2.setCenterColor(new java.awt.Color(255, 255, 255));
         jPanelRedo2.setOuterColor(new java.awt.Color(255, 255, 255));
@@ -187,7 +216,7 @@ public class Configuracion extends javax.swing.JInternalFrame {
         );
 
         jPanelRedo2.add(figura2);
-        figura2.setBounds(20, 16, 90, 90);
+        figura2.setBounds(20, 20, 90, 90);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -201,36 +230,36 @@ public class Configuracion extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnperfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnperfil1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnperfil2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnperfil3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnperfil4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnperfil4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnperfil1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(168, 168, 168)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanelRedo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelRedo2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(209, 209, 209))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
                 .addComponent(jPanelRedo2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGap(67, 67, 67)
-                .addComponent(btnperfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnperfil1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addComponent(btnperfil, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnperfil1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnperfil2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnperfil3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(btnperfil4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -256,6 +285,11 @@ public class Configuracion extends javax.swing.JInternalFrame {
     private model.Jpanelbtn btnperfil4;
     private model.Figura figura1;
     private model.Figura figura2;
+    private model.Figura figura3;
+    private model.Imagen imagen1;
+    private model.Imagen imagen2;
+    private model.Imagen imagen3;
+    private model.Imagen imagen4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -264,8 +298,5 @@ public class Configuracion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private model.JPanelRedo jPanelRedo2;
-    private model.Jpanelbtn jpanelbtn2;
-    private model.Jpanelbtn jpanelbtn3;
-    private model.Jpanelbtn jpanelbtn4;
     // End of variables declaration//GEN-END:variables
 }
