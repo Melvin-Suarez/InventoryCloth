@@ -3,14 +3,18 @@ package view;
 import controller.Login;
 import java.awt.Color;
 import javax.swing.JFrame;
+import model.User;
 
 public class Crear_nuevo_usuario extends javax.swing.JFrame {
 
+    Login controller;
+    
     public Crear_nuevo_usuario() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         jPanel1.setFocusable(true);
+        controller = new Login();
     }
 
     @SuppressWarnings("unchecked")
@@ -26,9 +30,10 @@ public class Crear_nuevo_usuario extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jPanelRedo2 = new model.JPanelRedo();
         imagen1 = new model.Imagen();
+        cboxAdmin = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
         figura3 = new model.Figura();
-        jLabel1 = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         figura4 = new model.Figura();
 
@@ -148,6 +153,23 @@ public class Crear_nuevo_usuario extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(33, 0, 0, 0);
         jPanel1.add(jPanelRedo2, gridBagConstraints);
 
+        cboxAdmin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cboxAdmin.setSelected(true);
+        cboxAdmin.setText("Admin");
+        cboxAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxAdminActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 100, 150, 100);
+        jPanel1.add(cboxAdmin, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -165,9 +187,9 @@ public class Crear_nuevo_usuario extends javax.swing.JFrame {
         figura3.setTransparenciaPorcentaje(50);
         figura3.setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Crear Admin");
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setText("Crear Admin");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -175,7 +197,7 @@ public class Crear_nuevo_usuario extends javax.swing.JFrame {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 100);
-        figura3.add(jLabel1, gridBagConstraints);
+        figura3.add(lblTitulo, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -226,10 +248,10 @@ public class Crear_nuevo_usuario extends javax.swing.JFrame {
 
     private void jLabel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MousePressed
         String contra = new String(txtPass.getPassword());
-        if(Login.verificar(txtUser.getText().trim(), contra)) {
+        User usuario = new User();
+            controller.setLista(usuario);
             new MenuPrincipal().setVisible(true);
             this.dispose();
-        }
     }//GEN-LAST:event_jLabel7MousePressed
 
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
@@ -277,6 +299,14 @@ public class Crear_nuevo_usuario extends javax.swing.JFrame {
                 
     }//GEN-LAST:event_jPanel1MousePressed
 
+    private void cboxAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxAdminActionPerformed
+       if(cboxAdmin.isSelected()) {
+           lblTitulo.setText("Crear Admin");
+       } else {
+           lblTitulo.setText("Crear Usuario");
+       }
+    }//GEN-LAST:event_cboxAdminActionPerformed
+
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -287,16 +317,17 @@ public class Crear_nuevo_usuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox cboxAdmin;
     private model.Figura figura3;
     private model.Figura figura4;
     private model.Imagen imagen1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private model.JPanelRedo jPanelRedo1;
     private model.JPanelRedo jPanelRedo2;
+    private javax.swing.JLabel lblTitulo;
     private model.PassField txtPass;
     private model.txtField txtUser;
     private model.Ventana ventana1;
