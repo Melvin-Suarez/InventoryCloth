@@ -225,6 +225,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(jPanelRedo5, gridBagConstraints);
 
+        jPanelRedo6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelRedo6MouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanelRedo6MousePressed(evt);
+            }
+        });
         jPanelRedo6.setLayout(new java.awt.GridBagLayout());
 
         imagen1.setText("imagen1");
@@ -301,6 +309,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.dispose();
         new Distribuidores_tabla().setVisible(true);
     }//GEN-LAST:event_jPanelRedo4MousePressed
+
+    private void jPanelRedo6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRedo6MouseEntered
+        jPanelRedo6.setCursor(mano);
+    }//GEN-LAST:event_jPanelRedo6MouseEntered
+
+    private void jPanelRedo6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRedo6MousePressed
+      
+        this.dispose();
+        new Crear_nuevo_usuario().setVisible(true);
+    }//GEN-LAST:event_jPanelRedo6MousePressed
 
     public static void main(String args[]) {
 
