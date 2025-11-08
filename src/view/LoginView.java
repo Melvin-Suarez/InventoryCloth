@@ -3,14 +3,18 @@ package view;
 import controller.Login;
 import java.awt.Color;
 import javax.swing.JFrame;
+import model.User;
 
 public class LoginView extends javax.swing.JFrame {
 
+    Login controller;
+    
     public LoginView() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         jPanel1.setFocusable(true);
+        controller = new Login();
     }
 
     @SuppressWarnings("unchecked")
@@ -286,7 +290,8 @@ public class LoginView extends javax.swing.JFrame {
 
     private void jLabel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MousePressed
         String contra = new String(txtPass.getPassword());
-        if(Login.verificar(txtUser.getText().trim(), contra)) {
+        User usuario = new User(txtUser.getText().trim(), contra);
+        if(controller.verificar(usuario)) {
             new MenuPrincipal().setVisible(true);
             this.dispose();
         }
