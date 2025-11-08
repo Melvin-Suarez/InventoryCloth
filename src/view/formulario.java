@@ -7,6 +7,8 @@ import javax.swing.SpinnerNumberModel;
 import model.Producto;
 import controller.inventory;
 import java.util.List;
+import model.spinnerRedondeado;
+import static view.formulario.spinner;
 
 public class formulario extends javax.swing.JInternalFrame {
 
@@ -331,6 +333,11 @@ public class formulario extends javax.swing.JInternalFrame {
         jpanelbtn1.setBounds(230, 50, 340, 40);
 
         spinner.setBackground(new java.awt.Color(217, 217, 217));
+        spinner.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                spinnerKeyTyped(evt);
+            }
+        });
         jPanel1.add(spinner);
         spinner.setBounds(530, 300, 170, 40);
 
@@ -528,6 +535,10 @@ public class formulario extends javax.swing.JInternalFrame {
 
         }
     }//GEN-LAST:event_txtMarcaKeyTyped
+
+    private void spinnerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_spinnerKeyTyped
+   
+    }//GEN-LAST:event_spinnerKeyTyped
 
     public void limpiar() {
         txtMarca.setText("");

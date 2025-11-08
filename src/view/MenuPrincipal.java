@@ -41,9 +41,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanelRedo6 = new model.JPanelRedo();
         imagen1 = new model.Imagen();
         jLabel1 = new javax.swing.JLabel();
-        jPanelRedo3 = new model.JPanelRedo();
-        jLabel7 = new javax.swing.JLabel();
-        imagen6 = new model.Imagen();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
@@ -264,42 +261,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(jPanelRedo6, gridBagConstraints);
 
-        jPanelRedo3.setLayout(new java.awt.GridBagLayout());
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Ayuda");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(20, 0, 0, 0);
-        jPanelRedo3.add(jLabel7, gridBagConstraints);
-
-        imagen6.setText("imagen6");
-        imagen6.setPreferredSize(new java.awt.Dimension(50, 50));
-        imagen6.setRuta("/Recursos/Ayuda.png");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipady = 5;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(50, 0, 0, 0);
-        jPanelRedo3.add(imagen6, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 100;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel3.add(jPanelRedo3, gridBagConstraints);
-
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -356,20 +317,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private model.Imagen imagen3;
     private model.Imagen imagen4;
     private model.Imagen imagen5;
-    private model.Imagen imagen6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private model.JPanelRedo jPanelRedo1;
     private model.JPanelRedo jPanelRedo2;
-    private model.JPanelRedo jPanelRedo3;
     private model.JPanelRedo jPanelRedo4;
     private model.JPanelRedo jPanelRedo5;
     private model.JPanelRedo jPanelRedo6;
