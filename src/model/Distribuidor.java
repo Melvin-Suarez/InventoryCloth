@@ -7,6 +7,9 @@ public class Distribuidor {
     private String correo;
     private String categoria;
 
+    public Distribuidor() {
+    }
+
 
 
     public Distribuidor(String nombre, String telefono, String correo, String categoria) {

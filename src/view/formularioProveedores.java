@@ -1,12 +1,22 @@
 
 package view;
 
+import controller.Distribuidores;
 import java.awt.event.KeyEvent;
+import java.util.List;
 import javax.swing.JTextField;
-import javax.swing.SpinnerNumberModel;
+import model.Distribuidor;
+import static view.formularioProveedores.txtNombre;
+import static view.formularioProveedores.txtCorreo;
+import static view.formularioProveedores.txtTelefono;
+import static view.formularioProveedores.txtCategoria;
 
+
+ 
 public class formularioProveedores extends javax.swing.JInternalFrame {
-
+    
+    public boolean Editandolo = false;
+    
     public formularioProveedores() {
         initComponents();
        
@@ -33,7 +43,7 @@ public class formularioProveedores extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        txtMarca = new model.txtField();
+        txtNombre = new model.txtField();
         txtCorreo = new model.txtField();
         txtTelefono = new model.txtField();
         txtCategoria = new model.txtField();
@@ -157,7 +167,7 @@ public class formularioProveedores extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(33, 0, 110));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("Marca:");
+        jLabel1.setText("Nombre:");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(70, 170, 110, 25);
 
@@ -182,14 +192,14 @@ public class formularioProveedores extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel16);
         jLabel16.setBounds(425, 304, 100, 25);
 
-        txtMarca.setBackground(new java.awt.Color(217, 217, 217));
-        txtMarca.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtNombre.setBackground(new java.awt.Color(217, 217, 217));
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtMarcaKeyTyped(evt);
+                txtNombreKeyTyped(evt);
             }
         });
-        jPanel1.add(txtMarca);
-        txtMarca.setBounds(192, 166, 516, 35);
+        jPanel1.add(txtNombre);
+        txtNombre.setBounds(192, 166, 516, 35);
 
         txtCorreo.setBackground(new java.awt.Color(217, 217, 217));
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
@@ -228,6 +238,11 @@ public class formularioProveedores extends javax.swing.JInternalFrame {
         btnDistribuidor.setMinimumSize(new java.awt.Dimension(467, 68));
         btnDistribuidor.setPreferredSize(new java.awt.Dimension(467, 40));
         btnDistribuidor.setRadius(50);
+        btnDistribuidor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnDistribuidorMousePressed(evt);
+            }
+        });
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
@@ -307,7 +322,7 @@ public class formularioProveedores extends javax.swing.JInternalFrame {
             
     }//GEN-LAST:event_txtTelefonoKeyTyped
 
-    private void txtMarcaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMarcaKeyTyped
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
          char car = evt.getKeyChar();
         if (!Character.isLetter(car) && car != ' ' && 
                     car != KeyEvent.VK_BACK_SPACE && 
@@ -315,7 +330,7 @@ public class formularioProveedores extends javax.swing.JInternalFrame {
                     evt.consume(); 
                    
                 }
-    }//GEN-LAST:event_txtMarcaKeyTyped
+    }//GEN-LAST:event_txtNombreKeyTyped
 
     private void txtCategoriaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCategoriaKeyTyped
         char car = evt.getKeyChar();
@@ -327,22 +342,112 @@ public class formularioProveedores extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtCategoriaKeyTyped
 
+    private void btnDistribuidorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDistribuidorMousePressed
+         if (!Editandolo) {
+            try {
+                // Validar campos obligatorios
+                if (txtNombre.getText().trim().isEmpty()
+                        || txtCorreo.getText().trim().isEmpty()
+                        || txtTelefono.getText().trim().isEmpty()
+                        || txtCategoria.getText().trim().isEmpty()) {
+
+                    javax.swing.JOptionPane.showMessageDialog(this,
+                            "Por favor complete todos los campos obligatorios",
+                            "Campos incompletos",
+                            javax.swing.JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+
+                // CREAR UNA NUEVA INSTANCIA DE PRODUCTO CADA VEZ
+                Distribuidor nuevoProducto = new Distribuidor();
+
+                // Configurar los valores del nuevo producto
+                nuevoProducto.setNombre(txtNombre.getText().trim());
+                nuevoProducto.setCorreo(txtCorreo.getText().trim());
+                nuevoProducto.setTelefono(txtTelefono.getText().trim());
+                nuevoProducto.setCategoria(txtCategoria.getText().trim());
+
+                
+
+               
+
+                // Agregar el NUEVO producto a la lista
+                Distribuidores.llenarLista(nuevoProducto);
+
+                // Mostrar mensaje de éxito
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Producto agregado exitosamente",
+                        "Éxito",
+                        javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+                // Limpiar el formulario después de agregar
+                limpiar();
+                
+
+                // Opcional: Actualizar la tabla automáticamente
+                // Si necesitas esto, necesitarías una referencia a la ventana principal
+            } catch (NumberFormatException e) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Error en los datos numéricos: Asegúrese de ingresar números válidos",
+                        "Error de formato",
+                        javax.swing.JOptionPane.ERROR_MESSAGE);
+            } catch (Exception e) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Error al agregar producto: " + e.getMessage(),
+                        "Error",
+                        javax.swing.JOptionPane.ERROR_MESSAGE);
+                e.printStackTrace();
+            }
+        } else {
+            if (txtNombre.getText().trim().isEmpty()
+                        || txtCorreo.getText().trim().isEmpty()
+                        || txtTelefono.getText().trim().isEmpty()
+                        || txtCategoria.getText().trim().isEmpty()) {
+
+                    javax.swing.JOptionPane.showMessageDialog(this,
+                            "Por favor complete todos los campos obligatorios",
+                            "Campos incompletos",
+                            javax.swing.JOptionPane.WARNING_MESSAGE);
+                    return;
+                } else {
+                lista();
+            }
+        }
+    }//GEN-LAST:event_btnDistribuidorMousePressed
+
+     public void limpiar() {
+        txtNombre.setText("");
+        txtTelefono.setText("");
+        txtCorreo.setText("");
+        txtCategoria.setText("");
+       
+    }
+    
+     private void lista() {
+        List<Distribuidor> list = Distribuidores.getLista();
+        int fila = Distribuidores.getCelda();
+        list.get(fila).setNombre(txtNombre.getText().trim());
+        list.get(fila).setCorreo(txtCorreo.getText().trim());
+        list.get(fila).setTelefono(txtTelefono.getText().trim());
+        list.get(fila).setCategoria(txtCategoria.getText().trim());
+        Distribuidores.setLista(list);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private model.Jpanelbtn btnDistribuidor;
-    private model.Imagen imagen1;
+    public model.Jpanelbtn btnDistribuidor;
+    public model.Imagen imagen1;
     private model.Imagen imagen2;
-    private javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    public static javax.swing.JLabel jLabel16;
+    public javax.swing.JLabel jLabel18;
+    public static javax.swing.JLabel jLabel2;
+    public static javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -350,9 +455,9 @@ public class formularioProveedores extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private model.txtField txtCategoria;
-    private model.txtField txtCorreo;
-    private model.txtField txtMarca;
-    private model.txtField txtTelefono;
+    public static model.txtField txtCategoria;
+    public static model.txtField txtCorreo;
+    public static model.txtField txtNombre;
+    public static model.txtField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }
