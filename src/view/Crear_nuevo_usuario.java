@@ -2,15 +2,18 @@ package view;
 
 import controller.Login;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import model.User;
 
 public class Crear_nuevo_usuario extends javax.swing.JFrame {
 
     Login controller;
-    
+    private boolean isAdmin;
+
     public Crear_nuevo_usuario() {
         initComponents();
+        jPanel1.requestFocus();
         this.setLocationRelativeTo(null);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         jPanel1.setFocusable(true);
@@ -60,9 +63,9 @@ public class Crear_nuevo_usuario extends javax.swing.JFrame {
                 txtUserFocusLost(evt);
             }
         });
-        txtUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUserActionPerformed(evt);
+        txtUser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtUserKeyPressed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -85,6 +88,11 @@ public class Crear_nuevo_usuario extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtPassFocusLost(evt);
+            }
+        });
+        txtPass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPassKeyPressed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -154,7 +162,6 @@ public class Crear_nuevo_usuario extends javax.swing.JFrame {
         jPanel1.add(jPanelRedo2, gridBagConstraints);
 
         cboxAdmin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        cboxAdmin.setSelected(true);
         cboxAdmin.setText("Admin");
         cboxAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,7 +196,7 @@ public class Crear_nuevo_usuario extends javax.swing.JFrame {
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitulo.setText("Crear Admin");
+        lblTitulo.setText("Crear Usuario");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -247,68 +254,83 @@ public class Crear_nuevo_usuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MousePressed
-        String contra = new String(txtPass.getPassword());
-        User usuario = new User();
-            controller.setLista(usuario);
-            new MenuPrincipal().setVisible(true);
-            this.dispose();
+        crearUsuario();
     }//GEN-LAST:event_jLabel7MousePressed
 
-    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUserActionPerformed
-
     private void txtUserFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserFocusGained
-        if (txtUser.getText().equals("Usuario")){
-        txtUser.setText("");
-        
-        txtUser.setForeground(Color.BLACK);
+        if (txtUser.getText().equals("Usuario")) {
+            txtUser.setText("");
+
+            txtUser.setForeground(Color.BLACK);
         }
     }//GEN-LAST:event_txtUserFocusGained
 
     private void txtUserFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserFocusLost
-     if (txtUser.getText().equals("")){
-         txtUser.setText("Usuario");
-         
-           txtUser.setForeground(Color.GRAY);
-     }
+        if (txtUser.getText().equals("")) {
+            txtUser.setText("Usuario");
+
+            txtUser.setForeground(Color.GRAY);
+        }
     }//GEN-LAST:event_txtUserFocusLost
 
     private void txtPassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPassFocusGained
-       String Contrasenia = new String(txtPass.getPassword());
-        
-        if (Contrasenia.equals("123456789")){
-         txtPass.setText("");
-         
-           txtPass.setForeground(Color.black);
-     }
+        String Contrasenia = new String(txtPass.getPassword());
+
+        if (Contrasenia.equals("123456789")) {
+            txtPass.setText("");
+
+            txtPass.setForeground(Color.black);
+        }
     }//GEN-LAST:event_txtPassFocusGained
 
     private void txtPassFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPassFocusLost
-         String Contrasenia = new String(txtPass.getPassword());
-        
-        if (Contrasenia.equals("")){
-         txtPass.setText("123456789");
-         
-           txtPass.setForeground(Color.gray);
-     }
+        String Contrasenia = new String(txtPass.getPassword());
+
+        if (Contrasenia.equals("")) {
+            txtPass.setText("123456789");
+
+            txtPass.setForeground(Color.gray);
+        }
     }//GEN-LAST:event_txtPassFocusLost
 
     private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
-      
-                
+        jPanel1.requestFocus();
     }//GEN-LAST:event_jPanel1MousePressed
 
     private void cboxAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxAdminActionPerformed
-       if(cboxAdmin.isSelected()) {
-           lblTitulo.setText("Crear Admin");
-       } else {
-           lblTitulo.setText("Crear Usuario");
-       }
+        if (cboxAdmin.isSelected()) {
+            lblTitulo.setText("Crear Admin");
+            isAdmin = true;
+        } else {
+            lblTitulo.setText("Crear Usuario");
+            isAdmin = false;
+        }
     }//GEN-LAST:event_cboxAdminActionPerformed
 
+    private void txtUserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            txtPass.requestFocus();
+        }
+    }//GEN-LAST:event_txtUserKeyPressed
+
+    private void txtPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            crearUsuario();
+        }
+    }//GEN-LAST:event_txtPassKeyPressed
+
+    private void crearUsuario() {
+        String contra = new String(txtPass.getPassword());
+        User usuario = new User(isAdmin, txtUser.getText().trim(), contra);
+        if(controller.compararUsuarioCon(usuario)) {
+            controller.setLista(usuario);
+            new MenuPrincipal().setVisible(true);
+            this.dispose();
+        }
+    }
+    
     public static void main(String args[]) {
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Crear_nuevo_usuario().setVisible(true);

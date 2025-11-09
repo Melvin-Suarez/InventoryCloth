@@ -3,15 +3,12 @@ package view;
 
 import java.awt.Cursor;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import model.Imagen;
 
 public class MenuPrincipal extends javax.swing.JFrame {
     Cursor mano = new Cursor(Cursor.HAND_CURSOR);
 
     public MenuPrincipal() {
         initComponents();
-        JLabel ejemplo = new Imagen();
         this.setLocationRelativeTo(null);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
@@ -24,6 +21,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         ventana1 = new model.Ventana();
         jLabel2 = new javax.swing.JLabel();
+        figura1 = new model.Figura();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanelRedo2 = new model.JPanelRedo();
@@ -59,6 +57,25 @@ public class MenuPrincipal extends javax.swing.JFrame {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         ventana1.add(jLabel2, gridBagConstraints);
+
+        figura1.setColorRelleno(java.awt.Color.white);
+        figura1.setPreferredSize(new java.awt.Dimension(42, 42));
+        figura1.setRuta("/Recursos/Cerrarsesion.png");
+        figura1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                figura1MouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                figura1MousePressed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        ventana1.add(figura1, gridBagConstraints);
 
         jPanel1.add(ventana1, java.awt.BorderLayout.NORTH);
 
@@ -291,9 +308,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanelRedo1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRedo1MousePressed
-        
-        this.dispose();
         new Inventario_tabla().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jPanelRedo1MousePressed
 
     private void jPanelRedo1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRedo1MouseEntered
@@ -305,9 +321,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanelRedo4MouseEntered
 
     private void jPanelRedo4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRedo4MousePressed
-             
-        this.dispose();
         new Distribuidores_tabla().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jPanelRedo4MousePressed
 
     private void jPanelRedo6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRedo6MouseEntered
@@ -315,10 +330,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanelRedo6MouseEntered
 
     private void jPanelRedo6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRedo6MousePressed
-      
-        this.dispose();
         new Crear_nuevo_usuario().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jPanelRedo6MousePressed
+
+    private void figura1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_figura1MousePressed
+        new LoginView().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_figura1MousePressed
+
+    private void figura1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_figura1MouseEntered
+        figura1.setCursor(mano);
+    }//GEN-LAST:event_figura1MouseEntered
 
     public static void main(String args[]) {
 
@@ -330,6 +353,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private model.Figura figura1;
     private model.Imagen imagen1;
     private model.Imagen imagen2;
     private model.Imagen imagen3;

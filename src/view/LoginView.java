@@ -2,6 +2,7 @@ package view;
 
 import controller.Login;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import model.User;
 
@@ -13,7 +14,7 @@ public class LoginView extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        jPanel1.setFocusable(true);
+        jPanel1.requestFocus();
         controller = new Login();
     }
 
@@ -63,9 +64,9 @@ public class LoginView extends javax.swing.JFrame {
                 txtUserFocusLost(evt);
             }
         });
-        txtUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUserActionPerformed(evt);
+        txtUser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtUserKeyPressed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -88,6 +89,11 @@ public class LoginView extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtPassFocusLost(evt);
+            }
+        });
+        txtPass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPassKeyPressed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -289,17 +295,8 @@ public class LoginView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MousePressed
-        String contra = new String(txtPass.getPassword());
-        User usuario = new User(txtUser.getText().trim(), contra);
-        if(controller.verificar(usuario)) {
-            new MenuPrincipal().setVisible(true);
-            this.dispose();
-        }
+        iniciarSesion();
     }//GEN-LAST:event_jLabel7MousePressed
-
-    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUserActionPerformed
 
     private void txtUserFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserFocusGained
         if (txtUser.getText().equals("Usuario")){
@@ -338,10 +335,31 @@ public class LoginView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPassFocusLost
 
     private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
-      
+        jPanel1.requestFocus();
                 
     }//GEN-LAST:event_jPanel1MousePressed
 
+    private void txtUserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            txtPass.requestFocus();
+        }
+    }//GEN-LAST:event_txtUserKeyPressed
+
+    private void txtPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            iniciarSesion();
+        }
+    }//GEN-LAST:event_txtPassKeyPressed
+
+    private void iniciarSesion() {
+        String contra = new String(txtPass.getPassword());
+        User usuario = new User(txtUser.getText().trim(), contra);
+        if(controller.verificar(usuario)) {
+            new MenuPrincipal().setVisible(true);
+            this.dispose();
+        }
+    }
+    
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {

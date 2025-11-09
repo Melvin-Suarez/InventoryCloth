@@ -1,9 +1,6 @@
 
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class User {
  private boolean Admin;
@@ -11,7 +8,6 @@ public class User {
  private String Contraseña;
  
     public User() {
-       
     }
 
     public User(boolean Admin, String Nombre, String Contraseña) {
