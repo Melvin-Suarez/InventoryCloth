@@ -1,33 +1,36 @@
 package controller;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JOptionPane;
 import model.User;
+import view.MenuPrincipal;
+import view.MenuUsuario;
 
 public class Login {
 
-    // con minuscula 
-    private static List<User> lista = new ArrayList<>();
+    // con minuscula
+    private Listas lista;
+    private String nombre = "";
 
     public Login() {
-        if(lista.isEmpty()) {
-            lista.add(new User(true, "Admin", "12345678"));
-        }
+        lista = Listas.getInstance();
     }
-
-    public List<User> getLista() {
-        return lista;
+    
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
-
-    public void setLista(User usuario) {
-        this.lista.add(usuario);
+    
+    public String getNombre() {
+        return nombre;
     }
-
+    
     public boolean verificar(User usuario) {
-        for (User user : lista) {
+        for (User user : lista.getListaUsuario()) {
             if (usuario.getNombre().equals(user.getNombre())) {
                 if (usuario.getContraseña().equals(user.getContraseña())) {
+                    JOptionPane.showMessageDialog(null, "Has iniciado sesión correctamente", "Login", JOptionPane.INFORMATION_MESSAGE);
+                    System.out.println(user.getNombre());
+                    setNombre(user.getNombre());
+                    IniciarCargo(user.isAdmin());
                     return true;
                 } else {
                     JOptionPane.showMessageDialog(null, "Su contraseña es incorrecta por favor vuelva a intentarlo", "Error: Contrasña Incorrecta", JOptionPane.ERROR_MESSAGE);
@@ -39,8 +42,19 @@ public class Login {
         return false;
     }
     
+    public void IniciarCargo(boolean cargo) {
+        if(cargo) {
+            new MenuPrincipal().setVisible(true);
+            return;
+        } else {
+            new MenuUsuario().setVisible(true);
+        }
+    }
+    
+    
+    
     public boolean compararUsuarioCon(User usuario) {
-        for (User user : lista) {
+        for (User user : lista.getListaUsuario()) {
             if (usuario.getNombre().equals(user.getNombre())) {
                 JOptionPane.showMessageDialog(null, "Este Usuario ya existe", "Error: Usuario existente", JOptionPane.ERROR_MESSAGE);
                     return false;

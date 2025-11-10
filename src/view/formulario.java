@@ -1,22 +1,23 @@
 package view;
 
+import controller.Listas;
 import java.awt.Cursor;
 import java.awt.event.KeyEvent;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import model.Producto;
-import controller.inventory;
-import java.util.List;
-import model.spinnerRedondeado;
+import javax.swing.JOptionPane;
 import static view.formulario.spinner;
 
 public class formulario extends javax.swing.JInternalFrame {
 
     public boolean editando = false;
+    Listas lista;
     private Cursor mano = new Cursor(Cursor.HAND_CURSOR);
 
     public formulario() {
         initComponents();
+        lista = Listas.getInstance();
         SpinnerNumberModel modelo = new SpinnerNumberModel(0, 0, 100, 1);
         spinner.setModel(modelo);
     }
@@ -48,7 +49,7 @@ public class formulario extends javax.swing.JInternalFrame {
         txtMarca = new model.txtField();
         txtCodigo = new model.txtField();
         txtCantidad = new model.txtField();
-        txtPrecio = new model.txtField();
+        txtcompra = new model.txtField();
         txtCategoria = new model.txtField();
         txtTalla = new model.txtField();
         jpanelbtn1 = new model.Jpanelbtn();
@@ -57,6 +58,8 @@ public class formulario extends javax.swing.JInternalFrame {
         imagen2 = new model.Imagen();
         spinner = new model.spinnerRedondeado();
         jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        txtPrecio = new model.txtField();
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -165,7 +168,6 @@ public class formulario extends javax.swing.JInternalFrame {
         );
 
         setClosable(true);
-        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
@@ -175,28 +177,28 @@ public class formulario extends javax.swing.JInternalFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel1.setText("Marca:");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(70, 170, 110, 25);
+        jLabel1.setBounds(50, 170, 110, 25);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(33, 0, 110));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Codigo de barra:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(21, 233, 160, 25);
+        jLabel2.setBounds(0, 230, 160, 25);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(33, 0, 110));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Cantidad:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(86, 304, 100, 25);
+        jLabel3.setBounds(60, 300, 100, 25);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(33, 0, 110));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel4.setText("Precio de venta:");
+        jLabel4.setText("Precio de compra:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(46, 370, 140, 25);
+        jLabel4.setBounds(0, 360, 160, 25);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(33, 0, 110));
@@ -217,7 +219,7 @@ public class formulario extends javax.swing.JInternalFrame {
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel17.setText("Categoria:");
         jPanel1.add(jLabel17);
-        jLabel17.setBounds(435, 370, 90, 25);
+        jLabel17.setBounds(430, 360, 90, 25);
 
         txtMarca.setBackground(new java.awt.Color(217, 217, 217));
         txtMarca.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -226,7 +228,7 @@ public class formulario extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(txtMarca);
-        txtMarca.setBounds(192, 166, 516, 35);
+        txtMarca.setBounds(170, 170, 200, 35);
 
         txtCodigo.setBackground(new java.awt.Color(217, 217, 217));
         txtCodigo.addActionListener(new java.awt.event.ActionListener() {
@@ -240,7 +242,7 @@ public class formulario extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(txtCodigo);
-        txtCodigo.setBounds(192, 231, 200, 35);
+        txtCodigo.setBounds(170, 230, 200, 35);
 
         txtCantidad.setBackground(new java.awt.Color(217, 217, 217));
         txtCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -249,16 +251,16 @@ public class formulario extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(txtCantidad);
-        txtCantidad.setBounds(192, 302, 200, 35);
+        txtCantidad.setBounds(170, 300, 200, 35);
 
-        txtPrecio.setBackground(new java.awt.Color(217, 217, 217));
-        txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtcompra.setBackground(new java.awt.Color(217, 217, 217));
+        txtcompra.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtPrecioKeyTyped(evt);
+                txtcompraKeyTyped(evt);
             }
         });
-        jPanel1.add(txtPrecio);
-        txtPrecio.setBounds(192, 368, 200, 35);
+        jPanel1.add(txtcompra);
+        txtcompra.setBounds(170, 360, 200, 35);
 
         txtCategoria.setBackground(new java.awt.Color(217, 217, 217));
         txtCategoria.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -267,7 +269,7 @@ public class formulario extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(txtCategoria);
-        txtCategoria.setBounds(531, 368, 177, 35);
+        txtCategoria.setBounds(530, 360, 177, 35);
 
         txtTalla.setBackground(new java.awt.Color(217, 217, 217));
         txtTalla.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -347,6 +349,22 @@ public class formulario extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel19);
         jLabel19.setBounds(710, 310, 16, 25);
 
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(33, 0, 110));
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel20.setText("Precio de venta:");
+        jPanel1.add(jLabel20);
+        jLabel20.setBounds(370, 170, 150, 25);
+
+        txtPrecio.setBackground(new java.awt.Color(217, 217, 217));
+        txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPrecioKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtPrecio);
+        txtPrecio.setBounds(530, 170, 180, 35);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -362,78 +380,7 @@ public class formulario extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jpanelbtn1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn1MousePressed
-        if (!editando) {
-            try {
-                // Validar campos obligatorios
-                if (txtMarca.getText().trim().isEmpty()
-                        || txtCodigo.getText().trim().isEmpty()
-                        || txtCantidad.getText().trim().isEmpty()
-                        || txtPrecio.getText().trim().isEmpty()) {
-
-                    javax.swing.JOptionPane.showMessageDialog(this,
-                            "Por favor complete todos los campos obligatorios",
-                            "Campos incompletos",
-                            javax.swing.JOptionPane.WARNING_MESSAGE);
-                    return;
-                }
-
-                // CREAR UNA NUEVA INSTANCIA DE PRODUCTO CADA VEZ
-                Producto nuevoProducto = new Producto();
-
-                // Configurar los valores del nuevo producto
-                nuevoProducto.setMarca(txtMarca.getText().trim());
-                nuevoProducto.setBarcode(txtCodigo.getText().trim());
-                nuevoProducto.setTalla(txtTalla.getText().trim());
-                nuevoProducto.setCant(Integer.parseInt(txtCantidad.getText().trim()));
-
-                double Descount = ((Number) spinner.getValue()).doubleValue() / 100.0;
-                nuevoProducto.setDescount(Descount);
-
-                nuevoProducto.setPrecio(Double.parseDouble(txtPrecio.getText().trim()));
-                nuevoProducto.setCategoria(txtCategoria.getText().trim());
-
-                // Agregar el NUEVO producto a la lista
-                inventory.llenarLista(nuevoProducto);
-
-                // Mostrar mensaje de éxito
-                javax.swing.JOptionPane.showMessageDialog(this,
-                        "Producto agregado exitosamente",
-                        "Éxito",
-                        javax.swing.JOptionPane.INFORMATION_MESSAGE);
-
-                // Limpiar el formulario después de agregar
-                limpiar();
-                
-
-                // Opcional: Actualizar la tabla automáticamente
-                // Si necesitas esto, necesitarías una referencia a la ventana principal
-            } catch (NumberFormatException e) {
-                javax.swing.JOptionPane.showMessageDialog(this,
-                        "Error en los datos numéricos: Asegúrese de ingresar números válidos",
-                        "Error de formato",
-                        javax.swing.JOptionPane.ERROR_MESSAGE);
-            } catch (Exception e) {
-                javax.swing.JOptionPane.showMessageDialog(this,
-                        "Error al agregar producto: " + e.getMessage(),
-                        "Error",
-                        javax.swing.JOptionPane.ERROR_MESSAGE);
-                e.printStackTrace();
-            }
-        } else {
-            if (txtMarca.getText().trim().isEmpty()
-                        || txtCodigo.getText().trim().isEmpty()
-                        || txtCantidad.getText().trim().isEmpty()
-                        || txtPrecio.getText().trim().isEmpty()) {
-
-                    javax.swing.JOptionPane.showMessageDialog(this,
-                            "Por favor complete todos los campos obligatorios",
-                            "Campos incompletos",
-                            javax.swing.JOptionPane.WARNING_MESSAGE);
-                    return;
-                } else {
-                lista();
-            }
-        }
+        Boton();
     }//GEN-LAST:event_jpanelbtn1MousePressed
 
     private void jpanelbtn1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn1MouseEntered
@@ -468,7 +415,7 @@ public class formulario extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtCategoriaKeyTyped
 
-    private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
+    private void txtcompraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcompraKeyTyped
         char car = evt.getKeyChar();
         String currentText = ((JTextField) evt.getSource()).getText();
 
@@ -484,7 +431,7 @@ public class formulario extends javax.swing.JInternalFrame {
 
         evt.consume();
 
-    }//GEN-LAST:event_txtPrecioKeyTyped
+    }//GEN-LAST:event_txtcompraKeyTyped
 
     private void txtCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadKeyTyped
         char car = evt.getKeyChar();
@@ -540,30 +487,146 @@ public class formulario extends javax.swing.JInternalFrame {
    
     }//GEN-LAST:event_spinnerKeyTyped
 
+    private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
+                char car = evt.getKeyChar();
+        String currentText = ((JTextField) evt.getSource()).getText();
+
+        if (Character.isDigit(car)) {
+            return;
+        }
+        if (car == '.') {
+            if (currentText.contains(".")) {
+                evt.consume();
+            }
+            return;
+        }
+
+        evt.consume();
+    }//GEN-LAST:event_txtPrecioKeyTyped
+
+    private void txtMarca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMarca1ActionPerformed
+        
+    }//GEN-LAST:event_txtMarca1ActionPerformed
+
     public void limpiar() {
         txtMarca.setText("");
         txtCodigo.setText("");
         txtTalla.setText("");
         txtCantidad.setText("");
         spinner.setValue(0);
-        txtPrecio.setText("");
+        txtcompra.setText("");
         txtCategoria.setText("");
+        txtcompra.setText("");
     }
     
-    private void lista() {
-        List<Producto> list = inventory.getLista();
-        int fila = inventory.getCelda();
-        list.get(fila).setBarcode(txtCodigo.getText().trim());
-        list.get(fila).setMarca(txtMarca.getText().trim());
-        list.get(fila).setCategoria(txtCategoria.getText().trim());
-        list.get(fila).setTalla(txtTalla.getText().trim());
-        int descuento = Integer.parseInt(spinner.getValue().toString());
-        descuento = descuento  > 1 ? descuento / 100 : descuento * 100;
-        list.get(fila).setDescount(descuento);
-        list.get(fila).setPrecio(Double.parseDouble(txtPrecio.getText().trim()));
-        list.get(fila).setCant(Integer.parseInt(txtCantidad.getText().trim()));
-        inventory.setLista(list);
-    }
+    private void Boton() {
+        if (!editando) {
+            try {
+                // Validar campos obligatorios
+                if (txtMarca.getText().trim().isEmpty()
+                        || txtCodigo.getText().trim().isEmpty()
+                        || txtCantidad.getText().trim().isEmpty()
+                        || txtcompra.getText().trim().isEmpty()) {
+
+                    javax.swing.JOptionPane.showMessageDialog(this,
+                            "Por favor complete todos los campos obligatorios",
+                            "Campos incompletos",
+                            javax.swing.JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+
+                Producto nuevoProducto = new Producto();
+                
+                if(compararBarcodeCon(txtCodigo.getText().trim())) {
+                    return;
+                }
+
+                // Configurar los valores del nuevo producto
+                nuevoProducto.setMarca(txtMarca.getText().trim());
+                nuevoProducto.setBarcode(txtCodigo.getText().trim());
+                nuevoProducto.setTalla(txtTalla.getText().trim());
+                nuevoProducto.setCant(Integer.parseInt(txtCantidad.getText().trim()));
+
+                double Descount = ((Number) spinner.getValue()).doubleValue() / 100.0;
+                nuevoProducto.setDescount(Descount);
+
+                nuevoProducto.setCompra(Double.parseDouble(txtcompra.getText().trim()));
+                nuevoProducto.setPrecio(Double.parseDouble(txtPrecio.getText().trim()));
+                nuevoProducto.setCategoria(txtCategoria.getText().trim());
+                
+                if(nuevoProducto.getIngresos() <= 0) {
+                    int resp = JOptionPane.showConfirmDialog(
+                            null,
+                            "Los ingresos de este producto son menores o iguales a cero\n" +
+                            "Se recomienda que suba el precio\n" +
+                            "¿Aun asi desea guardar este producto?",
+                            "Advertencia",
+                            JOptionPane.YES_NO_OPTION,  JOptionPane.WARNING_MESSAGE);
+                    if(resp == JOptionPane.NO_OPTION) {
+                        return;
+                    }
+                }
+
+                // Agregar el NUEVO producto a la lista
+                lista.setAgregaProducto(nuevoProducto);
+
+                // Mostrar mensaje de éxito
+                JOptionPane.showMessageDialog(this,
+                        "Producto agregado exitosamente",
+                        "Éxito",
+                        JOptionPane.INFORMATION_MESSAGE);
+
+                limpiar();
+                
+                this.dispose();
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this,
+                        "Error en los datos numéricos: Asegúrese de ingresar números válidos",
+                        "Error de formato",
+                        javax.swing.JOptionPane.ERROR_MESSAGE);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this,
+                        "Error al agregar producto: " + e.getMessage(),
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                e.printStackTrace();
+            }
+        } else {
+            if (txtMarca.getText().trim().isEmpty()
+                        || txtCodigo.getText().trim().isEmpty()
+                        || txtCantidad.getText().trim().isEmpty()
+                        || txtcompra.getText().trim().isEmpty()) {
+
+                    JOptionPane.showMessageDialog(this,
+                            "Por favor complete todos los campos obligatorios",
+                            "Campos incompletos",
+                            JOptionPane.WARNING_MESSAGE);
+                    return;
+                } else {
+                String barcode = txtCodigo.getText().trim();
+                String marca = txtMarca.getText().trim();
+                String categoria = txtCategoria.getText().trim();
+                String talla = txtTalla.getText().trim();
+                String descount = spinner.getValue().toString();
+                String compra = txtcompra.getText().trim();
+                String precio = txtPrecio.getText().trim();
+                String cantidad = txtCantidad.getText().trim();
+                
+                if(lista.setEditarProducto(barcode, marca, categoria, talla, descount, compra, precio, cantidad)) {
+                this.dispose();
+                }
+            }
+        }
+}
+        public boolean compararBarcodeCon(String barcode) {
+        for(Producto pro : lista.getListaProducto()) {
+           if(pro.getBarcode().equals(barcode)) {
+               JOptionPane.showMessageDialog(null, "El codigo de barra que ingresaste ya existe intenta otro", "Advertencia", JOptionPane.WARNING_MESSAGE);
+               return true;
+           }
+       }
+        return false;
+   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public model.Imagen imagen1;
@@ -580,6 +643,7 @@ public class formulario extends javax.swing.JInternalFrame {
     public javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -598,5 +662,6 @@ public class formulario extends javax.swing.JInternalFrame {
     public static model.txtField txtMarca;
     public static model.txtField txtPrecio;
     public static model.txtField txtTalla;
+    public static model.txtField txtcompra;
     // End of variables declaration//GEN-END:variables
 }

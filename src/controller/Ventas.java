@@ -5,12 +5,12 @@ import javax.swing.table.DefaultTableModel;
 import model.Producto;
 import view.formulario;
 
-public class inventory extends DefaultTableModel {
+public class Ventas extends DefaultTableModel {
     
     private Listas lista = Listas.getInstance();
     private static int celda;
     
-    public inventory() {
+    public Ventas() {
         super();
         agregarColumnas();
     }
@@ -21,10 +21,9 @@ public class inventory extends DefaultTableModel {
         this.addColumn("Categoria");
         this.addColumn("Talla");
         this.addColumn("Descuento");
-        this.addColumn("Precio de compra");
-        this.addColumn("Precio de venta");
+        this.addColumn("Precio");
         this.addColumn("Cantidad");
-        this.addColumn("Ingresos");
+        this.addColumn("Total");
     }
     
     public void llenarTabla() {
@@ -38,7 +37,6 @@ public class inventory extends DefaultTableModel {
                 pro.getCategoria(),
                 pro.getTalla(),
                 pro.getDescountT(),
-                pro.getCompraT(),
                 pro.getPrecioT(),
                 pro.getCantT(),
                 pro.getTotalT()

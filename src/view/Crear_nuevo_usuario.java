@@ -1,5 +1,6 @@
 package view;
 
+import controller.Listas;
 import controller.Login;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
@@ -9,6 +10,7 @@ import model.User;
 public class Crear_nuevo_usuario extends javax.swing.JFrame {
 
     Login controller;
+    private Listas lista;
     private boolean isAdmin;
 
     public Crear_nuevo_usuario() {
@@ -18,6 +20,7 @@ public class Crear_nuevo_usuario extends javax.swing.JFrame {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         jPanel1.setFocusable(true);
         controller = new Login();
+        lista = Listas.getInstance();
     }
 
     @SuppressWarnings("unchecked")
@@ -323,7 +326,7 @@ public class Crear_nuevo_usuario extends javax.swing.JFrame {
         String contra = new String(txtPass.getPassword());
         User usuario = new User(isAdmin, txtUser.getText().trim(), contra);
         if(controller.compararUsuarioCon(usuario)) {
-            controller.setLista(usuario);
+            lista.setAgregarUsuario(usuario);
             new MenuPrincipal().setVisible(true);
             this.dispose();
         }

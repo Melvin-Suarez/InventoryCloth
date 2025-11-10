@@ -2,6 +2,7 @@ package view;
 
 import controller.Login;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import model.User;
@@ -9,6 +10,7 @@ import model.User;
 public class LoginView extends javax.swing.JFrame {
 
     Login controller;
+    Cursor mano = new Cursor(Cursor.HAND_CURSOR);
     
     public LoginView() {
         initComponents();
@@ -114,6 +116,9 @@ public class LoginView extends javax.swing.JFrame {
         jLabel7.setText("Iniciar");
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel7MouseEntered(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel7MousePressed(evt);
             }
@@ -351,11 +356,14 @@ public class LoginView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtPassKeyPressed
 
+    private void jLabel7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseEntered
+        jLabel7.setCursor(mano);
+    }//GEN-LAST:event_jLabel7MouseEntered
+
     private void iniciarSesion() {
         String contra = new String(txtPass.getPassword());
         User usuario = new User(txtUser.getText().trim(), contra);
         if(controller.verificar(usuario)) {
-            new MenuPrincipal().setVisible(true);
             this.dispose();
         }
     }

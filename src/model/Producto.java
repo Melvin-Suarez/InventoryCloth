@@ -6,29 +6,38 @@ public class Producto {
     private String categoria;
     private String talla;
     private double descount;
+    private double compra;
     private double precio;
     private int cant;
-    private double total;
+    private double ingresos;
 
-    public Producto(String Barcode, String Marca, String categoria, String talla, double descount, double precio, int cant) {
+    public Producto(String Barcode, String Marca, String categoria, String talla, double descount, double compra, double precio, int cant) {
         this.Barcode = Barcode;
         this.Marca = Marca;
         this.categoria = categoria;
         this.talla = talla;
-        this.descount = descount;
+        this.compra = compra;
         this.precio = precio;
         this.cant = cant;
-        calcularTotal();
+        calcularIngresos();
     }
 
     public Producto() {
         
     }
 
-    // Método para calcular el total
-    private void calcularTotal() {
-        double precioConDescuento = precio - (precio * descount);
-        this.total = precioConDescuento * cant;
+    // Método para calcular el ingresos
+    private void calcularIngresos() {
+        if(descount >= 1) {
+            descount /= 100;
+            double precioConDescuento = precio - (precio * descount);
+            double calculando = (cant * precioConDescuento) - compra;
+            this.ingresos = calculando;
+        }else {
+            double precioConDescuento = precio - (precio * descount);
+            double calculando = (cant * precioConDescuento) - compra;
+            this.ingresos = calculando;
+        }
     }
 
     public String getCategoria() {
@@ -69,7 +78,7 @@ public class Producto {
 
     public void setDescount(double descount) {
         this.descount = descount;
-        calcularTotal(); // Recalcular cuando cambia el descuento
+        calcularIngresos(); // Recalcular cuando cambia el descuento
     }
 
     public double getPrecio() {
@@ -78,7 +87,7 @@ public class Producto {
 
     public void setPrecio(double precio) {
         this.precio = precio;
-        calcularTotal(); // Recalcular cuando cambia el precio
+        calcularIngresos(); // Recalcular cuando cambia el precio
     }
 
     public int getCant() {
@@ -87,20 +96,45 @@ public class Producto {
 
     public void setCant(int cant) {
         this.cant = cant;
-        calcularTotal(); // Recalcular cuando cambia la cantidad
+        calcularIngresos(); // Recalcular cuando cambia la cantidad
     }
 
     public double getTotal() {
-        return total;
+        return ingresos;
     }
 
+    public double getCompra() {
+        return compra;
+    }
+
+    public void setCompra(double compra) {
+        this.compra = compra;
+        calcularIngresos();
+    }
+
+    public double getIngresos() {
+        calcularIngresos();
+        return ingresos;
+    }
+
+    public void setIngresos(double ingresos) {
+        this.ingresos = ingresos;
+    }
+
+    
+    
     // Métodos para la tabla (sin lógica de cálculo)
+    public String getCompraT() {
+        return String.format("%.2f", compra) + " C$";
+    }
+    
     public String getDescountT() {
-        return String.format("%.0f", descount * 100) + "%";
+        if(descount < 1) descount *= 100;
+        return String.format("%.0f", descount) + "%";
     }
     
     public String getPrecioT() {
-        return String.format("%.2f", precio);
+        return String.format("%.2f", precio) + " C$";
     }
     
     public String getCantT() {
@@ -108,6 +142,6 @@ public class Producto {
     }
     
     public String getTotalT() {
-        return String.format("%.2f", total);
+        return String.format("%.2f", ingresos) + " C$";
     }
 }

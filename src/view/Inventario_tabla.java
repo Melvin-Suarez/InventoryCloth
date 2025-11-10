@@ -1,17 +1,23 @@
 package view;
 
+import controller.Listas;
 import java.awt.Cursor;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import controller.inventory;
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.RowFilter;
+import javax.swing.table.TableRowSorter;
 
 public class Inventario_tabla extends JFrame {
     
     private Cursor mano = new Cursor(Cursor.HAND_CURSOR);
     private inventory modelo;
     private formulario form;
-    private boolean Crearventana = false;
+    private Listas listaProducto;
+    private TableRowSorter<inventory> sorter;
 
     public Inventario_tabla() {
         initComponents();
@@ -19,7 +25,10 @@ public class Inventario_tabla extends JFrame {
         Tabla.setModel(modelo);
         this.setLocationRelativeTo(null);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
+        listaProducto = Listas.getInstance();
+        sorter = new TableRowSorter<>(modelo);
+        Tabla.setRowSorter(sorter);
+        modelo.llenarTabla();
     }
 
     @SuppressWarnings("unchecked")
@@ -33,7 +42,7 @@ public class Inventario_tabla extends JFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
-        txtField1 = new model.txtField();
+        txtFiltro = new model.txtField();
         jpanelbtn1 = new model.Jpanelbtn();
         jLabel1 = new javax.swing.JLabel();
         imagen2 = new model.Imagen();
@@ -48,6 +57,12 @@ public class Inventario_tabla extends JFrame {
         imagen5 = new model.Imagen();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        desktopPane.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                desktopPaneMousePressed(evt);
+            }
+        });
 
         ventana1.setPreferredSize(new java.awt.Dimension(70, 70));
         ventana1.setLayout(new java.awt.GridBagLayout());
@@ -94,6 +109,18 @@ public class Inventario_tabla extends JFrame {
             }
         ));
         jScrollPane1.setViewportView(Tabla);
+
+        txtFiltro.setText("Buscar Producto");
+        txtFiltro.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtFiltroFocusGained(evt);
+            }
+        });
+        txtFiltro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtFiltroKeyReleased(evt);
+            }
+        });
 
         jpanelbtn1.setBackground(new java.awt.Color(0, 110, 53));
         jpanelbtn1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -167,6 +194,9 @@ public class Inventario_tabla extends JFrame {
 
         jpanelbtn6.setBackground(new java.awt.Color(170, 167, 30));
         jpanelbtn6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jpanelbtn6MouseEntered(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jpanelbtn6MousePressed(evt);
             }
@@ -234,7 +264,7 @@ public class Inventario_tabla extends JFrame {
 
         desktopPane.setLayer(ventana1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         desktopPane.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktopPane.setLayer(txtField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(txtFiltro, javax.swing.JLayeredPane.DEFAULT_LAYER);
         desktopPane.setLayer(jpanelbtn1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         desktopPane.setLayer(jpanelbtn5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         desktopPane.setLayer(jpanelbtn6, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -256,7 +286,7 @@ public class Inventario_tabla extends JFrame {
                         .addComponent(jpanelbtn5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(27, 27, 27)
                         .addComponent(jpanelbtn7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(txtField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtFiltro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1))
                 .addGap(158, 158, 158))
         );
@@ -265,7 +295,7 @@ public class Inventario_tabla extends JFrame {
             .addGroup(desktopPaneLayout.createSequentialGroup()
                 .addComponent(ventana1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(txtField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addGroup(desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jpanelbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -289,12 +319,11 @@ public class Inventario_tabla extends JFrame {
 
     private void jpanelbtn1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn1MousePressed
         try {
-            if (!Crearventana) {
-                Crearventana = true;
+            if (form == null || form.isClosed()) {
                 form = new formulario();
                 desktopPane.add(form);
+                form.setVisible(true);
             }
-            form.setVisible(true);
             form.editando = false;
             form.limpiar();
             form.jpanelbtn1.setBackground(new Color(0, 110, 53));
@@ -307,15 +336,25 @@ public class Inventario_tabla extends JFrame {
     }//GEN-LAST:event_jpanelbtn1MousePressed
 
     private void jpanelbtn6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn6MousePressed
+        int celda = Tabla.getSelectedRow();
+        listaProducto.setFila(celda);
         try {
-            if (!Crearventana) {
-                Crearventana = true;
+            if (form == null) {
+                form = new formulario();
+                form.dispose();
+            }
+            if (form.isClosed()) {
                 form = new formulario();
                 desktopPane.add(form);
+                if(celda != -1) {
+                    form.setVisible(true);
+                } else {
+                    form.dispose();
+                }
             }
-            form.setVisible(true);
             form.editando = true;
             form.limpiar();
+            listaProducto.setFila(celda);
             modelo.setCelda(Tabla.getSelectedRow());
             form.jpanelbtn1.setBackground(new Color(170, 167, 30));
             form.jLabel18.setText("Editar Producto");
@@ -347,7 +386,6 @@ public class Inventario_tabla extends JFrame {
     private void jpanelbtn7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn7MousePressed
         
         modelo.setCelda(Tabla.getSelectedRow());
-        
         modelo.eliminarProducto();
     }//GEN-LAST:event_jpanelbtn7MousePressed
 
@@ -355,6 +393,37 @@ public class Inventario_tabla extends JFrame {
         jpanelbtn7.setCursor(mano);
     }//GEN-LAST:event_jpanelbtn7MouseEntered
 
+    private void jpanelbtn6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn6MouseEntered
+        jpanelbtn6.setCursor(mano);
+    }//GEN-LAST:event_jpanelbtn6MouseEntered
+
+    private void txtFiltroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFiltroKeyReleased
+        Filtro();
+    }//GEN-LAST:event_txtFiltroKeyReleased
+
+    private void txtFiltroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFiltroFocusGained
+        txtFiltro.setText("");
+    }//GEN-LAST:event_txtFiltroFocusGained
+
+    private void desktopPaneMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_desktopPaneMousePressed
+        desktopPane.requestFocus();
+    }//GEN-LAST:event_desktopPaneMousePressed
+
+    private void Filtro() {
+        String busqueda = txtFiltro.getText().trim();
+        
+        if(busqueda.isEmpty()) {
+            sorter.setRowFilter(null);
+        } else {
+            List<RowFilter<inventory, Object>> filtros = new ArrayList<>();
+            filtros.add(RowFilter.regexFilter("(?i)" + busqueda, 0));
+            filtros.add(RowFilter.regexFilter("(?i)" + busqueda, 1));
+            filtros.add(RowFilter.regexFilter("(?i)" + busqueda, 2));
+            
+            sorter.setRowFilter(RowFilter.orFilter(filtros));
+        }
+    }
+    
     private void actualizarTabla() {
         modelo.llenarTabla();
     }
@@ -386,7 +455,7 @@ public class Inventario_tabla extends JFrame {
     private model.Jpanelbtn jpanelbtn5;
     private model.Jpanelbtn jpanelbtn6;
     private model.Jpanelbtn jpanelbtn7;
-    private model.txtField txtField1;
+    private model.txtField txtFiltro;
     private model.Ventana ventana1;
     // End of variables declaration//GEN-END:variables
 
