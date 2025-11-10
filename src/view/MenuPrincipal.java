@@ -2,15 +2,21 @@
 package view;
 
 import java.awt.Cursor;
+import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import view.formulario;
 
 public class MenuPrincipal extends javax.swing.JFrame {
     Cursor mano = new Cursor(Cursor.HAND_CURSOR);
-
+      
+     
     public MenuPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+      
+
     }
     
     @SuppressWarnings("unchecked")
@@ -22,6 +28,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         ventana1 = new model.Ventana();
         jLabel2 = new javax.swing.JLabel();
         figura1 = new model.Figura();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanelRedo2 = new model.JPanelRedo();
@@ -51,12 +59,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Menu Principal");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        ventana1.add(jLabel2, gridBagConstraints);
+        ventana1.add(jLabel2, new java.awt.GridBagConstraints());
 
         figura1.setColorRelleno(java.awt.Color.white);
         figura1.setPreferredSize(new java.awt.Dimension(42, 42));
@@ -76,6 +79,25 @@ public class MenuPrincipal extends javax.swing.JFrame {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         ventana1.add(figura1, gridBagConstraints);
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Menu Principal");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        ventana1.add(jLabel7, gridBagConstraints);
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Admin");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        ventana1.add(jLabel8, gridBagConstraints);
 
         jPanel1.add(ventana1, java.awt.BorderLayout.NORTH);
 
@@ -206,6 +228,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(jPanelRedo1, gridBagConstraints);
 
+        jPanelRedo5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelRedo5MouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanelRedo5MousePressed(evt);
+            }
+        });
         jPanelRedo5.setLayout(new java.awt.GridBagLayout());
 
         imagen5.setText("imagen5");
@@ -335,13 +365,39 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanelRedo6MousePressed
 
     private void figura1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_figura1MousePressed
-        new LoginView().setVisible(true);
-        this.dispose();
+        int respuesta = JOptionPane.showConfirmDialog(
+            this,
+            "¿Estás seguro que deseas cerrar sesión?",
+            "Confirmar Cierre de Sesión",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE
+        );
+        
+        if (respuesta == JOptionPane.YES_OPTION) {
+                     new LoginView().setVisible(true);  
+                      this.dispose();
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Continúas en el sistema");
+            
+          
+        }
+        
+       
+        
     }//GEN-LAST:event_figura1MousePressed
 
     private void figura1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_figura1MouseEntered
         figura1.setCursor(mano);
     }//GEN-LAST:event_figura1MouseEntered
+
+    private void jPanelRedo5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRedo5MouseEntered
+        jPanelRedo5.setCursor(mano);
+    }//GEN-LAST:event_jPanelRedo5MouseEntered
+
+    private void jPanelRedo5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRedo5MousePressed
+       
+    }//GEN-LAST:event_jPanelRedo5MousePressed
 
     public static void main(String args[]) {
 
@@ -365,6 +421,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

@@ -3,6 +3,7 @@ package view;
 import controller.Listas;
 import controller.Login;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import model.User;
@@ -12,7 +13,9 @@ public class Crear_nuevo_usuario extends javax.swing.JFrame {
     Login controller;
     private Listas lista;
     private boolean isAdmin;
-
+    private Cursor mano = new Cursor(Cursor.HAND_CURSOR);
+    
+    
     public Crear_nuevo_usuario() {
         initComponents();
         jPanel1.requestFocus();
@@ -42,6 +45,7 @@ public class Crear_nuevo_usuario extends javax.swing.JFrame {
         lblTitulo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         figura4 = new model.Figura();
+        imagen2 = new model.Imagen();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -164,7 +168,8 @@ public class Crear_nuevo_usuario extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(33, 0, 0, 0);
         jPanel1.add(jPanelRedo2, gridBagConstraints);
 
-        cboxAdmin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cboxAdmin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        cboxAdmin.setForeground(new java.awt.Color(51, 102, 255));
         cboxAdmin.setText("Admin");
         cboxAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -242,6 +247,26 @@ public class Crear_nuevo_usuario extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 50, 0, 50);
         jPanel2.add(figura4, gridBagConstraints);
+
+        imagen2.setText("imagen1");
+        imagen2.setName(""); // NOI18N
+        imagen2.setPreferredSize(new java.awt.Dimension(42, 42));
+        imagen2.setRuta("/recursos/atras.png");
+        imagen2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                imagen2MouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                imagen2MousePressed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        jPanel2.add(imagen2, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -322,6 +347,15 @@ public class Crear_nuevo_usuario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtPassKeyPressed
 
+    private void imagen2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagen2MouseEntered
+        imagen2.setCursor(mano);
+    }//GEN-LAST:event_imagen2MouseEntered
+
+    private void imagen2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagen2MousePressed
+        new MenuPrincipal().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_imagen2MousePressed
+
     private void crearUsuario() {
         String contra = new String(txtPass.getPassword());
         User usuario = new User(isAdmin, txtUser.getText().trim(), contra);
@@ -346,6 +380,7 @@ public class Crear_nuevo_usuario extends javax.swing.JFrame {
     private model.Figura figura3;
     private model.Figura figura4;
     private model.Imagen imagen1;
+    private model.Imagen imagen2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
