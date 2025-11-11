@@ -21,7 +21,9 @@ public class Listas {
         userName = "";
         isAdmin = false;
         listaUsuario.add(new User(true, "Admin", "12345678"));
+        listaUsuario.add(new User(false,"melvin", "12345678"));
         listaUsuario.add(new User(false, "Aldo", "12345678"));
+        listaUsuario.add(new User(false, "carlos", "12345678"));
         listaProducto.add(new Producto("000001", "Pengüin", "Pantalon", "30", 0.1, 100.00, 10.00, 12));
         listaProducto.add(new Producto("000000", "Levis", "Camisa", "20", 0, 1000, 2000, 10));
         listaProducto.add(new Producto("000005", "Levis", "Camisa", "20", 0, 1000, 2000, 10));

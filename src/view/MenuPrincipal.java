@@ -9,7 +9,7 @@ import view.formulario;
 
 public class MenuPrincipal extends javax.swing.JFrame {
     Cursor mano = new Cursor(Cursor.HAND_CURSOR);
-      
+    Configuracion config;
      
     public MenuPrincipal() {
         initComponents();
@@ -100,8 +100,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         ventana1.add(jLabel8, gridBagConstraints);
 
         jPanel1.add(ventana1, java.awt.BorderLayout.NORTH);
-
-        jPanel2.setLayout(new java.awt.GridBagLayout());
 
         jPanel3.setPreferredSize(new java.awt.Dimension(524, 262));
         jPanel3.setLayout(new java.awt.GridBagLayout());
@@ -316,15 +314,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(jPanelRedo6, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 310;
-        gridBagConstraints.ipady = 181;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(110, 100, 110, 100);
-        jPanel2.add(jPanel3, gridBagConstraints);
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(178, 178, 178)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 921, Short.MAX_VALUE)
+                .addGap(179, 179, 179))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(110, 110, 110))
+        );
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.CENTER);
 
@@ -396,7 +401,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanelRedo5MouseEntered
 
     private void jPanelRedo5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRedo5MousePressed
-       
+         if(config == null || config.isClosed()) {
+        config = new Configuracion();
+        jPanel2.add(config);
+        config.setVisible(true);
+        }
     }//GEN-LAST:event_jPanelRedo5MousePressed
 
     public static void main(String args[]) {

@@ -108,7 +108,7 @@ public class PuntoVenta extends javax.swing.JFrame {
     }//GEN-LAST:event_imagen1MouseEntered
 
     private void imagen1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagen1MousePressed
-        new MenuPrincipal().setVisible(true);
+        new MenuUsuario().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_imagen1MousePressed
 

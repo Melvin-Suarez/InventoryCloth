@@ -400,7 +400,65 @@ public class formulario extends javax.swing.JInternalFrame {
             }
             return;
         }
-
+        if (car == 'S') {
+            if (currentText.contains("S")) {
+                evt.consume();
+            }
+            return;
+        }
+        if (car == 'M') {
+            if (currentText.contains("M")) {
+                evt.consume();
+            }
+            return;
+        }
+        if (car == 'L') {
+            if (currentText.contains("L")) {
+                evt.consume();
+            }
+            return;
+        }
+        if (car == 'X') {
+            if (currentText.contains("X")) {
+                evt.consume();
+            }
+            return;
+        }
+        if (car == 'P') {
+            if (currentText.contains("P")) {
+                evt.consume();
+            }
+            return;
+        } if (car == 's') {
+            if (currentText.contains("s")) {
+                evt.consume();
+            }
+            return;
+        }
+        if (car == 'm') {
+            if (currentText.contains("m")) {
+                evt.consume();
+            }
+            return;
+        }
+        if (car == 'l') {
+            if (currentText.contains("l")) {
+                evt.consume();
+            }
+            return;
+        }
+        if (car == 'x') {
+            if (currentText.contains("x")) {
+                evt.consume();
+            }
+            return;
+        }    
+        if (car == 'p') {
+            if (currentText.contains("p")) {
+                evt.consume();
+            }
+            return;
+        }
         evt.consume();
 
     }//GEN-LAST:event_txtTallaKeyTyped
