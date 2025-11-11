@@ -104,6 +104,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel3.setPreferredSize(new java.awt.Dimension(524, 262));
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
+        jPanelRedo2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanelRedo2MousePressed(evt);
+            }
+        });
         jPanelRedo2.setLayout(new java.awt.GridBagLayout());
 
         imagen3.setText("imagen2");
@@ -407,6 +412,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         config.setVisible(true);
         }
     }//GEN-LAST:event_jPanelRedo5MousePressed
+
+    private void jPanelRedo2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRedo2MousePressed
+       new Historial_de_venta().setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_jPanelRedo2MousePressed
 
     public static void main(String args[]) {
 
