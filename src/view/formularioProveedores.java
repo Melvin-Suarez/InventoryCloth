@@ -345,7 +345,7 @@ public class formularioProveedores extends javax.swing.JInternalFrame {
     private void btnDistribuidorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDistribuidorMousePressed
          if (!Editandolo) {
             try {
-                // Validar campos obligatorios
+               
                 if (txtNombre.getText().trim().isEmpty()
                         || txtCorreo.getText().trim().isEmpty()
                         || txtTelefono.getText().trim().isEmpty()
@@ -358,25 +358,24 @@ public class formularioProveedores extends javax.swing.JInternalFrame {
                     return;
                 }
 
-                // CREAR UNA NUEVA INSTANCIA DE PRODUCTO CADA VEZ
-                Distribuidor nuevoProducto = new Distribuidor();
-
-                // Configurar los valores del nuevo producto
-                nuevoProducto.setNombre(txtNombre.getText().trim());
-                nuevoProducto.setCorreo(txtCorreo.getText().trim());
-                nuevoProducto.setTelefono(txtTelefono.getText().trim());
-                nuevoProducto.setCategoria(txtCategoria.getText().trim());
+               
+                Distribuidor nuevoDistribuidor = new Distribuidor();
+                
+                nuevoDistribuidor.setNombre(txtNombre.getText().trim());
+                nuevoDistribuidor.setCorreo(txtCorreo.getText().trim());
+                nuevoDistribuidor.setTelefono(txtTelefono.getText().trim());
+                nuevoDistribuidor.setCategoria(txtCategoria.getText().trim());
 
                 
 
                
 
                 // Agregar el NUEVO producto a la lista
-                Distribuidores.llenarLista(nuevoProducto);
+                Distribuidores.llenarLista(nuevoDistribuidor);
 
                 // Mostrar mensaje de éxito
                 javax.swing.JOptionPane.showMessageDialog(this,
-                        "Producto agregado exitosamente",
+                        "Distribuidor agregado exitosamente",
                         "Éxito",
                         javax.swing.JOptionPane.INFORMATION_MESSAGE);
 
