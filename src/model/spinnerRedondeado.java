@@ -29,7 +29,7 @@ public class spinnerRedondeado extends JSpinner {
     }
 
     private void personalizarSpinner() {
-        // Hacer el spinner transparente para que se vea el fondo redondeado
+       // Hacer el spinner transparente para que se vea el fondo redondeado
         setOpaque(false);
         
         // Personalizar el borde
