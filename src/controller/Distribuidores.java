@@ -5,9 +5,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Distribuidor;
-import model.Producto;
-import view.Inventario_tabla;
-import view.formulario;
 import view.formularioProveedores;
 
 public class Distribuidores extends DefaultTableModel {

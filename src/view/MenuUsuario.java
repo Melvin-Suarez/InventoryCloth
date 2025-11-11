@@ -1,6 +1,7 @@
 
 package view;
 
+import controller.Listas;
 import controller.Login;
 import java.awt.Cursor;
 import javax.swing.JFrame;
@@ -9,14 +10,14 @@ public class MenuUsuario extends JFrame {
     
     Cursor mano = new Cursor(Cursor.HAND_CURSOR);
     Configuracion config;
-    Login user;
+    Listas lista;
     
     public MenuUsuario() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        user = new Login();
-        lblNombre.setText("Hola " + user.getNombre());
+        lista = Listas.getInstance();
+        lblNombre.setText("Hola " + lista.getUserName());
     }
 
     @SuppressWarnings("unchecked")

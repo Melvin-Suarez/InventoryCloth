@@ -11,11 +11,15 @@ public class Listas {
     private static Listas instance;
     private List<User> listaUsuario;
     private List<Producto> listaProducto;
+    private String userName;
+    private boolean isAdmin;
     private static int fila;
 
     public Listas() {
         this.listaUsuario = new ArrayList<>();
         this.listaProducto = new ArrayList<>();
+        userName = "";
+        isAdmin = false;
         listaUsuario.add(new User(true, "Admin", "12345678"));
         listaUsuario.add(new User(false, "Aldo", "12345678"));
         listaProducto.add(new Producto("000001", "Pengüin", "Pantalon", "30", 0.1, 100.00, 10.00, 12));
@@ -33,6 +37,29 @@ public class Listas {
         }
         return instance;
     }
+    
+    public void obtenerUsuario(User usuario) {
+        this.userName = usuario.getNombre();
+        this.isAdmin = usuario.isAdmin();
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public boolean isIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+    
+    
     
     public void setAgregarUsuario(User usuario) {
         this.listaUsuario.add(usuario);

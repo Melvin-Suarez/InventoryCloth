@@ -30,6 +30,7 @@ public class Login {
                     JOptionPane.showMessageDialog(null, "Has iniciado sesión correctamente", "Login", JOptionPane.INFORMATION_MESSAGE);
                     System.out.println(user.getNombre());
                     setNombre(user.getNombre());
+                    lista.obtenerUsuario(usuario);
                     IniciarCargo(user.isAdmin());
                     return true;
                 } else {
