@@ -4,13 +4,17 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import model.Distribuidor;
 import model.Producto;
 import model.User;
+import model.Ventas;
 
 public class Listas {
     private static Listas instance;
     private List<User> listaUsuario;
     private List<Producto> listaProducto;
+    private List<Ventas> listaVentas;
+    private List<Distribuidor> listaDistribuidores;
     private String userName;
     private boolean isAdmin;
     private static int fila;
@@ -18,6 +22,8 @@ public class Listas {
     public Listas() {
         this.listaUsuario = new ArrayList<>();
         this.listaProducto = new ArrayList<>();
+        this.listaVentas = new ArrayList<>();
+        this.listaDistribuidores = new ArrayList<>();
         userName = "";
         isAdmin = false;
         listaUsuario.add(new User(true, "Admin", "12345678"));
@@ -61,8 +67,6 @@ public class Listas {
         this.isAdmin = isAdmin;
     }
     
-    
-    
     public void setAgregarUsuario(User usuario) {
         this.listaUsuario.add(usuario);
     }
@@ -91,7 +95,22 @@ public class Listas {
     public List<Producto> getListaProducto() {
         return listaProducto;
     }
-    
+
+    public List<Ventas> getListaVentas() {
+        return listaVentas;
+    }
+
+    public void setListaVentas(List<Ventas> listaVentas) {
+        this.listaVentas = listaVentas;
+    }
+
+    public List<Distribuidor> getListaDistribuidores() {
+        return listaDistribuidores;
+    }
+
+    public void setListaDistribuidores(List<Distribuidor> listaDistribuidores) {
+        this.listaDistribuidores = listaDistribuidores;
+    }
      
    public boolean setEditarProducto(
                 String barcode,

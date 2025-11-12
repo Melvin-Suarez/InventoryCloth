@@ -65,7 +65,7 @@ public class Distribuidores extends DefaultTableModel {
         } else {
             int resp = JOptionPane.showConfirmDialog(
                 null,
-                "¿Estas seguro que quieres eliminar este producto?",
+                "¿Estas seguro que quieres eliminar este Distribuidor?",
                 "Eliminar",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE
@@ -74,7 +74,7 @@ public class Distribuidores extends DefaultTableModel {
                 lista.remove(celda);
                 JOptionPane.showMessageDialog(
                     null,
-                    "El producto se ha eliminado con exito",
+                    "El Distribuidor se ha eliminado con exito",
                     "Eliminado",
                     JOptionPane.INFORMATION_MESSAGE
                 );
@@ -82,7 +82,7 @@ public class Distribuidores extends DefaultTableModel {
             } else {
                 JOptionPane.showMessageDialog(
                     null,
-                    "La eliminación de este producto se cancelo",
+                    "La eliminación de este Distribuidor se cancelo",
                     "Mensaje",
                     JOptionPane.INFORMATION_MESSAGE
                 );

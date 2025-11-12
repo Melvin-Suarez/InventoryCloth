@@ -163,6 +163,11 @@ public class Configuracion extends javax.swing.JInternalFrame {
 
         btnperfil4.setBackground(new java.awt.Color(206, 206, 206));
         btnperfil4.setForeground(new java.awt.Color(208, 208, 208));
+        btnperfil4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnperfil4MousePressed(evt);
+            }
+        });
         btnperfil4.setLayout(new java.awt.GridBagLayout());
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -290,6 +295,11 @@ public class Configuracion extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnperfil4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnperfil4MousePressed
+        new LoginView().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnperfil4MousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

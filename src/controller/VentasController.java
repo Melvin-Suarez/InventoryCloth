@@ -1,17 +1,24 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Producto;
-import view.formulario;
+import model.Ventas;
 
-public class Ventas extends DefaultTableModel {
+public class VentasController extends DefaultTableModel {
     
+    private List<Ventas> temporal;
     private Listas lista = Listas.getInstance();
     private static int celda;
+    private int indice = 0;
     
-    public Ventas() {
+    public VentasController() {
         super();
+        temporal = new ArrayList<>();
         agregarColumnas();
     }
     
@@ -19,32 +26,68 @@ public class Ventas extends DefaultTableModel {
         this.addColumn("Codigo de barra");
         this.addColumn("Marca");
         this.addColumn("Categoria");
-        this.addColumn("Talla");
-        this.addColumn("Descuento");
         this.addColumn("Precio");
         this.addColumn("Cantidad");
-        this.addColumn("Total");
+        this.addColumn("Descuento");
+        this.addColumn("Subtotal");
     }
     
     public void llenarTabla() {
         // Limpiar la tabla antes de llenarla
         this.setRowCount(0);
         
-        for(Producto pro : lista.getListaProducto()) {
+        for(Ventas pro : temporal) {
             String[] renglon = {
                 pro.getBarcode(),
                 pro.getMarca(),
                 pro.getCategoria(),
-                pro.getTalla(),
-                pro.getDescountT(),
-                pro.getPrecioT(),
-                pro.getCantT(),
-                pro.getTotalT()
+                Double.toString(pro.getPrecio()),
+                Integer.toString(pro.getCantidad()),
+                Double.toString(pro.getDecount()),
+                Double.toString(pro.getSubTotal())
             };
             
             this.addRow(renglon);
         }
         lista.ordenarLista();
+    }
+    
+    public void Vender(String barcode, int cantidad) {
+        lista.ordenarLista();
+        Producto pro = setBuscarProducto(barcode);
+        System.out.println(pro.getMarca());
+        Ventas venta = new Ventas();
+        venta.setBarcode(pro.getBarcode());
+        venta.setMarca(pro.getMarca());
+        venta.setCategoria(pro.getCategoria());
+        venta.setPrecio(pro.getPrecio());
+        int canti = pro.getCant();
+        System.out.println(canti);
+        if(canti >= cantidad) {
+            lista.setFila(indice);
+            int cant = pro.getCant() - cantidad;
+            venta.setCantidad(cantidad);
+            System.out.println(venta.getCantidad());
+            lista.getListaProducto().get(indice).setCant(cant);
+            System.out.println(lista.getFila());
+        }
+        double descount = pro.getDescount();
+        venta.setDecount(descount);
+        venta.getSubTotal();
+        temporal.add(venta);
+        llenarTabla();
+            JOptionPane.showMessageDialog(null, "No se encontro el producto", "Producto no encontrado", JOptionPane.ERROR_MESSAGE);
+    }
+    
+    private Producto setBuscarProducto(String barcode) {
+        Producto pro = new Producto();
+        pro.setBarcode(barcode);
+        int indice = Collections.binarySearch(lista.getListaProducto(), pro, Comparator.comparing(Producto :: getBarcode));
+        if (indice >= 0) {
+            this.indice = indice;
+            return lista.getListaProducto().get(indice);
+        }
+        return null;
     }
     
     public void setCelda(int celda) {
@@ -90,38 +133,6 @@ public class Ventas extends DefaultTableModel {
                 );
             }
         }
-    }
-    
-    public void editarTabla() {
-        if(celda == -1) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "seleccione la fila que quiere editar",
-                    "fila no seleccionada",
-                    JOptionPane.WARNING_MESSAGE
-            );
-        } else {
-            String barcode = (String) this.getValueAt(celda, 0);
-            String marca = (String) this.getValueAt(celda, 1);
-            String categoria = (String) this.getValueAt(celda, 2);
-            String talla = (String) this.getValueAt(celda, 3);
-            String descount = this.getValueAt(celda, 4).toString();
-            int descuento = Integer.parseInt(descount.replace("%", ""));
-            String compra = this.getValueAt(celda, 5).toString();
-            compra = compra.replace(" C$", "");
-            String precio = (String) this.getValueAt(celda, 6);
-            precio = precio.replace(" C$", "");
-            String cantidad = (String) this.getValueAt(celda, 7);
-            formulario.txtCodigo.setText(barcode);
-            formulario.txtMarca.setText(marca);
-            formulario.txtCategoria.setText(categoria);
-            formulario.txtTalla.setText(talla);
-            formulario.spinner.setValue(descuento);
-            formulario.txtcompra.setText(compra);
-            formulario.txtPrecio.setText(precio);
-            formulario.txtCantidad.setText(cantidad);
-        }
-        //return false;
     }
     
     @Override
