@@ -1,9 +1,12 @@
 package view;
 
 public class Configuracion extends javax.swing.JInternalFrame {
+    
+    public boolean cerrar;
 
     public Configuracion() {
         initComponents();
+        cerrar = true;
     }
     
     @SuppressWarnings("unchecked")
@@ -298,6 +301,7 @@ public class Configuracion extends javax.swing.JInternalFrame {
 
     private void btnperfil4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnperfil4MousePressed
         new LoginView().setVisible(true);
+        cerrar = false;
         this.dispose();
     }//GEN-LAST:event_btnperfil4MousePressed
 

@@ -2,7 +2,6 @@
 package view;
 
 import controller.Listas;
-import controller.Login;
 import java.awt.Cursor;
 import javax.swing.JFrame;
 
@@ -21,7 +20,7 @@ public class MenuUsuario extends JFrame {
         lblNombre.setText(lista.getUserName().toUpperCase() + " EL NEGRO MAS NEGRO Y ESCLAVO SUPERIOR");
          
     } else {
-        lblNombre.setText("Hola" + lista.getUserName());
+        lblNombre.setText("Hola " + lista.getUserName());
             }
     }
 
@@ -154,6 +153,10 @@ public class MenuUsuario extends JFrame {
         config = new Configuracion();
         DesktopPane1.add(config);
         config.setVisible(true);
+        }
+        
+        if(!config.cerrar) {
+            this.dispose();
         }
     }//GEN-LAST:event_jPanel1MousePressed
 

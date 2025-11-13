@@ -4,6 +4,7 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import model.Clientes;
 import model.Distribuidor;
 import model.Producto;
 import model.User;
@@ -15,6 +16,7 @@ public class Listas {
     private List<Producto> listaProducto;
     private List<Ventas> listaVentas;
     private List<Distribuidor> listaDistribuidores;
+    private List<Clientes> listaClientes;
     private String userName;
     private boolean isAdmin;
     private static int fila;
@@ -24,18 +26,19 @@ public class Listas {
         this.listaProducto = new ArrayList<>();
         this.listaVentas = new ArrayList<>();
         this.listaDistribuidores = new ArrayList<>();
+        this.listaClientes = new ArrayList<>();
         userName = "";
         isAdmin = false;
         listaUsuario.add(new User(true, "Admin", "12345678"));
         listaUsuario.add(new User(false,"melvin", "12345678"));
         listaUsuario.add(new User(false, "Aldo", "12345678"));
         listaUsuario.add(new User(false, "carlos", "12345678"));
-        listaProducto.add(new Producto("000001", "Pengüin", "Pantalon", "30", 0.1, 100.00, 10.00, 12));
-        listaProducto.add(new Producto("000000", "Levis", "Camisa", "20", 0, 1000, 2000, 10));
-        listaProducto.add(new Producto("000005", "Levis", "Camisa", "20", 0, 1000, 2000, 10));
-        listaProducto.add(new Producto("000003", "Levis", "Camisa", "20", 0, 1000, 2000, 10));
-        listaProducto.add(new Producto("000002", "Levis", "Camisa", "20", 0, 1000, 2000, 10));
-        listaProducto.add(new Producto("000004", "Levis", "Camisa", "20", 0, 1000, 2000, 10));
+        listaProducto.add(new Producto("000001", "Pengüin", "Camisa", "30", 0.1, 100.00, 10.00, 1000));
+        listaProducto.add(new Producto("000000", "Levis", "Camisa", "20", 0.2, 1000, 2000, 2000));
+        listaProducto.add(new Producto("000005", "Tommy", "Pantalon", "20", 0, 1000, 2000, 500));
+        listaProducto.add(new Producto("000003", "Nice", "Zapatos", "20", 0.3, 1000, 2000, 1000));
+        listaProducto.add(new Producto("000002", "Crocs", "Chinelas", "20", 0.5, 1000, 2000, 400));
+        listaProducto.add(new Producto("000004", "Levis", "Pantalon", "20", 0.25, 1000, 2000, 600));
         fila = -1;
     }
     
@@ -189,7 +192,15 @@ public class Listas {
     public void setFila(int fila) {
         this.fila = fila;
     }
+
+    public List<Clientes> getListaClientes() {
+        return listaClientes;
+    }
+
+    public void setListaClientes(List<Clientes> listaClientes) {
+        this.listaClientes = listaClientes;
+    }
     
-   
+    
     
 }

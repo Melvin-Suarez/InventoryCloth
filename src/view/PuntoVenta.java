@@ -2,9 +2,10 @@ package view;
 
 import controller.VentasController;
 import java.awt.Cursor;
+import javax.swing.JFrame;
 import javax.swing.SpinnerNumberModel;
 
-public class PuntoVenta extends javax.swing.JFrame {
+public class PuntoVenta extends JFrame {
 
     Cursor mano = new Cursor(Cursor.HAND_CURSOR);
     VentasController modelo = new VentasController();
@@ -12,6 +13,8 @@ public class PuntoVenta extends javax.swing.JFrame {
     
     public PuntoVenta() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         model = new SpinnerNumberModel(0,0,1000,1);
         spCantidad.setModel(model);
         Tabla.setModel(modelo);
@@ -100,11 +103,6 @@ public class PuntoVenta extends javax.swing.JFrame {
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
         txtBarcode.setPreferredSize(new java.awt.Dimension(123, 50));
-        txtBarcode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBarcodeActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -169,6 +167,14 @@ public class PuntoVenta extends javax.swing.JFrame {
 
         jpanelbtn2.setBackground(new java.awt.Color(255, 0, 4));
         jpanelbtn2.setPreferredSize(new java.awt.Dimension(123, 50));
+        jpanelbtn2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jpanelbtn2MouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jpanelbtn2MousePressed(evt);
+            }
+        });
         jpanelbtn2.setLayout(new java.awt.GridBagLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -203,6 +209,14 @@ public class PuntoVenta extends javax.swing.JFrame {
 
         jpanelbtn3.setBackground(new java.awt.Color(5, 159, 255));
         jpanelbtn3.setPreferredSize(new java.awt.Dimension(123, 50));
+        jpanelbtn3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jpanelbtn3MouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jpanelbtn3MousePressed(evt);
+            }
+        });
         jpanelbtn3.setLayout(new java.awt.GridBagLayout());
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -256,26 +270,26 @@ public class PuntoVenta extends javax.swing.JFrame {
         jPanel2.add(jLabel4, gridBagConstraints);
 
         lblVentaTotal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblVentaTotal.setText("jLabel8");
+        lblVentaTotal.setText("0.0 C$");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(ventana1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(129, 129, 129)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(lblVentaTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblVentaTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1))))
-                .addGap(151, 151, 151))
+                            .addComponent(jScrollPane1))
+                        .addGap(151, 151, 151))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,23 +323,38 @@ public class PuntoVenta extends javax.swing.JFrame {
 
     private void imagen1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagen1MousePressed
         new MenuUsuario().setVisible(true);
+        modelo.cancelarVenta();
         this.dispose();
     }//GEN-LAST:event_imagen1MousePressed
-
-    private void txtBarcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBarcodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtBarcodeActionPerformed
 
     private void btnAgregarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMousePressed
         String barcode = txtBarcode.getText().trim();
         int cantidad = ((Number) spCantidad.getValue()).intValue();
-        modelo.Vender(barcode, cantidad);
+        modelo.Agregar(barcode, cantidad);
         modelo.llenarTabla();
+        lblVentaTotal.setText(Double.toString(modelo.getTotal()) + " C$");
     }//GEN-LAST:event_btnAgregarMousePressed
 
     private void btnAgregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseEntered
         btnAgregar.setCursor(mano);
     }//GEN-LAST:event_btnAgregarMouseEntered
+
+    private void jpanelbtn3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn3MousePressed
+        modelo.VenderProducto();
+        lblVentaTotal.setText("0.0 C$");
+    }//GEN-LAST:event_jpanelbtn3MousePressed
+
+    private void jpanelbtn2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn2MousePressed
+        modelo.eliminarProducto(Tabla.getSelectedRow());
+    }//GEN-LAST:event_jpanelbtn2MousePressed
+
+    private void jpanelbtn3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn3MouseEntered
+        jpanelbtn3.setCursor(mano);
+    }//GEN-LAST:event_jpanelbtn3MouseEntered
+
+    private void jpanelbtn2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn2MouseEntered
+        jpanelbtn2.setCursor(mano);
+    }//GEN-LAST:event_jpanelbtn2MouseEntered
 
     public static void main(String args[]) {
 

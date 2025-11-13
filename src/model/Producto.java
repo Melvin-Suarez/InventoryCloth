@@ -16,6 +16,7 @@ public class Producto {
         this.Marca = Marca;
         this.categoria = categoria;
         this.talla = talla;
+        this.descount = descount;
         this.compra = compra;
         this.precio = precio;
         this.cant = cant;

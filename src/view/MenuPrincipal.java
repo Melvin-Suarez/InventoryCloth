@@ -2,10 +2,8 @@
 package view;
 
 import java.awt.Cursor;
-import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import view.formulario;
 
 public class MenuPrincipal extends javax.swing.JFrame {
     Cursor mano = new Cursor(Cursor.HAND_CURSOR);

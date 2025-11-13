@@ -1,11 +1,8 @@
 package view;
 
-import controller.Listas;
+import controller.VentasController;
 import java.awt.Cursor;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import controller.inventory;
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.RowFilter;
@@ -14,21 +11,19 @@ import javax.swing.table.TableRowSorter;
 public class Historial_de_venta extends JFrame {
     
     private Cursor mano = new Cursor(Cursor.HAND_CURSOR);
-    private inventory modelo;
+    private VentasController modelo;
     private formulario form;
-    private Listas listaProducto;
-    private TableRowSorter<inventory> sorter;
+    private TableRowSorter<VentasController> sorter;
 
     public Historial_de_venta() {
         initComponents();
-        modelo = new inventory();
+        modelo = new VentasController(true);
         Tabla.setModel(modelo);
         this.setLocationRelativeTo(null);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        listaProducto = Listas.getInstance();
         sorter = new TableRowSorter<>(modelo);
         Tabla.setRowSorter(sorter);
-        modelo.llenarTabla();
+        modelo.llenarCliente();
     }
 
     @SuppressWarnings("unchecked")
@@ -49,6 +44,9 @@ public class Historial_de_venta extends JFrame {
         jpanelbtn7 = new model.Jpanelbtn();
         jLabel4 = new javax.swing.JLabel();
         imagen5 = new model.Imagen();
+        jpanelbtn6 = new model.Jpanelbtn();
+        jLabel3 = new javax.swing.JLabel();
+        imagen4 = new model.Imagen();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,7 +102,7 @@ public class Historial_de_venta extends JFrame {
         ));
         jScrollPane1.setViewportView(Tabla);
 
-        txtFiltro.setText("Buscar Producto");
+        txtFiltro.setText("Buscar Cliente");
         txtFiltro.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtFiltroFocusGained(evt);
@@ -146,7 +144,7 @@ public class Historial_de_venta extends JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         jpanelbtn5.add(imagen3, gridBagConstraints);
@@ -181,16 +179,51 @@ public class Historial_de_venta extends JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         jpanelbtn7.add(imagen5, gridBagConstraints);
+
+        jpanelbtn6.setBackground(new java.awt.Color(0, 110, 53));
+        jpanelbtn6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jpanelbtn6MouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jpanelbtn6MousePressed(evt);
+            }
+        });
+        jpanelbtn6.setLayout(new java.awt.GridBagLayout());
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Ver Historial");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 8;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        jpanelbtn6.add(jLabel3, gridBagConstraints);
+
+        imagen4.setForeground(new java.awt.Color(255, 255, 255));
+        imagen4.setText("imagen2");
+        imagen4.setPreferredSize(new java.awt.Dimension(30, 30));
+        imagen4.setRuta("/recursos/Buscar.png");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        jpanelbtn6.add(imagen4, gridBagConstraints);
 
         desktopPane.setLayer(ventana1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         desktopPane.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         desktopPane.setLayer(txtFiltro, javax.swing.JLayeredPane.DEFAULT_LAYER);
         desktopPane.setLayer(jpanelbtn5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         desktopPane.setLayer(jpanelbtn7, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(jpanelbtn6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout desktopPaneLayout = new javax.swing.GroupLayout(desktopPane);
         desktopPane.setLayout(desktopPaneLayout);
@@ -201,11 +234,11 @@ public class Historial_de_venta extends JFrame {
                 .addGap(151, 151, 151)
                 .addGroup(desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(desktopPaneLayout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addComponent(jpanelbtn5, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                        .addGap(85, 85, 85)
-                        .addComponent(jpanelbtn7, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                        .addGap(117, 117, 117))
+                        .addComponent(jpanelbtn6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(61, 61, 61)
+                        .addComponent(jpanelbtn5, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                        .addGap(68, 68, 68)
+                        .addComponent(jpanelbtn7, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))
                     .addComponent(txtFiltro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1))
                 .addGap(158, 158, 158))
@@ -217,9 +250,10 @@ public class Historial_de_venta extends JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
-                .addGroup(desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jpanelbtn5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jpanelbtn7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jpanelbtn5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jpanelbtn7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jpanelbtn6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(71, 71, 71)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
                 .addGap(47, 47, 47))
@@ -248,9 +282,7 @@ public class Historial_de_venta extends JFrame {
     }//GEN-LAST:event_imagen1MouseEntered
 
     private void jpanelbtn7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn7MousePressed
-        
-        modelo.setCelda(Tabla.getSelectedRow());
-        modelo.eliminarProducto();
+        modelo.eliminarProducto(Tabla.getSelectedRow());
     }//GEN-LAST:event_jpanelbtn7MousePressed
 
     private void jpanelbtn7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn7MouseEntered
@@ -269,23 +301,34 @@ public class Historial_de_venta extends JFrame {
         desktopPane.requestFocus();
     }//GEN-LAST:event_desktopPaneMousePressed
 
+    private void jpanelbtn6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn6MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jpanelbtn6MouseEntered
+
+    private void jpanelbtn6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn6MousePressed
+        int indice = Tabla.getSelectedRow();
+        modelo.agregarHistorial();
+        modelo.llenarVenta(indice);
+        
+    }//GEN-LAST:event_jpanelbtn6MousePressed
+
     private void Filtro() {
         String busqueda = txtFiltro.getText().trim();
         
         if(busqueda.isEmpty()) {
             sorter.setRowFilter(null);
         } else {
-            List<RowFilter<inventory, Object>> filtros = new ArrayList<>();
+            List<RowFilter<VentasController, Object>> filtros = new ArrayList<>();
             filtros.add(RowFilter.regexFilter("(?i)" + busqueda, 0));
             filtros.add(RowFilter.regexFilter("(?i)" + busqueda, 1));
-            filtros.add(RowFilter.regexFilter("(?i)" + busqueda, 2));
-            
+          
             sorter.setRowFilter(RowFilter.orFilter(filtros));
         }
     }
     
     private void actualizarTabla() {
-        modelo.llenarTabla();
+        
+        modelo.llenarCliente();
     }
    
     public static void main(String args[]) {
@@ -302,12 +345,15 @@ public class Historial_de_venta extends JFrame {
     private javax.swing.JDesktopPane desktopPane;
     private model.Imagen imagen1;
     private model.Imagen imagen3;
+    private model.Imagen imagen4;
     private model.Imagen imagen5;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private model.Jpanelbtn jpanelbtn5;
+    private model.Jpanelbtn jpanelbtn6;
     private model.Jpanelbtn jpanelbtn7;
     private model.txtField txtFiltro;
     private model.Ventana ventana1;

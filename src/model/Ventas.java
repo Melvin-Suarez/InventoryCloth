@@ -1,26 +1,21 @@
 package model;
 
-import java.time.LocalDate;
-
 public class Ventas {
     private String barcode;
     private String marca;
     private String categoria;
-    private LocalDate fecha;
     private double precio;
     private int cantidad;
     private double descount;
     private double subTotal;
-    private double totalVenta;
 
     public Ventas() {
     }
 
-    public Ventas(String barcode, String marca, String categoria, LocalDate fecha, double precio, int cantidad, double decount, double subTotal) {
+    public Ventas(String barcode, String marca, String categoria, double precio, int cantidad, double decount, double subTotal) {
         this.barcode = barcode;
         this.marca = marca;
         this.categoria = categoria;
-        this.fecha = fecha;
         this.precio = precio;
         this.cantidad = cantidad;
         this.descount = decount;
@@ -56,14 +51,6 @@ public class Ventas {
         this.categoria = categoria;
     }
 
-    public LocalDate getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
-    }
-
     public double getPrecio() {
         return precio;
     }
@@ -97,13 +84,4 @@ public class Ventas {
         this.subTotal = subTotal;
     }
 
-    public double getTotalVenta() {
-        return totalVenta;
-    }
-
-    public void setTotalVenta(double totalVenta) {
-        this.totalVenta = totalVenta;
-    }
-
-    
 }
