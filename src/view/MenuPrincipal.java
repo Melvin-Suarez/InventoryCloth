@@ -103,6 +103,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
         jPanelRedo2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelRedo2MouseEntered(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jPanelRedo2MousePressed(evt);
             }
@@ -322,15 +325,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(178, 178, 178)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 921, Short.MAX_VALUE)
-                .addGap(179, 179, 179))
+                .addGap(130, 130, 130)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE)
+                .addGap(126, 126, 126))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(110, 110, 110)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
                 .addGap(110, 110, 110))
         );
 
@@ -415,6 +418,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
        new Historial_de_venta().setVisible(true);
        this.dispose();
     }//GEN-LAST:event_jPanelRedo2MousePressed
+
+    private void jPanelRedo2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRedo2MouseEntered
+        jPanelRedo2.setCursor(mano);
+    }//GEN-LAST:event_jPanelRedo2MouseEntered
 
     public static void main(String args[]) {
 

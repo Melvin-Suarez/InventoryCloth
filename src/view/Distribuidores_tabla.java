@@ -11,7 +11,6 @@ public class Distribuidores_tabla extends JFrame {
     private Cursor mano = new Cursor(Cursor.HAND_CURSOR);
     private Distribuidores modelo;
     private formularioProveedores form;
-    private boolean Crearventana = false;
 
     public Distribuidores_tabla() {
         initComponents();
@@ -289,8 +288,7 @@ public class Distribuidores_tabla extends JFrame {
 
     private void jpanelbtn1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn1MousePressed
         try {
-            if (!Crearventana) {
-                Crearventana = true;
+            if (form == null) {
                 form = new formularioProveedores();
                 desktopPane.add(form);
             }
@@ -308,8 +306,7 @@ public class Distribuidores_tabla extends JFrame {
 
     private void jpanelbtn6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn6MousePressed
         try {
-            if (!Crearventana) {
-                Crearventana = true;
+            if (form == null) {
                 form = new formularioProveedores();
                 desktopPane.add(form);
             }
