@@ -71,6 +71,11 @@ public class MenuUsuario extends JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Configuración");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel2MouseEntered(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -172,6 +177,10 @@ public class MenuUsuario extends JFrame {
         new PuntoVenta().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jPanel2MousePressed
+
+    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
+   
+    }//GEN-LAST:event_jLabel2MouseEntered
 
     public static void main(String args[]) {
 

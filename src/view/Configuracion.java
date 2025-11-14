@@ -1,12 +1,17 @@
 package view;
 
+import java.awt.Cursor;
+import javax.swing.JOptionPane;
+
 public class Configuracion extends javax.swing.JInternalFrame {
     
     public boolean cerrar;
-
+    Cursor mano = new Cursor(Cursor.HAND_CURSOR);
+    
     public Configuracion() {
         initComponents();
         cerrar = true;
+        
     }
     
     @SuppressWarnings("unchecked")
@@ -167,6 +172,9 @@ public class Configuracion extends javax.swing.JInternalFrame {
         btnperfil4.setBackground(new java.awt.Color(206, 206, 206));
         btnperfil4.setForeground(new java.awt.Color(208, 208, 208));
         btnperfil4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnperfil4MouseEntered(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnperfil4MousePressed(evt);
             }
@@ -300,10 +308,30 @@ public class Configuracion extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnperfil4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnperfil4MousePressed
-        new LoginView().setVisible(true);
+        int respuesta = JOptionPane.showConfirmDialog(
+            this,
+            "¿Estás seguro que deseas cerrar sesión?",
+            "Confirmar Cierre de Sesión",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE
+        );
+        
+        if (respuesta == JOptionPane.YES_OPTION) {
+                     new LoginView().setVisible(true);  
+                      this.dispose();
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Continúas en el sistema");
+            
+          
+        }
         cerrar = false;
-        this.dispose();
+        
     }//GEN-LAST:event_btnperfil4MousePressed
+
+    private void btnperfil4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnperfil4MouseEntered
+            btnperfil4.setCursor(mano);
+    }//GEN-LAST:event_btnperfil4MouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
