@@ -12,7 +12,6 @@ public class Historial_de_venta extends JFrame {
     
     private Cursor mano = new Cursor(Cursor.HAND_CURSOR);
     private VentasController modelo;
-    private formulario form;
     private TableRowSorter<VentasController> sorter;
 
     public Historial_de_venta() {
@@ -23,6 +22,7 @@ public class Historial_de_venta extends JFrame {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         sorter = new TableRowSorter<>(modelo);
         Tabla.setRowSorter(sorter);
+        lblTotal.setText("");
         modelo.llenarCliente();
     }
 
@@ -47,6 +47,7 @@ public class Historial_de_venta extends JFrame {
         jpanelbtn6 = new model.Jpanelbtn();
         jLabel3 = new javax.swing.JLabel();
         imagen4 = new model.Imagen();
+        lblTotal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -218,12 +219,16 @@ public class Historial_de_venta extends JFrame {
         gridBagConstraints.weighty = 1.0;
         jpanelbtn6.add(imagen4, gridBagConstraints);
 
+        lblTotal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTotal.setText("Total:");
+
         desktopPane.setLayer(ventana1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         desktopPane.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         desktopPane.setLayer(txtFiltro, javax.swing.JLayeredPane.DEFAULT_LAYER);
         desktopPane.setLayer(jpanelbtn5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         desktopPane.setLayer(jpanelbtn7, javax.swing.JLayeredPane.DEFAULT_LAYER);
         desktopPane.setLayer(jpanelbtn6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(lblTotal, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout desktopPaneLayout = new javax.swing.GroupLayout(desktopPane);
         desktopPane.setLayout(desktopPaneLayout);
@@ -234,14 +239,19 @@ public class Historial_de_venta extends JFrame {
                 .addGap(151, 151, 151)
                 .addGroup(desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(desktopPaneLayout.createSequentialGroup()
-                        .addComponent(jpanelbtn6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(61, 61, 61)
-                        .addComponent(jpanelbtn5, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                        .addGap(68, 68, 68)
-                        .addComponent(jpanelbtn7, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))
-                    .addComponent(txtFiltro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
-                .addGap(158, 158, 158))
+                        .addComponent(lblTotal)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(desktopPaneLayout.createSequentialGroup()
+                        .addGroup(desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(desktopPaneLayout.createSequentialGroup()
+                                .addComponent(jpanelbtn6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(61, 61, 61)
+                                .addComponent(jpanelbtn5, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                .addGap(68, 68, 68)
+                                .addComponent(jpanelbtn7, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))
+                            .addComponent(txtFiltro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1))
+                        .addGap(158, 158, 158))))
         );
         desktopPaneLayout.setVerticalGroup(
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,8 +265,10 @@ public class Historial_de_venta extends JFrame {
                     .addComponent(jpanelbtn7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jpanelbtn6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(71, 71, 71)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                .addGap(47, 47, 47))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblTotal)
+                .addGap(19, 19, 19))
         );
 
         getContentPane().add(desktopPane, java.awt.BorderLayout.CENTER);
@@ -271,6 +283,7 @@ public class Historial_de_venta extends JFrame {
 
     private void jpanelbtn5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn5MousePressed
         actualizarTabla();
+        lblTotal.setText("");
     }//GEN-LAST:event_jpanelbtn5MousePressed
 
     private void jpanelbtn5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelbtn5MouseEntered
@@ -310,6 +323,7 @@ public class Historial_de_venta extends JFrame {
         modelo.agregarHistorial();
         modelo.llenarVenta(indice);
         
+        lblTotal.setText("Total: " + modelo.getTotal());
     }//GEN-LAST:event_jpanelbtn6MousePressed
 
     private void Filtro() {
@@ -355,6 +369,7 @@ public class Historial_de_venta extends JFrame {
     private model.Jpanelbtn jpanelbtn5;
     private model.Jpanelbtn jpanelbtn6;
     private model.Jpanelbtn jpanelbtn7;
+    private javax.swing.JLabel lblTotal;
     private model.txtField txtFiltro;
     private model.Ventana ventana1;
     // End of variables declaration//GEN-END:variables

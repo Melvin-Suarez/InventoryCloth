@@ -16,12 +16,7 @@ public class MenuUsuario extends JFrame {
         this.setLocationRelativeTo(null);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         lista = Listas.getInstance();  
-        if(lista.getUserName().equalsIgnoreCase("carlos")){
-        lblNombre.setText(lista.getUserName().toUpperCase() + " EL NEGRO MAS NEGRO Y ESCLAVO SUPERIOR");
-         
-    } else {
         lblNombre.setText("Hola " + lista.getUserName());
-            }
     }
 
     @SuppressWarnings("unchecked")

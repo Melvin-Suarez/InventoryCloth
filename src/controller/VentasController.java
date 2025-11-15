@@ -331,6 +331,11 @@ public class VentasController extends DefaultTableModel {
     }
 
     public double getTotal() {
+        total = 0;
+        for(int fila = 0; fila < this.getRowCount(); fila++) {
+            double subtotal = Double.parseDouble(this.getValueAt(fila, 6).toString().replace(" C$", ""));
+            total += subtotal;
+        }
         return total;
     }
 
