@@ -33,12 +33,13 @@ public class Listas {
         listaUsuario.add(new User(false,"melvin", "12345678"));
         listaUsuario.add(new User(false, "Aldo", "12345678"));
         listaUsuario.add(new User(false, "carlos", "12345678"));
-        listaProducto.add(new Producto("000001", "Pengüin", "Camisa", "30", 0.1, 100.00, 10.00, 1000));
-        listaProducto.add(new Producto("000000", "Levis", "Camisa", "20", 0.2, 1000, 2000, 2000));
-        listaProducto.add(new Producto("000005", "Tommy", "Pantalon", "20", 0, 1000, 2000, 500));
-        listaProducto.add(new Producto("000003", "Nice", "Zapatos", "20", 0.3, 1000, 2000, 1000));
-        listaProducto.add(new Producto("000002", "Crocs", "Chinelas", "20", 0.5, 1000, 2000, 400));
-        listaProducto.add(new Producto("000004", "Levis", "Pantalon", "20", 0.25, 1000, 2000, 600));
+        listaProducto.add(new Producto("000001", "Pengüin", "Camisa", "30", 0.1, 1100, 1500, 100));
+        listaProducto.add(new Producto("000000", "Levis", "Camisa", "20", 0, 1300, 1600, 50));
+        listaProducto.add(new Producto("000005", "Tommy", "Pantalon", "20", 0, 800, 1100, 500));
+        listaProducto.add(new Producto("000003", "Nike", "Zapatos", "20", 0, 2000, 2500, 50));
+        listaProducto.add(new Producto("000002", "Crocs", "Chinelas", "20", 0, 550, 800, 100));
+        listaProducto.add(new Producto("000004", "Levis", "Pantalon", "20", 0, 1300, 1600, 600));
+        listaProducto.add(new Producto("000006", "Industrial", "Botas", "42", 0.05, 200, 280, 100));
         fila = -1;
     }
     

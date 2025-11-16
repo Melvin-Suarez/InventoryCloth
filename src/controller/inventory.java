@@ -22,7 +22,7 @@ public class inventory extends DefaultTableModel {
         this.addColumn("Talla");
         this.addColumn("Descuento");
         this.addColumn("Precio de compra");
-        this.addColumn("Precio de venta");
+        this.addColumn("Precio de venta Unit");
         this.addColumn("Cantidad");
         this.addColumn("Ingresos");
     }

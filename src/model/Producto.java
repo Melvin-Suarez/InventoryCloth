@@ -32,11 +32,13 @@ public class Producto {
         if(descount >= 1) {
             descount /= 100;
             double precioConDescuento = precio - (precio * descount);
-            double calculando = (cant * precioConDescuento) - compra;
+            double precioUnit = compra * cant;
+            double calculando = (cant * precioConDescuento) - precioUnit;
             this.ingresos = calculando;
         }else {
             double precioConDescuento = precio - (precio * descount);
-            double calculando = (cant * precioConDescuento) - compra;
+            double precioUnit = compra * cant;
+            double calculando = (cant * precioConDescuento) - precioUnit;
             this.ingresos = calculando;
         }
     }
