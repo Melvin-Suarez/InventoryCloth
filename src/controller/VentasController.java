@@ -263,7 +263,7 @@ public class VentasController extends DefaultTableModel {
             reporte.append(marca).append(": ")
                    .append(cantidad);
             
-            if(cantidad <= 100) {
+            if(cantidad <= 20) {
                 reporte.append(" ⚠️ Stock Bajo");
             }
             reporte.append("\n");

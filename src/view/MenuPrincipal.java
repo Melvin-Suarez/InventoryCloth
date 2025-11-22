@@ -1,6 +1,7 @@
 
 package view;
 
+import controller.Listas;
 import java.awt.Cursor;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -8,12 +9,13 @@ import javax.swing.JOptionPane;
 public class MenuPrincipal extends javax.swing.JFrame {
     Cursor mano = new Cursor(Cursor.HAND_CURSOR);
     Configuracion config;
-     
+     Listas lista;
     public MenuPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-      
+        lista = Listas.getInstance();
+      lblName.setText(lista.getUserName());
 
     }
     
@@ -27,7 +29,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         figura1 = new model.Figura();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanelRedo2 = new model.JPanelRedo();
@@ -88,14 +90,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         ventana1.add(jLabel7, gridBagConstraints);
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Admin");
+        lblName.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblName.setForeground(new java.awt.Color(255, 255, 255));
+        lblName.setText("Admin");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        ventana1.add(jLabel8, gridBagConstraints);
+        ventana1.add(lblName, gridBagConstraints);
 
         jPanel1.add(ventana1, java.awt.BorderLayout.NORTH);
 
@@ -446,7 +448,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -455,6 +456,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private model.JPanelRedo jPanelRedo4;
     private model.JPanelRedo jPanelRedo5;
     private model.JPanelRedo jPanelRedo6;
+    private javax.swing.JLabel lblName;
     private model.Ventana ventana1;
     // End of variables declaration//GEN-END:variables
 }
